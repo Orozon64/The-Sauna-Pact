@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c27yit4hxgc"]
+
+[node name="Node2D" type="Node2D" unique_id=1012640665]
+
+[node name="Label" type="Label" parent="." unique_id=179953155]
+offset_left = 458.0
+offset_top = 4.0
+offset_right = 506.0
+offset_bottom = 27.0
+text = "PolFin"
+
+[node name="Button" type="Button" parent="." unique_id=499547656]
+offset_left = 464.0
+offset_top = 292.0
+offset_right = 510.0
+offset_bottom = 323.0
+text = "Start"
