@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://dlfy0rk8wqcnk"]
 
-[ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="1_bkg8t"]
-
 [node name="Area2D" type="Area2D" unique_id=1132617830]
-script = ExtResource("1_bkg8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=218192729]
 

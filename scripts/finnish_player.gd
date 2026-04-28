@@ -1,6 +1,5 @@
-#base class that finnish and polish players will inherit
-extends Area2D
-var inventory = [] #an array of objects of the collectible class
+extends "player.gd"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
