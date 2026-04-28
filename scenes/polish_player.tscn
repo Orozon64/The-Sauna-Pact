@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cd7p5moas1vjy" path="res://images/sprites/PolakStands.png" id="2_a4qul"]
 [ext_resource type="Texture2D" uid="uid://bf0shfcq1id1y" path="res://images/sprites/PolakWalks1.png" id="3_3a2nk"]
 [ext_resource type="Texture2D" uid="uid://kodnl60hsqyj" path="res://images/sprites/PolakWalks2.png" id="4_nxm5c"]
+[ext_resource type="Texture2D" uid="uid://dsdmjhtva0keb" path="res://images/sprites/PolakIdziePrawo.png" id="5_nxm5c"]
+[ext_resource type="Texture2D" uid="uid://crk3iiraqjp0p" path="res://images/sprites/PolakStoiPrawo.png" id="6_bcnd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qul"]
 size = Vector2(22, 42)
@@ -27,6 +29,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nxm5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bcnd6")
+}],
+"loop": true,
+"name": &"walk_right",
 "speed": 5.0
 }]
 
