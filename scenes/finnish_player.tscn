@@ -26,7 +26,7 @@ animations = [{
 "texture": ExtResource("3_shgrp")
 }],
 "loop": true,
-"name": &"walk_front",
+"name": &"walk_down",
 "speed": 5.0
 }]
 
@@ -39,5 +39,4 @@ shape = SubResource("RectangleShape2D_shgrp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276491256]
 sprite_frames = SubResource("SpriteFrames_snp3n")
-animation = &"idle"
-frame_progress = 0.6293741
+animation = &"walk_down"
