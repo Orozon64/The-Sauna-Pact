@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://drfp5ogs3t2nq"]
+
+[ext_resource type="PackedScene" uid="uid://dlfy0rk8wqcnk" path="res://scenes/collectible.tscn" id="1_qonml"]
+[ext_resource type="PackedScene" uid="uid://6bilw8itvr8c" path="res://scenes/player_avatar.tscn" id="2_g2vl7"]
+
+[node name="Node2D" type="Node2D" unique_id=1428940587]
+
+[node name="Towel" parent="." unique_id=1132617830 instance=ExtResource("1_qonml")]
+
+[node name="PolishPlayer" parent="." unique_id=1757750210 instance=ExtResource("2_g2vl7")]

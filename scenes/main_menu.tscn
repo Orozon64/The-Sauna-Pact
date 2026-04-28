@@ -9,9 +9,24 @@ offset_right = 506.0
 offset_bottom = 27.0
 text = "PolFin"
 
-[node name="Button" type="Button" parent="." unique_id=499547656]
-offset_left = 464.0
-offset_top = 292.0
-offset_right = 510.0
-offset_bottom = 323.0
-text = "Start"
+[node name="PlayButton" type="Button" parent="." unique_id=499547656]
+offset_left = 467.0
+offset_top = 192.0
+offset_right = 513.0
+offset_bottom = 223.0
+text = "Play"
+
+[node name="ExitButton" type="Button" parent="." unique_id=1445523334]
+offset_left = 466.0
+offset_top = 274.0
+offset_right = 512.0
+offset_bottom = 305.0
+text = "Exit
+"
+
+[node name="CreditsButton" type="Button" parent="." unique_id=316586183]
+offset_left = 458.0
+offset_top = 233.0
+offset_right = 521.0
+offset_bottom = 264.0
+text = "Credits"
