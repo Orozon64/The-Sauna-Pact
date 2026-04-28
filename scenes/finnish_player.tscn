@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://6guexxri308h" path="res://images/sprites/finFrontWalk1.png" id="2_h71vo"]
 [ext_resource type="Texture2D" uid="uid://bj70em7xfj03y" path="res://images/sprites/finFrontIdle.png" id="2_shgrp"]
 [ext_resource type="Texture2D" uid="uid://d3dk14gr8rl4d" path="res://images/sprites/finFrontWalk2.png" id="3_shgrp"]
+[ext_resource type="Texture2D" uid="uid://clkndwqylhgbg" path="res://images/sprites/finRightWalk1.png" id="5_mxl7e"]
+[ext_resource type="Texture2D" uid="uid://bcylmjwsffhjk" path="res://images/sprites/finRightWalk2.png" id="6_kcs62"]
+[ext_resource type="Texture2D" uid="uid://bk67ka2iyewwc" path="res://images/sprites/finRightWalk3.png" id="7_2cc83"]
+[ext_resource type="Texture2D" uid="uid://cg2crrk18uee6" path="res://images/sprites/finRightIdle.png" id="8_kcs62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shgrp"]
 size = Vector2(24, 39)
@@ -28,6 +32,23 @@ animations = [{
 "loop": true,
 "name": &"walk_down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mxl7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kcs62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2cc83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kcs62")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
 }]
 
 [node name="Area2D" type="Area2D" unique_id=1757750210]
@@ -39,4 +60,4 @@ shape = SubResource("RectangleShape2D_shgrp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276491256]
 sprite_frames = SubResource("SpriteFrames_snp3n")
-animation = &"walk_down"
+animation = &"idle"

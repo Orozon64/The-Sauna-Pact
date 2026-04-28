@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://c2p086uk7yiw4"]
 
-[node name="Node2D" type="Node2D" unique_id=530983552]
+[ext_resource type="PackedScene" uid="uid://coqpab58ln317" path="res://scenes/finnish_player.tscn" id="1_sn4dv"]
+
+[node name="Node2D" type="Node2D" unique_id=1442898411]
+
+[node name="Area2D" parent="." unique_id=1757750210 instance=ExtResource("1_sn4dv")]
