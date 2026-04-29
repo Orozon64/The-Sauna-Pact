@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://drfp5ogs3t2nq"]
 
+[ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_7velx"]
 [ext_resource type="PackedScene" uid="uid://6bilw8itvr8c" path="res://scenes/polish_player.tscn" id="2_g2vl7"]
+[ext_resource type="PackedScene" uid="uid://dlfy0rk8wqcnk" path="res://scenes/towel.tscn" id="2_qonml"]
+[ext_resource type="PackedScene" uid="uid://bfhuaj02atx8h" path="res://scenes/beer.tscn" id="3_g2vl7"]
 
-[node name="Node2D" type="Node2D" unique_id=1428940587]
+[node name="PolishRootNode" type="Node2D" unique_id=1428940587]
+script = ExtResource("1_7velx")
 
-[node name="PolishPlayer" parent="." unique_id=1757750210 instance=ExtResource("2_g2vl7")]
+[node name="TowelArea" parent="." unique_id=1132617830 instance=ExtResource("2_qonml")]
+position = Vector2(54, 0)
+
+[node name="BeerArea" parent="." unique_id=1377940279 instance=ExtResource("3_g2vl7")]
+position = Vector2(141, 0)
+
+[node name="PlayerArea" parent="." unique_id=1757750210 instance=ExtResource("2_g2vl7")]

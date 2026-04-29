@@ -5,10 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://bf0shfcq1id1y" path="res://images/sprites/PolakWalks1.png" id="3_3a2nk"]
 [ext_resource type="Texture2D" uid="uid://kodnl60hsqyj" path="res://images/sprites/PolakWalks2.png" id="4_nxm5c"]
 [ext_resource type="Texture2D" uid="uid://c8lr10di4w6ob" path="res://images/sprites/PolakIdzieLewoReka.png" id="5_daupw"]
+[ext_resource type="Texture2D" uid="uid://b0o6dfm0tr1ww" path="res://images/sprites/PolakStandingTylem.png" id="5_g0ae5"]
 [ext_resource type="Texture2D" uid="uid://dsdmjhtva0keb" path="res://images/sprites/PolakIdziePrawo.png" id="5_nxm5c"]
 [ext_resource type="Texture2D" uid="uid://crk3iiraqjp0p" path="res://images/sprites/PolakStoiPrawo.png" id="6_bcnd6"]
 [ext_resource type="Texture2D" uid="uid://cp2vjk0wv4fs8" path="res://images/sprites/PolakBokiemLewo.png" id="6_gtw5v"]
 [ext_resource type="Texture2D" uid="uid://ddml8rmxft656" path="res://images/sprites/PolakIdzieLewo.png" id="7_0eywx"]
+[ext_resource type="Texture2D" uid="uid://b7lf1i07l3yx8" path="res://images/sprites/PolakWalksTylem1.png" id="11_lw2j2"]
+[ext_resource type="Texture2D" uid="uid://ceint7my3417l" path="res://images/sprites/PolakWalksWTyl2.png" id="12_hrl11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4qul"]
 size = Vector2(22, 42)
@@ -23,19 +26,28 @@ animations = [{
 "name": &"idle_down",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gtw5v")
+}],
 "loop": true,
 "name": &"idle_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bcnd6")
+}],
 "loop": true,
 "name": &"idle_right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g0ae5")
+}],
 "loop": true,
-"name": &"idle_top",
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -76,6 +88,17 @@ animations = [{
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_lw2j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hrl11")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
 }]
 
 [node name="Area2D" type="Area2D" unique_id=1757750210]
@@ -86,6 +109,6 @@ position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_a4qul")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=276491256]
-position = Vector2(0, -7)
+position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_bcnd6")
-animation = &"idle_top"
+animation = &"idle_down"

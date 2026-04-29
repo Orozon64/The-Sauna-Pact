@@ -4,6 +4,11 @@ var inventory = [] #an array of objects of the collectible class
 @export var speed = 100
 
 var screen_size
+var last_played_anim #the last walking animation played - this is used to play the right idle animation once the player stops moving
+
+signal item_picked_up()
+
+var touched_item_name = "" #the name of the collectible that the player is nearby
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -25,7 +30,8 @@ func _process(delta: float) -> void:
 		$PlayerSprite.play()
 	else:
 		$PlayerSprite.stop()
-		
+		$PlayerSprite.animation = $PlayerSprite.animation.replace("walk", "idle")
+		$PlayerSprite.play()
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	if velocity.x > 0:
@@ -36,5 +42,12 @@ func _process(delta: float) -> void:
 		$PlayerSprite.animation = "walk_left"
 	elif velocity.y < 0:
 		$PlayerSprite.animation = "walk_up"
+	
+	if Input.is_action_pressed("pick_up") and touched_item_name != "":
+		inventory.push_back(touched_item_name)
+		item_picked_up.emit()
 		
-		#now add code to return to the correct idle position once the player stops
+	last_played_anim = 	$PlayerSprite.animation
+
+func _on_item_area_entered(args):
+	print("Item found")

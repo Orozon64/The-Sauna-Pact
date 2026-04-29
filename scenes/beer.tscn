@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bfhuaj02atx8h"]
+
+[ext_resource type="Texture2D" uid="uid://lk3erduwwsdo" path="res://images/sprites/BEER.png" id="1_7v8bv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31xl2"]
+size = Vector2(24, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_he3c0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7v8bv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BeerArea" type="Area2D" unique_id=1377940279]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=482441595]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_31xl2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=774778435]
+sprite_frames = SubResource("SpriteFrames_he3c0")
