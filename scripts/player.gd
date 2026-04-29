@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		$PlayerSprite.play()
 	else:
 		$PlayerSprite.stop()
+		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	if velocity.x > 0:
@@ -36,3 +37,4 @@ func _process(delta: float) -> void:
 	elif velocity.y < 0:
 		$PlayerSprite.animation = "walk_up"
 		
+		#now add code to return to the correct idle position once the player stops

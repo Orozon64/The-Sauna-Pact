@@ -31,6 +31,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_afyib")
+}, {
+"duration": 1.0,
 "texture": ExtResource("5_v8qye")
 }, {
 "duration": 1.0,
@@ -38,9 +41,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_4ff60")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_afyib")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -84,4 +84,4 @@ shape = SubResource("RectangleShape2D_shgrp")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=276491256]
 sprite_frames = SubResource("SpriteFrames_snp3n")
-animation = &"walk_down"
+animation = &"walk_left"
