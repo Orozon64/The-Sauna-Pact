@@ -18,7 +18,7 @@ script = ExtResource("1_l6cm7")
 
 [node name="Label" type="Label" parent="." unique_id=179953155]
 layout_mode = 2
-text = "PolFin"
+text = "The Sauna Pact"
 
 [node name="PlayButton" type="Button" parent="." unique_id=499547656]
 layout_mode = 2
@@ -27,3 +27,8 @@ text = "Play"
 [node name="CreditsButton" type="Button" parent="." unique_id=316586183]
 layout_mode = 2
 text = "Credits"
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1497096666]
+visible = false
+layout_mode = 2
+text = "Return"

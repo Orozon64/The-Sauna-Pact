@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dsb1n48yjysol"]
+
+[ext_resource type="Texture2D" uid="uid://dfnjvtynpacxu" path="res://images/sprites/saunaRocks.png" id="1_tdiv5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gv6ye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tdiv5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oig3"]
+size = Vector2(40, 34)
+
+[node name="Area2D" type="Area2D" unique_id=1981020031]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1313932587]
+sprite_frames = SubResource("SpriteFrames_gv6ye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605555080]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_8oig3")

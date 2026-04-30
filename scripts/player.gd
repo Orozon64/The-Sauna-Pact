@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		
 	last_played_anim = 	$PlayerSprite.animation
 
-func _on_item_picked_up(name):
-	touched_item_name = name.replace("Area", "")
+func _on_item_picked_up(item_name):
+	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
 	inventory.push_back(touched_item_name)
