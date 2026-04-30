@@ -1,17 +1,42 @@
-[gd_scene format=3 uid="uid://drfp5ogs3t2nq"]
+[gd_scene format=4 uid="uid://drfp5ogs3t2nq"]
 
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_7velx"]
 [ext_resource type="PackedScene" uid="uid://6bilw8itvr8c" path="res://scenes/polish_player.tscn" id="2_g2vl7"]
 [ext_resource type="PackedScene" uid="uid://dlfy0rk8wqcnk" path="res://scenes/towel.tscn" id="2_qonml"]
 [ext_resource type="PackedScene" uid="uid://bfhuaj02atx8h" path="res://scenes/beer.tscn" id="3_g2vl7"]
+[ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="4_7velx"]
+[ext_resource type="Texture2D" uid="uid://bl8sf0rgv7wxc" path="res://images/placeholders/tilemap_placeholder.png" id="6_5flhr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_167yp"]
+texture = ExtResource("6_5flhr")
+35:18/size_in_atlas = Vector2i(2, 4)
+35:18/0 = 0
+35:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.394741, -31.722496, 15.394741, -31.722496, 16.327755, 31.255985, -16.794262, 32.189)
+35:18/0/physics_layer_0/polygon_0/one_way = true
+39:18/size_in_atlas = Vector2i(2, 4)
+39:18/0 = 0
+39:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.394741, -31.722496, 15.394741, -31.722496, 16.327755, 31.255985, -16.794262, 32.189)
+39:18/0/physics_layer_0/polygon_0/one_way = true
+31:16/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6qxas"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_167yp")
 
 [node name="PolishRootNode" type="Node2D" unique_id=1428940587]
 script = ExtResource("1_7velx")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1685540815]
+position = Vector2(1, 20)
+tile_map_data = PackedByteArray("AAACAAEAAQAfABAAAAABABQAAQAfABAAAAACABQAAQAfABAAAAADABUAAQAfABAAAAAEABUAAQAfABAAAAAFABUAAQAfABAAAAAGABUAAQAfABAAAAAHABUAAQAfABAAAAAIABUAAQAfABAAAAAJABUAAQAfABAAAAAKABUAAQAfABAAAAALABUAAQAfABAAAAABABEAAQAjABIAAAAFABEAAQAnABIAAAAEABQAAQAfABAAAAADABQAAQAfABAAAAADABMAAQAfABAAAAAEABMAAQAfABAAAAAEABIAAQAfABAAAAACABMAAQAfABAAAAACABIAAQAfABAAAAADABIAAQAfABAAAAADABEAAQAfABAAAAAAABQAAQAfABAAAAD//xQAAQAfABAAAAD//xMAAQAfABAAAAD+/xQAAQAfABAAAAD+/xMAAQAfABAAAAD9/xQAAQAfABAAAAD9/xMAAQAfABAAAAAHABEAAQAjABIAAAA=")
+tile_set = SubResource("TileSet_6qxas")
+collision_visibility_mode = 1
+
 [node name="TowelArea" parent="." unique_id=1132617830 instance=ExtResource("2_qonml")]
-position = Vector2(54, 0)
+position = Vector2(54.000004, 297.99997)
 
 [node name="BeerArea" parent="." unique_id=1377940279 instance=ExtResource("3_g2vl7")]
-position = Vector2(141, 0)
+position = Vector2(449, 270)
+script = ExtResource("4_7velx")
 
 [node name="PlayerArea" parent="." unique_id=1757750210 instance=ExtResource("2_g2vl7")]

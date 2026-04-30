@@ -49,5 +49,6 @@ func _process(delta: float) -> void:
 		
 	last_played_anim = 	$PlayerSprite.animation
 
-func _on_item_area_entered(args):
-	print("Item found")
+func _on_item_picked_up(name): # could be a way to make a general method - i will figure it out later
+	touched_item_name = name.replace("Area", "")
+	print(touched_item_name + " found!")

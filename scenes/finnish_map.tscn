@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_c8lps"]
 [ext_resource type="PackedScene" uid="uid://coqpab58ln317" path="res://scenes/finnish_player.tscn" id="1_sn4dv"]
 [ext_resource type="PackedScene" uid="uid://caurp0axx2i5p" path="res://scenes/wood.tscn" id="2_avsef"]
+[ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_f626w"]
 
 [node name="FinnishRootNode" type="Node2D" unique_id=1442898411]
 script = ExtResource("1_c8lps")
@@ -10,5 +11,6 @@ script = ExtResource("1_c8lps")
 [node name="WoodArea" parent="." unique_id=616569336 instance=ExtResource("2_avsef")]
 position = Vector2(341, 333)
 scale = Vector2(0.49661088, 0.49661088)
+script = ExtResource("3_f626w")
 
 [node name="PlayerArea" parent="." unique_id=1757750210 instance=ExtResource("1_sn4dv")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6bilw8itvr8c"]
 
-[ext_resource type="Script" uid="uid://cj7pdpwgkh7bl" path="res://scripts/polish_player.gd" id="1_0srly"]
+[ext_resource type="Script" uid="uid://hyvblkp4088n" path="res://scripts/player.gd" id="1_g0ae5"]
 [ext_resource type="Texture2D" uid="uid://cd7p5moas1vjy" path="res://images/sprites/PolakStands.png" id="2_a4qul"]
 [ext_resource type="Texture2D" uid="uid://bf0shfcq1id1y" path="res://images/sprites/PolakWalks1.png" id="3_3a2nk"]
 [ext_resource type="Texture2D" uid="uid://kodnl60hsqyj" path="res://images/sprites/PolakWalks2.png" id="4_nxm5c"]
@@ -102,7 +102,7 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D" unique_id=1757750210]
-script = ExtResource("1_0srly")
+script = ExtResource("1_g0ae5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118586435]
 position = Vector2(0, -7)

@@ -6,13 +6,13 @@ func _ready() -> void:
 	var player = $PlayerArea
 	match name:
 		"FinnishRootNode":
-			var wood = $WoodArea
-			wood.area_entered.connect(wood.picked_up)
+			var wood = $WoodArea 
+			wood.picked_up.connect(player._on_item_picked_up)
 		"PolishRootNode":
 			var beer = $BeerArea
-			beer.area_entered.connect(player._on_beer_area_entered)
+			beer.picked_up.connect(player._on_item_picked_up)
 			var towel = $TowelArea
-			towel.area_entered.connect(player._on_item_area_entered)
+			towel.picked_up.connect(player._on_item_picked_up)
 	
 	
 
