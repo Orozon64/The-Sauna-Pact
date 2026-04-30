@@ -1,9 +1,24 @@
-[gd_scene format=3 uid="uid://c2p086uk7yiw4"]
+[gd_scene format=4 uid="uid://c2p086uk7yiw4"]
 
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_c8lps"]
 [ext_resource type="PackedScene" uid="uid://coqpab58ln317" path="res://scenes/finnish_player.tscn" id="1_sn4dv"]
 [ext_resource type="PackedScene" uid="uid://caurp0axx2i5p" path="res://scenes/wood.tscn" id="2_avsef"]
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_f626w"]
+[ext_resource type="Texture2D" uid="uid://bl8sf0rgv7wxc" path="res://images/placeholders/tilemap_placeholder.png" id="5_innq6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5ik"]
+texture = ExtResource("5_innq6")
+35:18/size_in_atlas = Vector2i(2, 4)
+35:18/0 = 0
+35:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.647713, -31.834995, 16.367142, -32.014854, 15.287994, 31.65514, -15.827568, 31.834995)
+39:18/size_in_atlas = Vector2i(2, 4)
+39:18/0 = 0
+39:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.827568, -32.014854, 16.367142, -31.834995, 16.007423, 32.01486, -15.827568, 31.834995)
+32:16/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u3hsj"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_et5ik")
 
 [node name="FinnishRootNode" type="Node2D" unique_id=1442898411]
 script = ExtResource("1_c8lps")
@@ -13,4 +28,9 @@ position = Vector2(341, 333)
 scale = Vector2(0.49661088, 0.49661088)
 script = ExtResource("3_f626w")
 
-[node name="PlayerArea" parent="." unique_id=1757750210 instance=ExtResource("1_sn4dv")]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=894400431]
+tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAA=")
+tile_set = SubResource("TileSet_u3hsj")
+
+[node name="PlayerCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+motion_mode = 1

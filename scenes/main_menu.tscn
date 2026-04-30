@@ -1,32 +1,29 @@
 [gd_scene format=3 uid="uid://c27yit4hxgc"]
 
-[node name="Node2D" type="Node2D" unique_id=1012640665]
+[ext_resource type="Script" uid="uid://cp0k7ag7kkr0v" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=559083230]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -46.5
+offset_right = 31.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
 
 [node name="Label" type="Label" parent="." unique_id=179953155]
-offset_left = 458.0
-offset_top = 4.0
-offset_right = 506.0
-offset_bottom = 27.0
+layout_mode = 2
 text = "PolFin"
 
 [node name="PlayButton" type="Button" parent="." unique_id=499547656]
-offset_left = 467.0
-offset_top = 192.0
-offset_right = 513.0
-offset_bottom = 223.0
+layout_mode = 2
 text = "Play"
 
-[node name="ExitButton" type="Button" parent="." unique_id=1445523334]
-offset_left = 466.0
-offset_top = 274.0
-offset_right = 512.0
-offset_bottom = 305.0
-text = "Exit
-"
-
 [node name="CreditsButton" type="Button" parent="." unique_id=316586183]
-offset_left = 458.0
-offset_top = 233.0
-offset_right = 521.0
-offset_bottom = 264.0
+layout_mode = 2
 text = "Credits"

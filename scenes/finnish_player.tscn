@@ -16,9 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://c1hk33e355ym2" path="res://images/sprites/finBackWalk1.png" id="11_afyib"]
 [ext_resource type="Texture2D" uid="uid://kqtnt46gfiux" path="res://images/sprites/finBackWalk2.png" id="12_4ff60"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shgrp"]
-size = Vector2(24, 39)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_snp3n"]
 animations = [{
 "frames": [{
@@ -110,13 +107,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D" unique_id=1757750210]
-script = ExtResource("1_6g0t5")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shgrp"]
+size = Vector2(24, 39)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118586435]
-position = Vector2(-3, -1.5)
-shape = SubResource("RectangleShape2D_shgrp")
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=486509689]
+script = ExtResource("1_6g0t5")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=276491256]
 sprite_frames = SubResource("SpriteFrames_snp3n")
 animation = &"idle_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118586435]
+position = Vector2(-3, -1.5)
+shape = SubResource("RectangleShape2D_shgrp")

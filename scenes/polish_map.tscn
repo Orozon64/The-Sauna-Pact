@@ -11,13 +11,11 @@
 texture = ExtResource("6_5flhr")
 35:18/size_in_atlas = Vector2i(2, 4)
 35:18/0 = 0
-35:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.394741, -31.722496, 15.394741, -31.722496, 16.327755, 31.255985, -16.794262, 32.189)
-35:18/0/physics_layer_0/polygon_0/one_way = true
+35:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.861248, -31.722496, 15.799866, -31.863075, 15.394741, 31.722492, -16.327755, 31.255985)
+31:16/0 = 0
 39:18/size_in_atlas = Vector2i(2, 4)
 39:18/0 = 0
-39:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.394741, -31.722496, 15.394741, -31.722496, 16.327755, 31.255985, -16.794262, 32.189)
-39:18/0/physics_layer_0/polygon_0/one_way = true
-31:16/0 = 0
+39:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.861248, -31.722496, 15.799866, -31.863075, 15.394741, 31.722492, -16.327755, 31.255985)
 
 [sub_resource type="TileSet" id="TileSet_6qxas"]
 physics_layer_0/collision_layer = 1
@@ -39,4 +37,4 @@ position = Vector2(54.000004, 297.99997)
 position = Vector2(449, 270)
 script = ExtResource("4_7velx")
 
-[node name="PlayerArea" parent="." unique_id=1757750210 instance=ExtResource("2_g2vl7")]
+[node name="PlayerCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]

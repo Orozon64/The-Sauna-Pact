@@ -1,12 +1,12 @@
 #base class that finnish and polish players will inherit
-extends Area2D
+extends CharacterBody2D
 var inventory = [] #an array of objects of the collectible class
 @export var speed = 100
 
 var screen_size
 var last_played_anim #the last walking animation played - this is used to play the right idle animation once the player stops moving
 
-signal item_picked_up()
+
 
 var touched_item_name = "" #the name of the collectible that the player is nearby
 # Called when the node enters the scene tree for the first time.
@@ -43,12 +43,10 @@ func _process(delta: float) -> void:
 	elif velocity.y < 0:
 		$PlayerSprite.animation = "walk_up"
 	
-	if Input.is_action_pressed("pick_up") and touched_item_name != "":
-		inventory.push_back(touched_item_name)
-		item_picked_up.emit()
 		
 	last_played_anim = 	$PlayerSprite.animation
 
-func _on_item_picked_up(name): # could be a way to make a general method - i will figure it out later
+func _on_item_picked_up(name):
 	touched_item_name = name.replace("Area", "")
 	print(touched_item_name + " found!")
+	inventory.push_back(touched_item_name)
