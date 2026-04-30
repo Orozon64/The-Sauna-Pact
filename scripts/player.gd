@@ -1,7 +1,7 @@
 #base class that finnish and polish players will inherit
 extends CharacterBody2D
 var inventory = [] #an array of objects of the collectible class
-@export var speed = 100
+@export var speed = 1
 
 var screen_size
 var last_played_anim #the last walking animation played - this is used to play the right idle animation once the player stops moving
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -32,8 +32,10 @@ func _process(delta: float) -> void:
 		$PlayerSprite.stop()
 		$PlayerSprite.animation = $PlayerSprite.animation.replace("walk", "idle")
 		$PlayerSprite.play()
-	position += velocity * delta
+	
 	position = position.clamp(Vector2.ZERO, screen_size)
+	move_and_collide(velocity)
+
 	if velocity.x > 0:
 		$PlayerSprite.animation = "walk_right"
 	elif velocity.y > 0:
