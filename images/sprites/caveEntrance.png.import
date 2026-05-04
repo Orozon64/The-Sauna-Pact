@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1rcu4kmfrxqe"
-path="res://.godot/imported/tree2.png-98f49f48d9fc2c44436897fc80aed4b3.ctex"
+uid="uid://c4r4dxcfcy4iw"
+path="res://.godot/imported/caveEntrance.png-de96adeee5f04ea44c800d45f9f23abc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/tree2.png"
-dest_files=["res://.godot/imported/tree2.png-98f49f48d9fc2c44436897fc80aed4b3.ctex"]
+source_file="res://images/sprites/caveEntrance.png"
+dest_files=["res://.godot/imported/caveEntrance.png-de96adeee5f04ea44c800d45f9f23abc.ctex"]
 
 [params]
 

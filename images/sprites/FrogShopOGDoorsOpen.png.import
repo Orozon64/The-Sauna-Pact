@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b14x2eh82d8c1"
-path="res://.godot/imported/tree1.png-31c6ddd5255f4852f3e7ce9a82864c8c.ctex"
+uid="uid://cc32yglrnu35o"
+path="res://.godot/imported/FrogShopOGDoorsOpen.png-6a7979944430ac590ba0fe0b5e787005.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/tree1.png"
-dest_files=["res://.godot/imported/tree1.png-31c6ddd5255f4852f3e7ce9a82864c8c.ctex"]
+source_file="res://images/sprites/FrogShopOGDoorsOpen.png"
+dest_files=["res://.godot/imported/FrogShopOGDoorsOpen.png-6a7979944430ac590ba0fe0b5e787005.ctex"]
 
 [params]
 
