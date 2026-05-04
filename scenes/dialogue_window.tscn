@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://1i5vnxbi5l12"]
+
+[ext_resource type="Texture2D" uid="uid://t48xdc67am8c" path="res://images/sprites/speech_bubble.png" id="1_b1c2b"]
+[ext_resource type="Script" uid="uid://bboa33a4lmirw" path="res://scripts/dialogue_manager.gd" id="1_tdpx6"]
+[ext_resource type="Texture2D" uid="uid://ckbijvudojap3" path="res://images/sprites/HeadFinn.png" id="2_tktrj"]
+
+[node name="Control" type="Control" unique_id=1013493677]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tdpx6")
+
+[node name="TalkerSprite" type="Sprite2D" parent="." unique_id=770239699]
+position = Vector2(-322, 151)
+scale = Vector2(8.84375, 9.442199)
+texture = ExtResource("2_tktrj")
+
+[node name="BubbleSprite" type="Sprite2D" parent="." unique_id=2061394449]
+position = Vector2(197.00002, 72.99999)
+scale = Vector2(9.40625, 5.5312495)
+texture = ExtResource("1_b1c2b")
+
+[node name="DialogueRTLabel" type="RichTextLabel" parent="." unique_id=2039789965]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -31.117645
+offset_right = 464.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+text = "Hello world"
