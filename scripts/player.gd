@@ -52,3 +52,11 @@ func _on_item_picked_up(item_name):
 	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
 	inventory.push_back(touched_item_name)
+	#after finding the item, switch players
+	print(JSON.stringify(position))
+	print(JSON.stringify(inventory))
+	if get_parent().name == "FinnishRootNode":
+		get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+

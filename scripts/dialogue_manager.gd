@@ -25,6 +25,6 @@ func _process(delta:float) -> void:
 			line_id += 1
 			$TalkerSprite.texture = load("res://images/sprites/Head" + current_scene_dialogue[line_id].split(":")[0]+ ".png")
 			$DialogueRTLabel.text = current_scene_dialogue[line_id].split(":")[1]
-
+			
 		else:
 			hide()
