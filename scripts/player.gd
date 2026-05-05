@@ -72,7 +72,7 @@ func _on_item_picked_up(item_name):
 	file.store_var(complete_save_data)
 	file.close()
 
-	if last_item != "Oil":
+	if last_item != "Oil": #TODO: make condition: if the current item is oil and the previous one was NOT lavender or vice versa
 		if get_parent().name == "FinnishRootNode":
 			get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 		else:

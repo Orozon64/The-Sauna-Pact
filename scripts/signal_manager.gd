@@ -15,17 +15,27 @@ func _ready() -> void:
 			
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
-			items_for_current_player = ["Towel", "Oil", "Lavender", "Beer"]
+			items_for_current_player = ["Towel", "Oil&Lavender", "Beer"] #manage the oil item pair by splitting by the '&' symbol
 			player = $PoleCharacter
 
 	if last_item == "":
 		current_item_name = items_for_current_player[0]
 	else:
 		current_item_name = items_for_current_player[items_for_current_player.find(last_item) + 1]
-	var current_item = get_node(current_item_name+"Area")
-	current_item.show()
-	get_node(current_item_name+"Area/CollisionShape2D").disabled = false
-	current_item.picked_up.connect(player._on_item_picked_up)
+	if current_item_name.contains("&"):
+		var first_item = get_node(current_item_name.get_slice("&", 0)+"Area")
+		first_item.show()
+		get_node(first_item.name+"/CollisionShape2D").disabled = false
+		first_item.picked_up.connect(player._on_item_picked_up)
+		var second_item = get_node(current_item_name.get_slice("&", 1)+"Area")
+		second_item.show()
+		get_node(second_item.name+"/CollisionShape2D").disabled = false
+		second_item.picked_up.connect(player._on_item_picked_up)
+	else:
+		var current_item = get_node(current_item_name+"Area")
+		current_item.show()
+		get_node(current_item_name+"Area/CollisionShape2D").disabled = false
+		current_item.picked_up.connect(player._on_item_picked_up)
 
 	file.close()
 	
