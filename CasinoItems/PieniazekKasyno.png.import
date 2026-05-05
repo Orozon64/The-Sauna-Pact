@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4082c3crpcb"
-path="res://.godot/imported/HeadPole.png-15f0df2af4973634651ef8a84981d052.ctex"
+uid="uid://drv75sb88med8"
+path="res://.godot/imported/PieniazekKasyno.png-472182890c1077f4c070e528512944b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/HeadPole.png"
-dest_files=["res://.godot/imported/HeadPole.png-15f0df2af4973634651ef8a84981d052.ctex"]
+source_file="res://CasinoItems/PieniazekKasyno.png"
+dest_files=["res://.godot/imported/PieniazekKasyno.png-472182890c1077f4c070e528512944b4.ctex"]
 
 [params]
 

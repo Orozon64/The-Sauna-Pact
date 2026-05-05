@@ -13,12 +13,12 @@ func _start_game():
 		"Finn":
 			{
 				"position":initial_position,
-				"inventory":[]
+				"last_item":""
 			},
 		"Pole":
 			{
 				"position":initial_position,
-				"inventory":[]
+				"last_item":""
 			}
 	}
 	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)

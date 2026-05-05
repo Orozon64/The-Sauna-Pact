@@ -1,6 +1,7 @@
 #base class that finnish and polish players will inherit
 extends CharacterBody2D
-var inventory = [] #an array of objects of the collectible class
+#var inventory = [] #an array of objects of the collectible class
+var last_item
 @export var speed = 1
 
 var screen_size
@@ -18,7 +19,7 @@ func _ready() -> void:
 	var current_character_save_data = complete_save_data.get(character_name)
 	print(current_character_save_data)
 	position = current_character_save_data.get("position")
-	inventory = current_character_save_data.get("inventory")
+	#inventory = current_character_save_data.get("inventory")
 	
 	screen_size = get_viewport_rect().size
 
@@ -59,10 +60,11 @@ func _process(delta: float) -> void:
 func _on_item_picked_up(item_name):
 	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
-	inventory.push_back(touched_item_name)
+	#inventory.push_back(touched_item_name)
+	last_item = touched_item_name
 	#after finding the item, switch players 
 
-	var current_scene_save_data = {"position":position, "inventory":inventory}
+	var current_scene_save_data = {"position":position, "last_item":last_item}
 	complete_save_data.set(character_name, current_scene_save_data)
 	
 
@@ -70,7 +72,8 @@ func _on_item_picked_up(item_name):
 	file.store_var(complete_save_data)
 	file.close()
 
-	if get_parent().name == "FinnishRootNode":
-		get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+	if last_item != "Oil":
+		if get_parent().name == "FinnishRootNode":
+			get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")

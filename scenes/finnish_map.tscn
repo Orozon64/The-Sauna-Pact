@@ -34,9 +34,6 @@ script = ExtResource("3_f626w")
 tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAA=")
 tile_set = SubResource("TileSet_u3hsj")
 
-[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
-motion_mode = 1
-
 [node name="StonesArea" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
 position = Vector2(333, 186)
 script = ExtResource("3_f626w")
@@ -44,3 +41,6 @@ script = ExtResource("3_f626w")
 [node name="FurnaceArea" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
 position = Vector2(203, 249)
 script = ExtResource("3_f626w")
+
+[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+motion_mode = 1

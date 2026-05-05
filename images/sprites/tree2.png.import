@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4082c3crpcb"
-path="res://.godot/imported/HeadPole.png-15f0df2af4973634651ef8a84981d052.ctex"
+uid="uid://b27e4bw1hv77l"
+path="res://.godot/imported/tree2.png-98f49f48d9fc2c44436897fc80aed4b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/HeadPole.png"
-dest_files=["res://.godot/imported/HeadPole.png-15f0df2af4973634651ef8a84981d052.ctex"]
+source_file="res://images/sprites/tree2.png"
+dest_files=["res://.godot/imported/tree2.png-98f49f48d9fc2c44436897fc80aed4b3.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t48xdc67am8c" path="res://images/sprites/speech_bubble.png" id="1_b1c2b"]
 [ext_resource type="Script" uid="uid://bboa33a4lmirw" path="res://scripts/dialogue_manager.gd" id="1_tdpx6"]
-[ext_resource type="Texture2D" uid="uid://ckbijvudojap3" path="res://images/sprites/HeadFinn.png" id="2_tktrj"]
+[ext_resource type="Texture2D" uid="uid://sv6al1pwnhty" path="res://images/sprites/HeadFinn.png" id="2_tktrj"]
 
 [node name="Control" type="Control" unique_id=1013493677]
 layout_mode = 3
@@ -17,7 +17,7 @@ script = ExtResource("1_tdpx6")
 
 [node name="TalkerSprite" type="Sprite2D" parent="." unique_id=770239699]
 position = Vector2(-322, 151)
-scale = Vector2(8.84375, 9.442199)
+scale = Vector2(4.24194, 4.5289884)
 texture = ExtResource("2_tktrj")
 
 [node name="BubbleSprite" type="Sprite2D" parent="." unique_id=2061394449]
