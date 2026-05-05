@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dlah7vce3xvpw"]
+
+[ext_resource type="Texture2D" uid="uid://3fp8uwb2s8pl" path="res://images/sprites/furnaceEmpty.png" id="1_0y7ne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61l8k"]
+size = Vector2(25, 62)
+
+[node name="Area2D" type="Area2D" unique_id=1491667833]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1395003099]
+texture = ExtResource("1_0y7ne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757216129]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_61l8k")

@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://caurp0axx2i5p" path="res://scenes/wood.tscn" id="2_avsef"]
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_f626w"]
 [ext_resource type="Texture2D" uid="uid://bl8sf0rgv7wxc" path="res://images/placeholders/tilemap_placeholder.png" id="5_innq6"]
+[ext_resource type="PackedScene" uid="uid://dsb1n48yjysol" path="res://scenes/stones.tscn" id="6_et5ik"]
+[ext_resource type="PackedScene" uid="uid://dlah7vce3xvpw" path="res://scenes/furnace.tscn" id="7_u3hsj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5ik"]
 texture = ExtResource("5_innq6")
@@ -32,5 +34,13 @@ script = ExtResource("3_f626w")
 tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAA=")
 tile_set = SubResource("TileSet_u3hsj")
 
-[node name="PlayerCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
 motion_mode = 1
+
+[node name="StonesArea" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
+position = Vector2(333, 186)
+script = ExtResource("3_f626w")
+
+[node name="FurnaceArea" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
+position = Vector2(203, 249)
+script = ExtResource("3_f626w")

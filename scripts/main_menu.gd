@@ -8,6 +8,22 @@ func _ready() -> void:
 	$ReturnButton.button_down.connect(_return_to_menu)
 
 func _start_game():
+	var initial_position = get_viewport_rect().get_center()
+	var initial_data = {
+		"Finn":
+			{
+				"position":initial_position,
+				"inventory":[]
+			},
+		"Pole":
+			{
+				"position":initial_position,
+				"inventory":[]
+			}
+	}
+	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
+	file.store_var(initial_data)
+	file.close()
 	get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
 
 func _show_credits():
