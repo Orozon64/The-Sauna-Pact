@@ -24,7 +24,7 @@ func _start_game():
 	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
 	file.store_var(initial_data)
 	file.close()
-	get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro_scene.tscn")
 
 func _show_credits():
 	$CreditsButton.hide()

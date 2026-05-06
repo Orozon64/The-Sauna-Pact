@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crlodvs8o2vlx"
-path="res://.godot/imported/reindeer.png-70a60b51247fd0ea897d06323d7be32e.ctex"
+uid="uid://c23remn6tsev6"
+path="res://.godot/imported/RudolfTalking.png-783262273cae8a0094ef6b4ca64f2e63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/reindeer.png"
-dest_files=["res://.godot/imported/reindeer.png-70a60b51247fd0ea897d06323d7be32e.ctex"]
+source_file="res://images/sprites/RudolfTalking.png"
+dest_files=["res://.godot/imported/RudolfTalking.png-783262273cae8a0094ef6b4ca64f2e63.ctex"]
 
 [params]
 

@@ -10,6 +10,8 @@ var complete_save_data #the save data for both characters
 var character_name
 
 var touched_item_name = "" #the name of the collectible that the player is nearby
+
+var is_on_construction_site 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	character_name = name.replace("Character", "")
@@ -57,23 +59,29 @@ func _process(delta: float) -> void:
 		
 	last_played_anim = 	$PlayerSprite.animation
 
+	if Input.is_action_just_pressed("item_interact") and is_on_construction_site and touched_item_name == "Furnace":
+		#make the furnace appear on the site
+		pass
+
 func _on_item_picked_up(item_name):
 	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
 	#inventory.push_back(touched_item_name)
-	last_item = touched_item_name
-	#after finding the item, switch players 
-
-	var current_scene_save_data = {"position":position, "last_item":last_item}
-	complete_save_data.set(character_name, current_scene_save_data)
-	
-
-	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
-	file.store_var(complete_save_data)
-	file.close()
-
-	if last_item != "Oil": #TODO: make condition: if the current item is oil and the previous one was NOT lavender or vice versa
+	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
+		last_item = touched_item_name
+		var current_scene_save_data = {"position":position, "last_item":last_item}
+		complete_save_data.set(character_name, current_scene_save_data)
+		var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
+		file.store_var(complete_save_data)
+		file.close()
 		if get_parent().name == "FinnishRootNode":
 			get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+	last_item = touched_item_name
+
+func enter_construction_site(args):
+	is_on_construction_site = true		 
+
+
+	

@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pick_up") and can_be_picked_up:
+	if Input.is_action_just_pressed("item_interact") and can_be_picked_up:
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		picked_up.emit(name)

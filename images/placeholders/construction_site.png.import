@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c23remn6tsev6"
-path="res://.godot/imported/reindeerTalking.png-a909cb7206c6b67ec08073731c2dbc92.ctex"
+uid="uid://cf1ay00jcm2u8"
+path="res://.godot/imported/construction_site.png-1d04717f3c70491f40bb0eab2fcfeaaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprites/reindeerTalking.png"
-dest_files=["res://.godot/imported/reindeerTalking.png-a909cb7206c6b67ec08073731c2dbc92.ctex"]
+source_file="res://images/placeholders/construction_site.png"
+dest_files=["res://.godot/imported/construction_site.png-1d04717f3c70491f40bb0eab2fcfeaaf.ctex"]
 
 [params]
 

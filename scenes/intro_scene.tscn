@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dy07kj4gdjrs0"]
+
+[ext_resource type="Script" uid="uid://c870svib6gnu3" path="res://scripts/intro_scene.gd" id="1_jkhwn"]
+[ext_resource type="PackedScene" uid="uid://1i5vnxbi5l12" path="res://scenes/dialogue_window.tscn" id="1_xmg1o"]
+[ext_resource type="Texture2D" uid="uid://bkc4tp8b07cto" path="res://images/sprites/PolskiPhone.png" id="2_0y5sa"]
+[ext_resource type="Texture2D" uid="uid://k7ptyfc5jhw8" path="res://images/sprites/FinFinPhone.png" id="3_gsw8x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsw8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0y5sa")
+}],
+"loop": true,
+"name": &"Ring",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkhwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gsw8x")
+}],
+"loop": true,
+"name": &"Ring",
+"speed": 5.0
+}]
+
+[node name="IntroScene" type="Node2D" unique_id=975035797]
+script = ExtResource("1_jkhwn")
+
+[node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("1_xmg1o")]
+offset_left = 402.0
+offset_top = 430.0
+offset_right = 402.0
+offset_bottom = 430.0
+
+[node name="PolishPhoneSprite" type="AnimatedSprite2D" parent="." unique_id=645759387]
+position = Vector2(392, 331)
+sprite_frames = SubResource("SpriteFrames_gsw8x")
+animation = &"Ring"
+
+[node name="FinnishPhoneSprite" type="AnimatedSprite2D" parent="." unique_id=1506667193]
+position = Vector2(725, 333)
+sprite_frames = SubResource("SpriteFrames_jkhwn")
+animation = &"Ring"
