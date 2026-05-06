@@ -29,13 +29,16 @@ func _process(delta:float) -> void:
 				line_id += 1
 				$TalkerSprite.texture = load("res://images/sprites/Head" + current_scene_dialogue[line_id].split(":")[0]+ ".png")
 				
-				$DialogueRTLabel.text = current_scene_dialogue[line_id].split(":")[1]
+				$DialogueRTLabel.text = ""
+				is_line_finished = false
 				character_index = 0
-
+				current_line = current_scene_dialogue[line_id].split(":")[1]
 			else:
 				hide()
+		else:
+			is_line_finished = true
+			$DialogueRTLabel.text = current_scene_dialogue[line_id].split(":")[1]
 	elif not is_line_finished:
-		await get_tree().create_timer(0.1).timeout	
 		if character_index >= current_line.length():
 			is_line_finished = true
 		else:
