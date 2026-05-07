@@ -11,12 +11,13 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5ik"]
 texture = ExtResource("5_innq6")
-35:18/size_in_atlas = Vector2i(2, 4)
-35:18/0 = 0
-35:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.647713, -31.834995, 16.367142, -32.014854, 15.287994, 31.65514, -15.827568, 31.834995)
-39:18/size_in_atlas = Vector2i(2, 4)
-39:18/0 = 0
-39:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.827568, -32.014854, 16.367142, -31.834995, 16.007423, 32.01486, -15.827568, 31.834995)
+margins = Vector2i(0, 6)
+34:18/size_in_atlas = Vector2i(4, 4)
+34:18/0 = 0
+34:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19.244888, -31.834993, 16.007423, -31.655136, 18.345589, 25.000366, -20.14418, 25.000366)
+38:18/size_in_atlas = Vector2i(4, 4)
+38:18/0 = 0
+38:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19.244888, -32.014854, 17.806015, -31.655136, 19.604599, 26.619095, -19.424744, 26.79895)
 
 [sub_resource type="TileSet" id="TileSet_u3hsj"]
 physics_layer_0/collision_layer = 1
@@ -28,14 +29,18 @@ size = Vector2(105, 106)
 [node name="FinnishRootNode" type="Node2D" unique_id=1442898411]
 script = ExtResource("1_c8lps")
 
+[node name="GrassTileMapLayer" type="TileMapLayer" parent="." unique_id=492724825]
+tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAAdABEAAAAfAAoAAAAVABMAAAAaABIAAAAVABcAAAAaABIAAAAPABcAAAAaABIAAAAbABEAAAAaABIAAAAfABEAAAAaABIAAAASABIAAAAiABIAAAASAA4AAAAiABIAAAAYAA4AAAAiABIAAAAYABIAAAAiABIAAAAVAA4AAAAiABIAAAA=")
+tile_set = SubResource("TileSet_u3hsj")
+
+[node name="TerrainTileMapLayer" type="TileMapLayer" parent="." unique_id=894400431]
+tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAAdABEAAAAfAAoAAAAVABMAAAAaABIAAAAVABcAAAAaABIAAAAPABcAAAAaABIAAAAbABEAAAAaABIAAAAfABEAAAAaABIAAAA=")
+tile_set = SubResource("TileSet_u3hsj")
+
 [node name="WoodArea" parent="." unique_id=616569336 instance=ExtResource("2_avsef")]
 position = Vector2(341, 333)
 scale = Vector2(0.49661088, 0.49661088)
 script = ExtResource("3_f626w")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=894400431]
-tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAAdABEAAAAfAAoAAAA=")
-tile_set = SubResource("TileSet_u3hsj")
 
 [node name="StonesArea" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
 position = Vector2(333, 186)

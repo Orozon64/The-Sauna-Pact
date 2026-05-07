@@ -15,19 +15,19 @@ func _ready() -> void:
 			
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
-			items_for_current_player = ["Towel", "Oil&Lavender", "Beer"] #manage the oil item pair by splitting by the '&' symbol
+			items_for_current_player = ["Towel", "Sauna oil", "Beer"] #manage the oil item pair by splitting by the '&' symbol
 			player = $PoleCharacter
 
 	if last_item == "":
 		current_item_name = items_for_current_player[0]
 	else:
 		current_item_name = items_for_current_player[items_for_current_player.find(last_item) + 1]
-	if current_item_name.contains("&"):
-		var first_item = get_node(current_item_name.get_slice("&", 0)+"Area")
+	if current_item_name == "Sauna oil":
+		var first_item = $OilArea
 		first_item.show()
 		get_node(first_item.name+"/CollisionShape2D").disabled = false
 		first_item.picked_up.connect(player._on_item_picked_up)
-		var second_item = get_node(current_item_name.get_slice("&", 1)+"Area")
+		var second_item = $LavenderArea
 		second_item.show()
 		get_node(second_item.name+"/CollisionShape2D").disabled = false
 		second_item.picked_up.connect(player._on_item_picked_up)

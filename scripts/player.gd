@@ -1,6 +1,5 @@
 #base class that finnish and polish players will inherit
 extends CharacterBody2D
-#var inventory = [] #an array of objects of the collectible class
 var last_item
 @export var speed = 1
 
@@ -66,9 +65,11 @@ func _process(delta: float) -> void:
 func _on_item_picked_up(item_name):
 	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
-	#inventory.push_back(touched_item_name)
 	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
-		last_item = touched_item_name
+		if touched_item_name == "Oil" or touched_item_name == "Lavender":
+			last_item = "Sauna oil"
+		else:
+			last_item = touched_item_name
 		var current_scene_save_data = {"position":position, "last_item":last_item}
 		complete_save_data.set(character_name, current_scene_save_data)
 		var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
@@ -78,7 +79,8 @@ func _on_item_picked_up(item_name):
 			get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
-	last_item = touched_item_name
+	else:
+		last_item = touched_item_name
 
 func enter_construction_site(args):
 	is_on_construction_site = true		 
