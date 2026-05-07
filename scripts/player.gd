@@ -10,9 +10,13 @@ var character_name
 
 var touched_item_name = "" #the name of the collectible that the player is nearby
 
-var is_on_construction_site 
+var is_on_construction_site
 
-signal item_placed(args)
+var is_on_airport
+
+var is_on_casino
+
+signal item_placed(item_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +27,6 @@ func _ready() -> void:
 	var current_character_save_data = complete_save_data.get(character_name)
 	print(current_character_save_data)
 	position = current_character_save_data.get("position")
-	#inventory = current_character_save_data.get("inventory")
 	
 	screen_size = get_viewport_rect().size
 
@@ -61,27 +64,36 @@ func _process(delta: float) -> void:
 		
 	last_played_anim = 	$PlayerSprite.animation
 
-	if Input.is_action_just_pressed("item_interact") and is_on_construction_site and touched_item_name == "Furnace":
-		#make the furnace appear on the site
-		pass
+	if Input.is_action_just_pressed("item_interact"):
+		if is_on_construction_site and (touched_item_name == "Furnace" or touched_item_name == "Stones"):
+			item_placed.emit(touched_item_name)
+		if is_on_airport and touched_item_name == "Beer":
+			get_tree().change_scene_to_file("res://scenes/flying.tscn")
+		if is_on_casino:
+			get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
 
-func _on_item_picked_up(item_name):
+func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out
 	touched_item_name = item_name.replace("Area", "")
 	print(touched_item_name + " found!")
 	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
+
 		if touched_item_name == "Oil" or touched_item_name == "Lavender":
 			last_item = "Sauna oil"
 		else:
 			last_item = touched_item_name
+		
 		var current_scene_save_data = {"position":position, "last_item":last_item}
 		complete_save_data.set(character_name, current_scene_save_data)
 		var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
 		file.store_var(complete_save_data)
 		file.close()
-		if get_parent().name == "FinnishRootNode":
-			get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
-		else:
-			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+
+		if touched_item_name != "Furnace" and touched_item_name != "Stones" and touched_item_name != "Beer":
+			if get_parent().name == "FinnishRootNode":
+				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+		
 	else:
 		last_item = touched_item_name
 
@@ -91,3 +103,14 @@ func _on_enter_construction_site(args):
 func _on_exit_construction_site(args):
 	is_on_construction_site = false	
 	
+func _on_enter_airport(args):
+	is_on_airport = true		 
+
+func _on_exit_airport(args):
+	is_on_airport = false
+
+func _on_enter_casino(args):
+	is_on_casino = true		 
+
+func _on_exit_casino(args):
+	is_on_casino = false	

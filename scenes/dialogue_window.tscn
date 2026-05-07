@@ -37,7 +37,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Control" type="Control" unique_id=1013493677]
+[node name="DialogueControl" type="Control" unique_id=1013493677]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,6 +77,7 @@ sprite_frames = SubResource("SpriteFrames_1puwe")
 animation = &"RudolfTalk"
 
 [node name="AdvanceTipLabel" type="Label" parent="." unique_id=16277458]
+visible = false
 layout_mode = 0
 offset_left = -86.0
 offset_top = 52.0

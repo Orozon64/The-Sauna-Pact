@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dsb1n48yjysol" path="res://scenes/stones.tscn" id="6_et5ik"]
 [ext_resource type="PackedScene" uid="uid://dlah7vce3xvpw" path="res://scenes/furnace.tscn" id="7_u3hsj"]
 [ext_resource type="Texture2D" uid="uid://cf1ay00jcm2u8" path="res://images/placeholders/construction_site.png" id="8_mbhtb"]
+[ext_resource type="Texture2D" uid="uid://c4r4dxcfcy4iw" path="res://images/sprites/caveEntrance.png" id="9_3r76t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et5ik"]
 texture = ExtResource("5_innq6")
@@ -25,6 +26,9 @@ sources/0 = SubResource("TileSetAtlasSource_et5ik")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbhtb"]
 size = Vector2(105, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r76t"]
+size = Vector2(55, 40)
 
 [node name="FinnishRootNode" type="Node2D" unique_id=1442898411]
 script = ExtResource("1_c8lps")
@@ -49,7 +53,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_mbhtb")
 
 [node name="WoodArea" parent="." unique_id=616569336 instance=ExtResource("2_avsef")]
-position = Vector2(341, 333)
+position = Vector2(341, 283)
 scale = Vector2(0.49661088, 0.49661088)
 script = ExtResource("3_f626w")
 
@@ -58,8 +62,18 @@ position = Vector2(333, 186)
 script = ExtResource("3_f626w")
 
 [node name="FurnaceArea" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
-position = Vector2(463, 241)
+position = Vector2(214, 157)
 script = ExtResource("3_f626w")
 
 [node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
 motion_mode = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2073674509]
+position = Vector2(548, 172)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=285204869]
+texture = ExtResource("9_3r76t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=521637270]
+position = Vector2(-3.5, 3)
+shape = SubResource("RectangleShape2D_3r76t")

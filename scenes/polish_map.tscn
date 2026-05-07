@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bl8sf0rgv7wxc" path="res://images/placeholders/tilemap_placeholder.png" id="6_5flhr"]
 [ext_resource type="PackedScene" uid="uid://b5d4fabfah5by" path="res://scenes/oil.tscn" id="7_167yp"]
 [ext_resource type="PackedScene" uid="uid://cr2j1mv1snm6q" path="res://scenes/lavender.tscn" id="8_6qxas"]
+[ext_resource type="Texture2D" uid="uid://o5dowhtvpp1b" path="res://images/sprites/Airport.png" id="9_xpv0b"]
+[ext_resource type="Texture2D" uid="uid://buxip6hvbpm6k" path="res://images/sprites/Plane.png" id="10_dq56n"]
+[ext_resource type="Texture2D" uid="uid://b51nhl47r8lvc" path="res://images/sprites/Casino.png" id="11_d0c66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_167yp"]
 texture = ExtResource("6_5flhr")
@@ -28,6 +31,12 @@ margins = Vector2i(0, 6)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_167yp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpv0b"]
+size = Vector2(129, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u03f7"]
+size = Vector2(96, 67)
+
 [node name="PolishRootNode" type="Node2D" unique_id=1428940587]
 script = ExtResource("1_7velx")
 
@@ -43,6 +52,16 @@ tile_map_data = PackedByteArray("AAACAAEAAQAfABAAAAABABQAAQAfABAAAAACABQAAQAfABA
 tile_set = SubResource("TileSet_6qxas")
 collision_visibility_mode = 1
 
+[node name="AirportArea" type="Area2D" parent="." unique_id=1053614381]
+position = Vector2(441, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="AirportArea" unique_id=1502205112]
+texture = ExtResource("9_xpv0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirportArea" unique_id=1989444696]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_xpv0b")
+
 [node name="TowelArea" parent="." unique_id=1132617830 instance=ExtResource("2_qonml")]
 position = Vector2(54.000004, 297.99997)
 
@@ -56,5 +75,19 @@ position = Vector2(204, 221)
 [node name="LavenderArea" parent="." unique_id=282405993 instance=ExtResource("8_6qxas")]
 position = Vector2(122, 222)
 script = ExtResource("4_7velx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456070522]
+position = Vector2(482, 84)
+texture = ExtResource("10_dq56n")
+
+[node name="CasinoArea" type="Area2D" parent="." unique_id=1111923129]
+position = Vector2(264, 109)
+
+[node name="Sprite2D" type="Sprite2D" parent="CasinoArea" unique_id=745613713]
+texture = ExtResource("11_d0c66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CasinoArea" unique_id=1524276284]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_u03f7")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]

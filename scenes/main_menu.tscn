@@ -32,3 +32,5 @@ text = "Credits"
 visible = false
 layout_mode = 2
 text = "Return"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=782590493]
