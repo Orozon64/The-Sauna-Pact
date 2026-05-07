@@ -12,10 +12,12 @@ func _ready() -> void:
 			last_item = file.get_var().get("Finn").get("last_item")
 			items_for_current_player = ["Wood", "Furnace", "Stones"]
 			player = $FinnCharacter
+			$ConstructionArea.area_entered.connect(player._on_enter_construction_site)
+			$ConstructionArea.area_exited.connect(player._on_exit_construction_site)
 			
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
-			items_for_current_player = ["Towel", "Sauna oil", "Beer"] #manage the oil item pair by splitting by the '&' symbol
+			items_for_current_player = ["Towel", "Sauna oil", "Beer"]
 			player = $PoleCharacter
 
 	if last_item == "":

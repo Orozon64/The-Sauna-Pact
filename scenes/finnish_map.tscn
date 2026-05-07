@@ -37,22 +37,6 @@ tile_set = SubResource("TileSet_u3hsj")
 tile_map_data = PackedByteArray("AAAOAA8AAAAnABIAAAASABMAAAAnABIAAAAYABMAAAAnABIAAAASABcAAAAnABIAAAAYABcAAAAjABIAAAAYAA8AAAAjABIAAAASAA8AAAAjABIAAAAUAA8AAAAjABIAAAAWAA8AAAAjABIAAAAdABEAAAAfAAoAAAAVABMAAAAaABIAAAAVABcAAAAaABIAAAAPABcAAAAaABIAAAAbABEAAAAaABIAAAAfABEAAAAaABIAAAA=")
 tile_set = SubResource("TileSet_u3hsj")
 
-[node name="WoodArea" parent="." unique_id=616569336 instance=ExtResource("2_avsef")]
-position = Vector2(341, 333)
-scale = Vector2(0.49661088, 0.49661088)
-script = ExtResource("3_f626w")
-
-[node name="StonesArea" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
-position = Vector2(333, 186)
-script = ExtResource("3_f626w")
-
-[node name="FurnaceArea" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
-position = Vector2(203, 249)
-script = ExtResource("3_f626w")
-
-[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
-motion_mode = 1
-
 [node name="ConstructionArea" type="Area2D" parent="." unique_id=1631127782]
 position = Vector2(465, 254)
 
@@ -63,3 +47,19 @@ texture = ExtResource("8_mbhtb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConstructionArea" unique_id=1352379901]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_mbhtb")
+
+[node name="WoodArea" parent="." unique_id=616569336 instance=ExtResource("2_avsef")]
+position = Vector2(341, 333)
+scale = Vector2(0.49661088, 0.49661088)
+script = ExtResource("3_f626w")
+
+[node name="StonesArea" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
+position = Vector2(333, 186)
+script = ExtResource("3_f626w")
+
+[node name="FurnaceArea" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
+position = Vector2(463, 241)
+script = ExtResource("3_f626w")
+
+[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+motion_mode = 1

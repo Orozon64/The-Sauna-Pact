@@ -11,6 +11,9 @@ var character_name
 var touched_item_name = "" #the name of the collectible that the player is nearby
 
 var is_on_construction_site 
+
+signal item_placed(args)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	character_name = name.replace("Character", "")
@@ -82,8 +85,9 @@ func _on_item_picked_up(item_name):
 	else:
 		last_item = touched_item_name
 
-func enter_construction_site(args):
+func _on_enter_construction_site(args):
 	is_on_construction_site = true		 
 
-
+func _on_exit_construction_site(args):
+	is_on_construction_site = false	
 	
