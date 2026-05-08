@@ -4,6 +4,8 @@ var items_for_current_player = []
 var last_item
 var current_item_name
 var player
+var play_ending
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var file = FileAccess.open("res://save_game.data", FileAccess.READ)
@@ -13,6 +15,7 @@ func _ready() -> void:
 			items_for_current_player = ["Wood", "Furnace", "Stones"]
 			player = $FinnCharacter
 			player.item_placed.connect(place_item)
+			
 			$ConstructionArea.body_entered.connect(player._on_enter_construction_site)
 			$ConstructionArea.body_exited.connect(player._on_exit_place)
 			
@@ -53,9 +56,25 @@ func _ready() -> void:
 			current_item.show()
 			get_node(current_item_name+"/CollisionShape2D").disabled = false
 			current_item.picked_up.connect(player._on_item_picked_up)
-
 	file.close()
-	
+	if play_ending:
+		var polish_player = preload("res://scenes/polish_player.tscn")
+		add_child(polish_player.instantiate())
+		$FinnCharacter.ready_to_build = true
+		$FinnCharacter.build.connect()
+
+
+func _on_player_begin_building(args):
+	$SaunaBuildingSprite.show()
+	$SaunaBuildingSprite.animation = "build"
+	$SaunaBuildingSprite.play()
+	get_tree().create_timer(3).timeout.connect(finish_building)
+func finish_building():
+	$SaunaBuildingSprite.stop()
+	$SaunaBuildingSprite.hide()
+	$ConstructionArea.hide()
+	$ConstructionArea/CollisionShape2D.disabled = true
+	$Sauna.show()
 
 func place_item(item_name):
 	match item_name:
@@ -67,15 +86,9 @@ func place_item(item_name):
 		"Stones":
 			$Furnace/Sprite2D.texture = load("res://images/sprites/furnaceFilled.png")
 			get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
-		"Beer":
-			$SaunaBuildingSprite.show()
-			$SaunaBuildingSprite.play()
-			get_tree().create_timer(3).timeout.connect(finished_building_timeout)
-
-
+		
 func item_placed_timeout():
 	get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 
-func finished_building_timeout():
-	$SaunaBuildingSprite.hide()
+
 	

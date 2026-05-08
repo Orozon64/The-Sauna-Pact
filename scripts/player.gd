@@ -12,10 +12,12 @@ var touched_item_name = "" #the name of the collectible that the player is nearb
 
 var place_name = "" #the name of the place a player is on - casino/store/construction site
 
+var ready_to_build = false
 
 var money = 0
 signal item_placed(item_name)
 
+signal build()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	character_name = name.replace("Character", "")
@@ -23,9 +25,11 @@ func _ready() -> void:
 	var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	complete_save_data = loaded_file.get_var()
 	var current_character_save_data = complete_save_data.get(character_name)
-	print(current_character_save_data)
-	position = current_character_save_data.get("position")
-	
+	print(complete_save_data)
+	if current_character_save_data.get("last_item") == "":
+		position = $"../StartingPoint".position
+	else:
+		position = current_character_save_data.get("position")
 	screen_size = get_viewport_rect().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,13 +67,16 @@ func _process(delta: float) -> void:
 	last_played_anim = 	$PlayerSprite.animation
 
 	if Input.is_action_just_pressed("item_interact"):
-		if place_name == "construction site" and (touched_item_name == "Furnace" or touched_item_name == "Stones"):
-			item_placed.emit(touched_item_name)
+		if place_name == "construction site":
+			if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
+				item_placed.emit(touched_item_name)
+			elif ready_to_build:
+				build.emit()
 		elif place_name == "airport" and touched_item_name == "Beer":
 			get_tree().change_scene_to_file("res://scenes/flying.tscn")
 		elif place_name == "casino":
 			get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
-		elif place_name == "store" and money >= 15:
+		elif place_name == "store" and money >= 50:
 			_on_item_picked_up("Beer")
 		
 

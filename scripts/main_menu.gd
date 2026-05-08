@@ -8,16 +8,15 @@ func _ready() -> void:
 	$ReturnButton.button_down.connect(_return_to_menu)
 
 func _start_game():
-	var initial_position = get_viewport_rect().get_center()
 	var initial_data = {
 		"Finn":
 			{
-				"position":initial_position,
+				"position":"",
 				"last_item":""
 			},
 		"Pole":
 			{
-				"position":initial_position,
+				"position":"",
 				"last_item":""
 			}
 	}

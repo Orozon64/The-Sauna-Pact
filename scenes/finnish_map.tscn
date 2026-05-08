@@ -48,6 +48,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh0mk"]
+size = Vector2(56.958313, 43.544537)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k7c1"]
 
 [node name="FinnishRootNode" type="Node2D" unique_id=1442898411]
 script = ExtResource("1_c8lps")
@@ -84,9 +87,6 @@ script = ExtResource("3_f626w")
 position = Vector2(214, 157)
 script = ExtResource("3_f626w")
 
-[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
-motion_mode = 1
-
 [node name="Cave" type="Area2D" parent="." unique_id=2073674509]
 position = Vector2(548, 172)
 
@@ -104,12 +104,24 @@ sprite_frames = SubResource("SpriteFrames_3r76t")
 animation = &"Building"
 
 [node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
-position = Vector2(-42, -10)
+visible = false
+position = Vector2(464, 246)
+scale = Vector2(1.5215461, 1.5215461)
 
 [node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]
-position = Vector2(506, 259)
 texture = ExtResource("12_odkrj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sauna" unique_id=153577862]
+position = Vector2(1.5, 7)
 scale = Vector2(1.0358453, 1.0104598)
 shape = SubResource("RectangleShape2D_xh0mk")
+disabled = true
+
+[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+motion_mode = 1
+
+[node name="StartingPoint" type="Area2D" parent="." unique_id=463903633]
+position = Vector2(345, 334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint" unique_id=136403339]
+shape = SubResource("RectangleShape2D_2k7c1")
