@@ -1,23 +1,49 @@
 extends Control
 
 
-@export var n_options: int=5
-@export var spinners: Array[Control]
-var values: Array; var tween:Tween
-func spin():
-	values=[]
-	var spin_step=1.0 / float(n_options)
+@export var n_options: int = 5 #number of images on spinners
+@export var spinners: Array[Control] #Array of all active spinners
+@export var loser_limit: int = 5 #number of spins before guaranteed win
+var values: Array
+var tween: Tween
+var spin_count = 0 #counter of all spins
+var prev_val=loser_limit
+func god_Mode_Toggle(): #function for toggling between normal mode and everytime guaranteed win
+	if loser_limit==1:
+		loser_limit=prev_val
+	else:
+		prev_val=loser_limit
+		loser_limit=1
+func spin(): #function for spining all spiners
+	values = []
+	var spin_step = 1.0 / float(n_options)
 	var offsets = {}
-	for s in spinners:
-		values.append(randi_range(0, n_options-1))
-		offsets[s]={'from': s.material.get_shader_parameter('y_offset'), 'to': 3.0 + values[-1]*spin_step}
-	if tween: tween.kill()
+	
+	for s in spinners: #generating outcome of every spin
+		var target_option = randi_range(0, n_options - 1) if spin_count % loser_limit!=loser_limit-1 else round((spin_count/loser_limit))
+		values.append(target_option)
+		
+		offsets[s] = {
+			'from': s.material.get_shader_parameter('y_offset'), 
+			'to': 3.0 + target_option * spin_step
+		}
+		
+	spin_count += 1
+	#V animating the spin V
+	if tween: 
+		tween.kill()
+		
 	tween = get_tree().create_tween()
-	tween.tween_method(func (v):
-		for s in spinners:
-			s.material.set_shader_parameter('y_offset', lerpf(offsets[s].from, offsets[s].to, v)),
-			0.0, 1.0, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	
+	tween.tween_method(
+		func (v):
+			for s in spinners:
+				s.material.set_shader_parameter('y_offset', lerpf(offsets[s].from, offsets[s].to, v)),
+		0.0, 1.0, 1.0
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	
 	tween.tween_callback(func ():
 		for idx in spinners.size():
-			spinners[idx].material.set_shader_parameter('y_offset',values[idx]*spin_step))
-			
+			spinners[idx].material.set_shader_parameter('y_offset', values[idx] * spin_step)
+	)
+	
