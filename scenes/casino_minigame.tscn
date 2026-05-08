@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://da7j67217ee1d"]
 
-[ext_resource type="Shader" uid="uid://b8hf02galphn5" path="res://scenes/spin_tex.gdshader" id="1_28amk"]
+[ext_resource type="Shader" uid="uid://b8hf02galphn5" path="res://shaders/spin_tex.gdshader" id="1_28amk"]
 [ext_resource type="Script" uid="uid://bqek2g55dev53" path="res://scripts/casino_minigame_root_script.gd" id="1_uedom"]
-[ext_resource type="Texture2D" uid="uid://cql7hdwwwqyw7" path="res://images/Casino_slots.png" id="2_5gemk"]
+[ext_resource type="Texture2D" uid="uid://62bnpa0q22mk" path="res://images/Casino_slots.png" id="2_5gemk"]
 
 [sub_resource type="Gradient" id="Gradient_cobd6"]
 offsets = PackedFloat32Array(0.9794521, 1)
@@ -128,6 +128,9 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfptm"]
+bg_color = Color(0.22352941, 0.40392157, 0.47058824, 1)
+
 [node name="Root" type="Control" unique_id=1654898490 node_paths=PackedStringArray("spinners")]
 layout_mode = 3
 anchors_preset = 15
@@ -137,6 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uedom")
 spinners = [NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot1/ColorRect"), NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot2/ColorRect"), NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot3/ColorRect")]
+loser_limit = 15
 
 [node name="Background" type="TextureRect" parent="." unique_id=38247719]
 layout_mode = 1
@@ -265,4 +269,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wvfc3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pdueh")
 text = "SPIN"
 
+[node name="Button" type="Button" parent="." unique_id=1664124171]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.020000001
+anchor_bottom = 0.031000001
+offset_right = -0.040000916
+offset_bottom = -0.08800125
+theme_override_styles/normal = SubResource("StyleBoxFlat_tfptm")
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="spin"]
+[connection signal="button_down" from="Button" to="." method="god_Mode_Toggle"]
+
