@@ -8,6 +8,15 @@ var values: Array
 var tween: Tween
 var spin_count = 0 #counter of all spins
 var prev_val=loser_limit
+var complete_save_data
+var pole_save_data
+var money
+
+func _ready() -> void:
+	var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
+	complete_save_data = loaded_file.get_var()
+	pole_save_data = complete_save_data.get("Pole")
+	money = pole_save_data.get("money")
 func god_Mode_Toggle(): #function for toggling between normal mode and everytime guaranteed win
 	if loser_limit==1:
 		loser_limit=prev_val
@@ -15,6 +24,7 @@ func god_Mode_Toggle(): #function for toggling between normal mode and everytime
 		prev_val=loser_limit
 		loser_limit=1
 func spin(): #function for spining all spiners
+	money -= 5
 	values = []
 	var spin_step = 1.0 / float(n_options)
 	var offsets = {}
@@ -46,4 +56,16 @@ func spin(): #function for spining all spiners
 		for idx in spinners.size():
 			spinners[idx].material.set_shader_parameter('y_offset', values[idx] * spin_step)
 	)
-	
+	var victory = true
+	var victory_offset=spinners[0].material.get_shader_parameter('y_offset')
+	for s in spinners:
+		if s.material.get_shader_parameter('y_offset') != victory_offset:
+			victory = false
+	if victory:
+		money += 50
+		pole_save_data.set("money", money)
+		complete_save_data.set("Pole", pole_save_data)
+		var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
+		file.store_var(complete_save_data)
+		file.close()
+
