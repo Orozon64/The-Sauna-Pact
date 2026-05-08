@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxybxgftttmfk"]
+
+[ext_resource type="Script" uid="uid://b6cgmjv4s51je" path="res://scenes/obstacle.gd" id="1_ltan4"]
+[ext_resource type="Texture2D" uid="uid://baypih7oi53go" path="res://images/TileMapTiles/path2.png" id="2_gxjqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkmd0"]
+size = Vector2(83, 561.75)
+
+[node name="Node2D" type="Node2D" unique_id=1325106014]
+
+[node name="Obstacle" type="StaticBody2D" parent="." unique_id=1588659513]
+position = Vector2(577, 319)
+script = ExtResource("1_ltan4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle" unique_id=1130381306]
+position = Vector2(0, -1)
+scale = Vector2(3.5625, 8.761719)
+texture = ExtResource("2_gxjqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=125774398]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jkmd0")
