@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfyvwviicfyjo"]
 
-[ext_resource type="Script" uid="uid://dfhwccpggjc4c" path="res://scenes/gameOver.gd" id="1_ff314"]
+[ext_resource type="Script" uid="uid://dfhwccpggjc4c" path="res://scripts/gameOver.gd" id="1_ff314"]
 
 [node name="Node2D" type="Node2D" unique_id=1854361263]
 position = Vector2(586, 333)

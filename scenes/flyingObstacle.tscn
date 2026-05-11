@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxybxgftttmfk"]
 
-[ext_resource type="Script" uid="uid://b6cgmjv4s51je" path="res://scenes/obstacle.gd" id="1_ltan4"]
+[ext_resource type="Script" uid="uid://b6cgmjv4s51je" path="res://scripts/obstacle.gd" id="1_ltan4"]
 [ext_resource type="Texture2D" uid="uid://baypih7oi53go" path="res://images/TileMapTiles/path2.png" id="2_gxjqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkmd0"]

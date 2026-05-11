@@ -4,46 +4,64 @@
 [ext_resource type="Script" uid="uid://bgxyyt3qxapgm" path="res://scripts/flying.gd" id="1_itql5"]
 [ext_resource type="Script" uid="uid://dc2pivwqe1mm6" path="res://scripts/plane.gd" id="2_f8bqj"]
 [ext_resource type="Script" uid="uid://525dooou10pn" path="res://scripts/progress.gd" id="4_dkbag"]
+[ext_resource type="Texture2D" uid="uid://cbplb3373wg11" path="res://images/sprites/flyingBackgroundHigh.png" id="5_75y6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itql5"]
-size = Vector2(80, 38)
+size = Vector2(79, 38)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbag"]
 bg_color = Color(0.3171783, 0.6524563, 5.7756904e-07, 1)
 
 [node name="Node2D" type="Node2D" unique_id=514790352]
+texture_repeat = 2
 script = ExtResource("1_itql5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=575782916]
+anchor_mode = 0
 
 [node name="Plane" type="CharacterBody2D" parent="." unique_id=40663587]
 script = ExtResource("2_f8bqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Plane" unique_id=111543814]
-position = Vector2(-1.9073486e-06, -10.000002)
 scale = Vector2(1.8203124, 1.8203124)
 texture = ExtResource("1_ertuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plane" unique_id=932719557]
-position = Vector2(-1, -4)
+position = Vector2(-1.5, 5)
 shape = SubResource("RectangleShape2D_itql5")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=956929495]
 z_index = 10
-offset_left = -407.0
-offset_top = -287.0
-offset_right = 411.0
-offset_bottom = -260.0
+offset_left = 173.0
+offset_top = 58.0
+offset_right = 991.0
+offset_bottom = 85.0
+size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_dkbag")
 script = ExtResource("4_dkbag")
-dev_mode = true
 
 [node name="Start" type="Label" parent="." unique_id=913174795]
-offset_left = -263.0
-offset_top = -107.0
-offset_right = 279.0
-offset_bottom = 14.0
+z_index = 10
+offset_left = 296.0
+offset_top = 189.0
+offset_right = 838.0
+offset_bottom = 310.0
 theme_override_font_sizes/font_size = 30
 text = "Press space to start"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SkyBox" type="Parallax2D" parent="." unique_id=671951024]
+z_index = -6
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(562, 333)
+repeat_size = Vector2(1294, 0)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="SkyBox" unique_id=1371786131]
+offset_left = 612.0
+offset_top = -333.0
+offset_right = 1906.0
+offset_bottom = 314.0
+texture = ExtResource("5_75y6s")
+expand_mode = 1
