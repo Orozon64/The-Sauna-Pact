@@ -3,6 +3,8 @@
 [ext_resource type="Shader" uid="uid://b8hf02galphn5" path="res://shaders/spin_tex.gdshader" id="1_28amk"]
 [ext_resource type="Script" uid="uid://bqek2g55dev53" path="res://scripts/casino_minigame_root_script.gd" id="1_uedom"]
 [ext_resource type="Texture2D" uid="uid://62bnpa0q22mk" path="res://images/Casino_slots.png" id="2_5gemk"]
+[ext_resource type="StyleBox" uid="uid://cs5delmkrhwxd" path="res://shaders/gameOverBtn.tres" id="4_xkfhx"]
+[ext_resource type="Texture2D" uid="uid://6jawo25loif8" path="res://images/sprites/Money.png" id="5_dpyi5"]
 
 [sub_resource type="Gradient" id="Gradient_cobd6"]
 offsets = PackedFloat32Array(0.9794521, 1)
@@ -128,8 +130,62 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qcx"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.50928617, 0.5092862, 0.509286, 0.69803923)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.34509805, 0.22352941, 0.16078432, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5avtr"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.9137255, 0.43137255, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.36078432, 0.23921569, 0.18039216, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfptm"]
 bg_color = Color(0.22352941, 0.40392157, 0.47058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxn1j"]
+bg_color = Color(0.31764707, 0.6509804, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n0bx"]
+bg_color = Color(0.07058824, 0.15294118, 0.18431373, 0.88235295)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwc05"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.17320967, 0.31887946, 0.37453115, 0.88235295)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygvrr"]
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.05670935, 0.1301054, 0.15805984, 0.88235295)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv4rp"]
+bg_color = Color(0.6, 0.6, 0.6, 0.72156864)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l83ik"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Root" type="Control" unique_id=1654898490 node_paths=PackedStringArray("spinners")]
 layout_mode = 3
@@ -140,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uedom")
 spinners = [NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot1/ColorRect"), NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot2/ColorRect"), NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Slot3/ColorRect")]
-loser_limit = 15
+loser_limit = 7
 
 [node name="Background" type="TextureRect" parent="." unique_id=38247719]
 layout_mode = 1
@@ -260,16 +316,31 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=530604139]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=1797634079]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=657261799]
+layout_mode = 2
+
+[node name="SpinBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1797634079]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9098554, 0.9162429, 0.9374786, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_dpyi5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wvfc3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pdueh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o5qcx")
 text = "SPIN"
 
-[node name="Button" type="Button" parent="." unique_id=1664124171]
+[node name="ExitBtn" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=432977515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9098554, 0.9162429, 0.9374786, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpyi5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvfc3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pdueh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5avtr")
+disabled = true
+text = "EXIT"
+
+[node name="GodModeToggle" type="Button" parent="." unique_id=1664124171]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.020000001
@@ -278,6 +349,133 @@ offset_right = -0.040000916
 offset_bottom = -0.08800125
 theme_override_styles/normal = SubResource("StyleBoxFlat_tfptm")
 
-[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/Button" to="." method="spin"]
-[connection signal="button_down" from="Button" to="." method="god_Mode_Toggle"]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1285443737]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.083000004
+anchor_top = 0.074
+anchor_right = 0.91700006
+anchor_bottom = 0.12200001
+offset_left = 0.38399506
+offset_top = 0.048000336
+offset_right = -0.3840332
+offset_bottom = -0.056007385
+theme_override_styles/fill = SubResource("StyleBoxFlat_lxn1j")
+max_value = 250.0
+step = 1.0
+value = 5.0
+allow_greater = true
 
+[node name="Label" type="Label" parent="." unique_id=848341712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_top = 0.012
+anchor_right = 0.611
+anchor_bottom = 0.063
+offset_left = -0.12802124
+offset_top = 0.22399998
+offset_right = 0.12799072
+offset_bottom = 0.17599869
+theme_override_font_sizes/font_size = 20
+text = "Money needed for a beer"
+horizontal_alignment = 1
+
+[node name="GameOverScreen" type="Control" parent="." unique_id=1365155063]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen" unique_id=504390399]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/CenterContainer" unique_id=1603659849]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=1714781352]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6n0bx")
+
+[node name="Label" type="Label" parent="GameOverScreen/CenterContainer/VBoxContainer/PanelContainer" unique_id=277752595]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "YOU PUSHED YOUR LUCK TOO FAR.
+NOW YOU ARE BROKE WITH NO WAY TO REACH FINLAND.
+GAME OVER"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=604823166]
+layout_mode = 2
+
+[node name="restart" type="Button" parent="GameOverScreen/CenterContainer/VBoxContainer/CenterContainer" unique_id=1094273056]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("4_xkfhx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nwc05")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ygvrr")
+text = "RESTART"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1859035571]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1152.0
+offset_bottom = 44.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1597697860]
+layout_mode = 2
+texture = ExtResource("5_dpyi5")
+expand_mode = 2
+
+[node name="moneyStatus" type="Label" parent="HBoxContainer" unique_id=78621817]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="popup" type="Control" parent="." unique_id=1903253390]
+visible = false
+layout_mode = 1
+anchor_left = 0.3
+anchor_top = 0.34100002
+anchor_right = 0.70000005
+anchor_bottom = 0.656
+offset_left = 0.3999939
+offset_top = 0.031982422
+offset_right = -0.4000244
+offset_bottom = -0.088012695
+
+[node name="PanelContainer" type="PanelContainer" parent="popup" unique_id=1214196654]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = -0.25
+anchor_right = 1.0040001
+anchor_bottom = 0.75000006
+offset_left = -1.84
+offset_right = 0.15997314
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lv4rp")
+
+[node name="warning" type="Label" parent="popup/PanelContainer" unique_id=407496685]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_l83ik")
+text = "YOU CAN EXIT NOW
+OR RISK AND PLAY MORE"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/SpinBtn" to="." method="spin"]
+[connection signal="button_down" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ExitBtn" to="." method="_on_exitbtn_button_down"]
+[connection signal="button_down" from="GodModeToggle" to="." method="god_Mode_Toggle"]
+[connection signal="button_down" from="GameOverScreen/CenterContainer/VBoxContainer/CenterContainer/restart" to="." method="_on_restart_button_down"]
