@@ -4,7 +4,7 @@ var items_for_current_player = []
 var last_item
 var current_item_name
 var player
-var play_ending
+var play_ending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 			
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
-			items_for_current_player = ["Towel", "Sauna oil"]
+			items_for_current_player = ["Towel", "Sauna oil", "Beer"]
 			player = $PoleCharacter
 			$AirportArea.body_entered.connect(player._on_enter_airport)
 			$AirportArea.body_exited.connect(player._on_exit_place)
@@ -36,45 +36,54 @@ func _ready() -> void:
 	if last_item != items_for_current_player[-1]:
 		if last_item == "":
 			current_item_name = items_for_current_player[0]
-		
+		elif last_item == "Sauna oil":
+			player.can_enter_store_and_casino = true
+			current_item_name = "Beer"
 		else:
 			current_item_name = items_for_current_player[items_for_current_player.find(last_item) + 1]
 			if last_item == "Furnace":
 				$Furnace.position = Vector2(467.332, 241.607)
 				$Furnace.show()
-		if current_item_name == "Sauna oil":
-			var first_item = $Oil
-			first_item.show()
-			get_node(first_item.name+"/CollisionShape2D").disabled = false
-			first_item.picked_up.connect(player._on_item_picked_up)
-			var second_item = $Lavender
-			second_item.show()
-			get_node(second_item.name+"/CollisionShape2D").disabled = false
-			second_item.picked_up.connect(player._on_item_picked_up)
-		else:
-			var current_item = get_node(current_item_name)
-			current_item.show()
-			get_node(current_item_name+"/CollisionShape2D").disabled = false
-			current_item.picked_up.connect(player._on_item_picked_up)
+
+		if current_item_name != "Beer":
+			if current_item_name == "Sauna oil":
+				var first_item = $Oil
+				first_item.show()
+				get_node(first_item.name+"/CollisionShape2D").disabled = false
+				first_item.picked_up.connect(player._on_item_picked_up)
+				var second_item = $Lavender
+				second_item.show()
+				get_node(second_item.name+"/CollisionShape2D").disabled = false
+				second_item.picked_up.connect(player._on_item_picked_up)
+			else:
+				var current_item = get_node(current_item_name)
+				current_item.show()
+				get_node(current_item_name+"/CollisionShape2D").disabled = false
+				current_item.picked_up.connect(player._on_item_picked_up)
+	else:
+		play_ending = true
 	file.close()
 	if play_ending:
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
 		$FinnCharacter.ready_to_build = true
-		$FinnCharacter.build.connect()
+		$FinnCharacter.build.connect(_on_player_begin_building)
 
 
-func _on_player_begin_building(args):
+
+func _on_player_begin_building():
 	$SaunaBuildingSprite.show()
-	$SaunaBuildingSprite.animation = "build"
+	$SaunaBuildingSprite.animation = "Building"
 	$SaunaBuildingSprite.play()
-	get_tree().create_timer(3).timeout.connect(finish_building)
+	get_tree().create_timer(1.5).timeout.connect(finish_building)
 func finish_building():
 	$SaunaBuildingSprite.stop()
 	$SaunaBuildingSprite.hide()
 	$ConstructionArea.hide()
 	$ConstructionArea/CollisionShape2D.disabled = true
 	$Sauna.show()
+	$Sauna/CollisionShape2D.disabled = false
+	$Sauna.body_entered.connect(player._on_enter_sauna)
 
 func place_item(item_name):
 	match item_name:

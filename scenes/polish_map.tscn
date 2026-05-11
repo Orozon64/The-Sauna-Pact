@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_7velx"]
 [ext_resource type="PackedScene" uid="uid://6bilw8itvr8c" path="res://scenes/polish_player.tscn" id="2_g2vl7"]
 [ext_resource type="PackedScene" uid="uid://dlfy0rk8wqcnk" path="res://scenes/towel.tscn" id="2_qonml"]
+[ext_resource type="Texture2D" uid="uid://fhkbtmox1r4s" path="res://images/TileMaps/polish_tilemap.png" id="2_u03f7"]
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="4_7velx"]
-[ext_resource type="Texture2D" uid="uid://bl8sf0rgv7wxc" path="res://images/placeholders/tilemap_placeholder.png" id="6_5flhr"]
 [ext_resource type="PackedScene" uid="uid://b5d4fabfah5by" path="res://scenes/oil.tscn" id="7_167yp"]
 [ext_resource type="PackedScene" uid="uid://cr2j1mv1snm6q" path="res://scenes/lavender.tscn" id="8_6qxas"]
 [ext_resource type="Texture2D" uid="uid://o5dowhtvpp1b" path="res://images/sprites/Airport.png" id="9_xpv0b"]
@@ -12,24 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://b51nhl47r8lvc" path="res://images/sprites/Casino.png" id="11_d0c66"]
 [ext_resource type="Texture2D" uid="uid://d1kfqxg5m372r" path="res://images/sprites/FrogShop.png" id="12_u03f7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_167yp"]
-texture = ExtResource("6_5flhr")
-margins = Vector2i(0, 6)
-34:22/size_in_atlas = Vector2i(4, 4)
-34:22/0 = 0
-30:18/size_in_atlas = Vector2i(4, 4)
-30:18/0 = 0
-30:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.14418, -26.259373, 24.820496, -27.338526, 22.842056, 23.201775, -20.503899, 23.381638)
-34:18/size_in_atlas = Vector2i(4, 4)
-34:18/0 = 0
-34:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.806015, -31.475277, 16.187286, -32.19471, 18.885162, 28.237823, -21.043472, 28.597542)
-38:18/size_in_atlas = Vector2i(4, 4)
-38:18/0 = 0
-38:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.446297, -32.014854, 17.086578, -31.655136, 19.784454, 25.899658, -19.424744, 25.899658)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tr50w"]
+texture = ExtResource("2_u03f7")
+margins = Vector2i(32, 38)
+texture_region_size = Vector2i(64, 64)
+8:5/0 = 0
+8:6/0 = 0
+9:5/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_6qxas"]
-physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_167yp")
+[sub_resource type="TileSet" id="TileSet_ju8m4"]
+sources/0 = SubResource("TileSetAtlasSource_tr50w")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0c66"]
+texture = ExtResource("2_u03f7")
+margins = Vector2i(32, 38)
+texture_region_size = Vector2i(64, 64)
+7:5/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u03f7"]
+sources/0 = SubResource("TileSetAtlasSource_d0c66")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpv0b"]
 size = Vector2(129, 96)
@@ -45,16 +48,16 @@ size = Vector2(50, 64)
 [node name="PolishRootNode" type="Node2D" unique_id=1428940587]
 script = ExtResource("1_7velx")
 
-[node name="GrassTileMapLayer" type="TileMapLayer" parent="." unique_id=122205658]
+[node name="TerrainTileMapLayer" type="TileMapLayer" parent="." unique_id=122205658]
 position = Vector2(1, 20)
-tile_map_data = PackedByteArray("AAACAAEAAQAfABAAAAABABQAAQAfABAAAAACABQAAQAfABAAAAADABUAAQAiABYAAAAEABUAAQAfABAAAAAFABUAAQAfABAAAAAGABUAAQAfABAAAAAHABUAAQAiABYAAAAIABUAAQAfABAAAAAJABUAAQAfABAAAAAKABUAAQAfABAAAAALABUAAQAiABYAAAAEABQAAQAfABAAAAADABQAAQAfABAAAAADABMAAQAfABAAAAAEABMAAQAfABAAAAAEABIAAQAfABAAAAACABMAAQAfABAAAAACABIAAQAfABAAAAADABIAAQAfABAAAAADABEAAQAfABAAAAAAABQAAQAfABAAAAD//xQAAQAfABAAAAD//xMAAQAfABAAAAD+/xQAAQAfABAAAAD+/xMAAQAfABAAAAD9/xQAAQAfABAAAAD9/xMAAQAfABAAAAAAABAAAQAfABIAAAAGABAAAQAfABIAAAAIABAAAQAfABIAAAALABAAAQAfABIAAAANABAAAQAfABIAAAAMAAwAAQAiABYAAAAHAAwAAQAiABYAAAABABEAAQAiABYAAAAEABEAAQAiABYAAAAIABEAAQAiABYAAAALABEAAQAiABYAAAANABEAAQAiABYAAAD9/xEAAQAiABYAAAD9/w0AAQAiABYAAAAAAA0AAQAiABYAAAAEAA0AAQAiABYAAAAIAA0AAQAiABYAAAAMAA0AAQAiABYAAAAQAA0AAQAiABYAAAAQAAkAAQAiABYAAAAbAA8AAQAiABYAAAA=")
-tile_set = SubResource("TileSet_6qxas")
+tile_map_data = PackedByteArray("AAADABUAAAAIAAUAAAALABEAAAAIAAYAAFAHABEAAAAIAAYAAFAPABEAAAAIAAUAAAAPAA0AAAAIAAYAAAAPAAkAAAAIAAYAAAAHAA0AAAAIAAUAAAALAA0AAAAIAAUAAAAPAAUAAAAIAAUAAAATAAUAAAAIAAUAAAADAA0AAAAIAAUAAAADABEAAAAIAAUAAAA=")
+tile_set = SubResource("TileSet_ju8m4")
 collision_visibility_mode = 1
 
-[node name="TerrainTileMapLayer" type="TileMapLayer" parent="." unique_id=1685540815]
+[node name="ObjectsTileMapLayer" type="TileMapLayer" parent="." unique_id=1685540815]
 position = Vector2(1, 20)
-tile_map_data = PackedByteArray("AAACAAEAAQAfABAAAAABABQAAQAfABAAAAACABQAAQAfABAAAAADABUAAQAfABAAAAAEABUAAQAfABAAAAAFABUAAQAfABAAAAAGABUAAQAfABAAAAAHABUAAQAfABAAAAAIABUAAQAfABAAAAAJABUAAQAfABAAAAAKABUAAQAfABAAAAALABUAAQAfABAAAAAEABQAAQAfABAAAAADABQAAQAfABAAAAADABMAAQAfABAAAAAEABMAAQAfABAAAAAEABIAAQAfABAAAAACABMAAQAfABAAAAACABIAAQAfABAAAAADABIAAQAfABAAAAADABEAAQAfABAAAAAAABQAAQAfABAAAAD//xQAAQAfABAAAAD//xMAAQAfABAAAAD+/xQAAQAfABAAAAD+/xMAAQAfABAAAAD9/xQAAQAfABAAAAD9/xMAAQAfABAAAAAAABAAAQAfABIAAAAGABAAAQAfABIAAAAIABAAAQAfABIAAAALABAAAQAfABIAAAANABAAAQAfABIAAAABAA0AAQAeABIAAAD+/w0AAQAeABIAAAAbAAwAAQAeABIAAAAeAAwAAQAeABIAAAAYAAwAAQAeABIAAAAYAA8AAQAeABIAAAAeAA8AAQAeABIAAAA=")
-tile_set = SubResource("TileSet_6qxas")
+tile_map_data = PackedByteArray("AAACAAEAAQAfABAAAAABABQAAQAfABAAAAACABQAAQAfABAAAAADABUAAAAHAAUAAAAEABUAAQAfABAAAAAFABUAAQAfABAAAAAGABUAAQAfABAAAAAHABUAAQAfABAAAAAIABUAAQAfABAAAAAJABUAAQAfABAAAAAKABUAAQAfABAAAAALABUAAQAfABAAAAAEABQAAQAfABAAAAADABQAAQAfABAAAAADABMAAQAfABAAAAAEABMAAQAfABAAAAAEABIAAQAfABAAAAACABMAAQAfABAAAAACABIAAQAfABAAAAADABIAAQAfABAAAAADABEAAQAfABAAAAAAABQAAQAfABAAAAD//xQAAQAfABAAAAD//xMAAQAfABAAAAD+/xQAAQAfABAAAAD+/xMAAQAfABAAAAD9/xQAAQAfABAAAAD9/xMAAQAfABAAAAAAABAAAQAfABIAAAAGABAAAQAfABIAAAAIABAAAQAfABIAAAALABAAAQAfABIAAAANABAAAQAfABIAAAABAA0AAQAeABIAAAD+/w0AAQAeABIAAAAbAAwAAQAeABIAAAAeAAwAAQAeABIAAAAYAAwAAQAeABIAAAAYAA8AAQAeABIAAAAeAA8AAQAeABIAAAADAA0AAAAHAAQAAAA=")
+tile_set = SubResource("TileSet_u03f7")
 collision_visibility_mode = 1
 
 [node name="AirportArea" type="Area2D" parent="." unique_id=1053614381]
@@ -92,7 +95,7 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_u03f7")
 
 [node name="StoreArea" type="Area2D" parent="." unique_id=811227883]
-position = Vector2(206, 288)
+position = Vector2(236, 298)
 
 [node name="Sprite2D" type="Sprite2D" parent="StoreArea" unique_id=2122536855]
 texture = ExtResource("12_u03f7")
@@ -102,9 +105,14 @@ position = Vector2(7, 3)
 shape = SubResource("RectangleShape2D_tr50w")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]
+dev_mode = true
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=721784626]
 position = Vector2(126, 303)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint" unique_id=1942688163]
 shape = SubResource("RectangleShape2D_d0c66")
+
+[node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1472383805]
+
+[node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1147993621]

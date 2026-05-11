@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://buch6lnp8ebgv"]
 
 [ext_resource type="Texture2D" uid="uid://d113y248fbkrl" path="res://images/sprites/PlaneFly.png" id="1_ertuq"]
-[ext_resource type="Script" uid="uid://bgxyyt3qxapgm" path="res://scenes/flying.gd" id="1_itql5"]
-[ext_resource type="Script" uid="uid://dc2pivwqe1mm6" path="res://scenes/plane.gd" id="2_f8bqj"]
-[ext_resource type="Script" uid="uid://525dooou10pn" path="res://scenes/progress.gd" id="4_dkbag"]
+[ext_resource type="Script" uid="uid://bgxyyt3qxapgm" path="res://scripts/flying.gd" id="1_itql5"]
+[ext_resource type="Script" uid="uid://dc2pivwqe1mm6" path="res://scripts/plane.gd" id="2_f8bqj"]
+[ext_resource type="Script" uid="uid://525dooou10pn" path="res://scripts/progress.gd" id="4_dkbag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itql5"]
 size = Vector2(80, 38)
@@ -36,6 +36,7 @@ offset_right = 411.0
 offset_bottom = -260.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_dkbag")
 script = ExtResource("4_dkbag")
+dev_mode = true
 
 [node name="Start" type="Label" parent="." unique_id=913174795]
 offset_left = -263.0

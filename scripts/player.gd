@@ -3,6 +3,8 @@ extends CharacterBody2D
 var last_item
 @export var speed = 1
 
+@export var dev_mode = false
+
 var screen_size
 var last_played_anim #the last walking animation played - this is used to play the right idle animation once the player stops moving
 var complete_save_data #the save data for both characters
@@ -12,14 +14,18 @@ var touched_item_name = "" #the name of the collectible that the player is nearb
 
 var place_name = "" #the name of the place a player is on - casino/store/construction site
 
+var can_enter_store_and_casino
+
 var ready_to_build = false
 
-var money = 0
+var money #for testing purposes
+
 signal item_placed(item_name)
 
-signal build()
+signal build
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	character_name = name.replace("Character", "")
 
 	var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
@@ -30,7 +36,18 @@ func _ready() -> void:
 		position = $"../StartingPoint".position
 	else:
 		position = current_character_save_data.get("position")
+	if dev_mode:
+		money = 999
+	else:
+		money = current_character_save_data.get("money")
 	screen_size = get_viewport_rect().size
+
+func save_game():
+	var current_scene_save_data = {"position":position, "last_item":last_item, "money":money}
+	complete_save_data.set(character_name, current_scene_save_data)
+	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
+	file.store_var(complete_save_data)
+	file.close()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,8 +61,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if velocity.length() > 0:
+		get_parent().get_node("WalkingSoundPlayer").play()
 		velocity = velocity.normalized() * speed
 		$PlayerSprite.play()
+		
 	else:
 		$PlayerSprite.stop()
 		$PlayerSprite.animation = $PlayerSprite.animation.replace("walk", "idle")
@@ -67,20 +86,29 @@ func _process(delta: float) -> void:
 	last_played_anim = 	$PlayerSprite.animation
 
 	if Input.is_action_just_pressed("item_interact"):
-		if place_name == "construction site":
-			if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
-				item_placed.emit(touched_item_name)
-			elif ready_to_build:
-				build.emit()
-		elif place_name == "airport" and touched_item_name == "Beer":
-			get_tree().change_scene_to_file("res://scenes/flying.tscn")
-		elif place_name == "casino":
-			get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
-		elif place_name == "store" and money >= 50:
-			_on_item_picked_up("Beer")
-		
+		match place_name:
+			"construction site":
+				if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
+					item_placed.emit(touched_item_name)
+				elif ready_to_build:
+					build.emit()
+			"cave":
+				if last_item == "Furnace":
+					get_tree().change_scene_to_file("res://scenes/cave_map.tscn")
+			"airport":
+				if touched_item_name == "Beer":
+					get_tree().change_scene_to_file("res://scenes/flying.tscn")
+			"casino":
+				get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
+			"store":
+				if money >= 50:
+					_on_item_picked_up("Beer")
+			"sauna":
+				get_tree().change_scene_to_file("res://scenes/ending.tscn")
+
 
 func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out
+	get_parent().get_node("PickUpSoundPlayer").play()
 	touched_item_name = item_name
 	print(touched_item_name + " found!")
 	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
@@ -89,13 +117,7 @@ func _on_item_picked_up(item_name): #this entire function feels very unoptimized
 			last_item = "Sauna oil"
 		else:
 			last_item = touched_item_name
-		
-		var current_scene_save_data = {"position":position, "last_item":last_item, "money":money}
-		complete_save_data.set(character_name, current_scene_save_data)
-		var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
-		file.store_var(complete_save_data)
-		file.close()
-
+		save_game()
 		if touched_item_name != "Furnace" and touched_item_name != "Stones" and touched_item_name != "Beer":
 			if get_parent().name == "FinnishRootNode":
 				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
@@ -104,6 +126,12 @@ func _on_item_picked_up(item_name): #this entire function feels very unoptimized
 		
 	else:
 		last_item = touched_item_name
+
+func _on_enter_sauna(args):
+	place_name = "sauna"
+
+func _on_enter_cave(args):
+	place_name = "cave"
 
 func _on_enter_construction_site(args):
 	place_name = "construction site"		 
