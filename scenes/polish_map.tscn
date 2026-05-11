@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://o5dowhtvpp1b" path="res://images/sprites/Airport.png" id="9_xpv0b"]
 [ext_resource type="Texture2D" uid="uid://buxip6hvbpm6k" path="res://images/sprites/Plane.png" id="10_dq56n"]
 [ext_resource type="Texture2D" uid="uid://b51nhl47r8lvc" path="res://images/sprites/Casino.png" id="11_d0c66"]
+[ext_resource type="AudioStream" uid="uid://cue57a4icm8nh" path="res://Sound Effects/CashZabka.mp3" id="12_tr50w"]
 [ext_resource type="Texture2D" uid="uid://d1kfqxg5m372r" path="res://images/sprites/FrogShop.png" id="12_u03f7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tr50w"]
@@ -116,3 +117,6 @@ shape = SubResource("RectangleShape2D_d0c66")
 [node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1472383805]
 
 [node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1147993621]
+
+[node name="CashAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=332224694]
+stream = ExtResource("12_tr50w")

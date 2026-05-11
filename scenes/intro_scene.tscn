@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c870svib6gnu3" path="res://scripts/intro_scene.gd" id="1_jkhwn"]
 [ext_resource type="Texture2D" uid="uid://bkc4tp8b07cto" path="res://images/sprites/PolskiPhone.png" id="2_0y5sa"]
 [ext_resource type="Texture2D" uid="uid://k7ptyfc5jhw8" path="res://images/sprites/FinFinPhone.png" id="3_gsw8x"]
+[ext_resource type="AudioStream" uid="uid://ck4jxdbu6lypy" path="res://Sound Effects/NokiaCalling.mp3" id="4_jkhwn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gsw8x"]
 animations = [{
@@ -38,3 +39,6 @@ animation = &"Ring"
 position = Vector2(725, 333)
 sprite_frames = SubResource("SpriteFrames_jkhwn")
 animation = &"Ring"
+
+[node name="NokiaAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=979361078]
+stream = ExtResource("4_jkhwn")

@@ -19,7 +19,8 @@ func _ready() -> void:
 			$ConstructionArea.body_entered.connect(player._on_enter_construction_site)
 			$ConstructionArea.body_exited.connect(player._on_exit_place)
 			
-			
+			$Cave.body_entered.connect(player._on_enter_cave)
+			$Cave.body_exited.connect(player._on_exit_place)
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
 			items_for_current_player = ["Towel", "Sauna oil", "Beer"]
@@ -45,7 +46,7 @@ func _ready() -> void:
 				$Furnace.position = Vector2(467.332, 241.607)
 				$Furnace.show()
 
-		if current_item_name != "Beer":
+		if current_item_name != "Beer" and current_item_name != "Stones":
 			if current_item_name == "Sauna oil":
 				var first_item = $Oil
 				first_item.show()

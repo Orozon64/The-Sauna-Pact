@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 					build.emit()
 			"cave":
 				if last_item == "Furnace":
-					get_tree().change_scene_to_file("res://scenes/cave_map.tscn")
+					get_tree().change_scene_to_file("res://scenes/cave_level.tscn")
 			"airport":
 				if touched_item_name == "Beer":
 					get_tree().change_scene_to_file("res://scenes/flying.tscn")
@@ -108,7 +108,10 @@ func _process(delta: float) -> void:
 
 
 func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out
-	get_parent().get_node("PickUpSoundPlayer").play()
+	if item_name != "Beer":
+		get_parent().get_node("PickUpSoundPlayer").play()
+	else:
+		get_parent().get_node("PickUpSoundPlayer").play()
 	touched_item_name = item_name
 	print(touched_item_name + " found!")
 	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):

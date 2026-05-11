@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://caurp0axx2i5p" path="res://scenes/wood.tscn" id="2_avsef"]
 [ext_resource type="Texture2D" uid="uid://b2lxkugbifqwg" path="res://images/TileMaps/finnish_tilemap.png" id="2_xh0mk"]
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_f626w"]
-[ext_resource type="PackedScene" uid="uid://dsb1n48yjysol" path="res://scenes/stones.tscn" id="6_et5ik"]
 [ext_resource type="PackedScene" uid="uid://dlah7vce3xvpw" path="res://scenes/furnace.tscn" id="7_u3hsj"]
 [ext_resource type="Texture2D" uid="uid://cf1ay00jcm2u8" path="res://images/placeholders/construction_site.png" id="8_mbhtb"]
 [ext_resource type="Texture2D" uid="uid://c4r4dxcfcy4iw" path="res://images/sprites/caveEntrance.png" id="9_3r76t"]
 [ext_resource type="Texture2D" uid="uid://cnsqkjcgica66" path="res://images/sprites/AnimacjaBudowania1.png" id="10_xh0mk"]
 [ext_resource type="Texture2D" uid="uid://bn63j857chken" path="res://images/sprites/AnimacjaBudowania2.png" id="11_2k7c1"]
 [ext_resource type="Texture2D" uid="uid://xx64m10fmc2w" path="res://images/sprites/SaunaZZewnatrz.png" id="12_odkrj"]
+[ext_resource type="AudioStream" uid="uid://fefnvoj3le3i" path="res://Sound Effects/ItemPickup.mp3" id="12_xh0mk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k7c1"]
 texture = ExtResource("2_xh0mk")
@@ -102,10 +102,6 @@ position = Vector2(341, 283)
 scale = Vector2(0.49661088, 0.49661088)
 script = ExtResource("3_f626w")
 
-[node name="Stones" parent="." unique_id=1981020031 instance=ExtResource("6_et5ik")]
-position = Vector2(333, 186)
-script = ExtResource("3_f626w")
-
 [node name="Furnace" parent="." unique_id=1491667833 instance=ExtResource("7_u3hsj")]
 position = Vector2(214, 157)
 script = ExtResource("3_f626w")
@@ -152,3 +148,4 @@ shape = SubResource("RectangleShape2D_2k7c1")
 [node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2092690882]
 
 [node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1240962228]
+stream = ExtResource("12_xh0mk")

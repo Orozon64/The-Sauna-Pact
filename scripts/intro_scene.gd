@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	$PolishPhoneSprite.animation = "Ring"
 	$FinnishPhoneSprite.animation = "Ring"
+	$NokiaAudioPlayer.play()
 
 	$PolishPhoneSprite.play()
 	$FinnishPhoneSprite.play()
