@@ -31,7 +31,8 @@ func _show_credits():
 	$CreditsButton.hide()
 	$PlayButton.hide()
 	$ReturnButton.show()
-	$Label.text = "Programming: Ignacy Guminiak, Michał Wójtowicz, Zuzanna Dróżdż \n Network management: Jakub Klimowicz, Jan Kukier, Jan Maciejewski"
+	$Label.text = "Programming: Ignacy Guminiak, Michał Wójtowicz, Jan Kukier\nNetwork management: Jakub Klimowicz, Jan Kukier, Jan Maciejewski\nGraphic design: Michał Wójtowicz, Zuzanna Dróżdż, Jan Maciejewski\nAudio design: Jakub Klimowicz, Zuzanna Dróżdż, Ignacy Guminiak\nProject leader: Jakub Klimowicz\nSpecial thanks to mechatronics team :)\n"
+	$Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 func _return_to_menu():
 	$CreditsButton.show()
 	$PlayButton.show()
