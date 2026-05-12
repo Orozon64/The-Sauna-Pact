@@ -14,6 +14,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pos -= 5;
 	position = Vector2(pos, position.y)
-	if(position.x <= -1000):
+	if(position.x <= -1500):
 		queue_free()
 		

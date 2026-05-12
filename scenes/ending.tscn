@@ -2,10 +2,35 @@
 
 [ext_resource type="Script" uid="uid://cxut8nfbn68gi" path="res://scripts/ending.gd" id="1_fyrdv"]
 [ext_resource type="Texture2D" uid="uid://cg6f0qrlkwv78" path="res://images/sprites/endingScene.png" id="1_mqjok"]
+[ext_resource type="Texture2D" uid="uid://dlpy8uot135rx" path="res://images/sprites/endingScene2.png" id="3_2x1jc"]
+[ext_resource type="Texture2D" uid="uid://btmvmvb6a8tjx" path="res://images/placeholders/the_end.png" id="4_nfmnx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfmnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mqjok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2x1jc")
+}],
+"loop": true,
+"name": &"Drinking",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nfmnx")
+}],
+"loop": true,
+"name": &"The End",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=1594924612]
 script = ExtResource("1_fyrdv")
 
-[node name="EndingSprite" type="Sprite2D" parent="." unique_id=604780562]
-position = Vector2(552, 285)
-texture = ExtResource("1_mqjok")
+[node name="EndingSprite" type="AnimatedSprite2D" parent="." unique_id=2049335228]
+position = Vector2(575, 360)
+sprite_frames = SubResource("SpriteFrames_nfmnx")
+animation = &"The End"

@@ -13,7 +13,7 @@ func _ready() -> void:
 	match name:
 		"FinnishRootNode":
 			last_item = file.get_var().get("Finn").get("last_item")
-			items_for_current_player = ["Wood", "Furnace", "Stones"]
+			items_for_current_player = ["Wood", "Furnace", "Stones", "Filled furnace"]
 			player = $FinnCharacter
 			player.item_placed.connect(place_item)
 			
@@ -34,6 +34,10 @@ func _ready() -> void:
 
 			$StoreArea.body_entered.connect(player._on_enter_store)
 			$StoreArea.body_exited.connect(player._on_exit_place)
+		"CaveLevel":
+			player = $FinnCharacter
+			last_item = file.get_var().get("Finn").get("last_item")
+			items_for_current_player = ["Wood", "Furnace", "Stones", "Filled furnace"]
 
 	if last_item != items_for_current_player[-1]:
 		if last_item == "":
@@ -43,11 +47,11 @@ func _ready() -> void:
 			current_item_name = "Beer"
 		else:
 			current_item_name = items_for_current_player[items_for_current_player.find(last_item) + 1]
-			if last_item == "Furnace":
+			if (last_item == "Furnace" and name != "CaveLevel") or last_item == "Stones":
 				$Furnace.position = Vector2(467.332, 241.607)
 				$Furnace.show()
 
-		if current_item_name != "Beer" and current_item_name != "Stones":
+		if current_item_name != "Beer" and !(current_item_name == "Stones" and name != "CaveLevel") and current_item_name != "Filled furnace":
 			if current_item_name == "Sauna oil":
 				var first_item = $Oil
 				first_item.show()
@@ -66,6 +70,7 @@ func _ready() -> void:
 		play_ending = true
 	file.close()
 	if play_ending:
+		$DialogueControl.show()
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
 		$FinnCharacter.ready_to_build = true
@@ -74,10 +79,11 @@ func _ready() -> void:
 
 
 func _on_player_begin_building():
+	$BuildingSoundPlayer.play()
 	$SaunaBuildingSprite.show()
 	$SaunaBuildingSprite.animation = "Building"
 	$SaunaBuildingSprite.play()
-	get_tree().create_timer(1.5).timeout.connect(finish_building)
+	get_tree().create_timer(3).timeout.connect(finish_building)
 func finish_building():
 	$SaunaBuildingSprite.stop()
 	$SaunaBuildingSprite.hide()
@@ -95,6 +101,8 @@ func place_item(item_name):
 			#then wait like half a sec so the player can see what they did
 			get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
 		"Stones":
+			player.last_item = "Filled furnace"
+			player.save_game()
 			$Furnace/Sprite2D.texture = load("res://images/sprites/furnaceFilled.png")
 			get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
 		

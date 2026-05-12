@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bn63j857chken" path="res://images/sprites/AnimacjaBudowania2.png" id="11_2k7c1"]
 [ext_resource type="Texture2D" uid="uid://xx64m10fmc2w" path="res://images/sprites/SaunaZZewnatrz.png" id="12_odkrj"]
 [ext_resource type="AudioStream" uid="uid://fefnvoj3le3i" path="res://Sound Effects/ItemPickup.mp3" id="12_xh0mk"]
+[ext_resource type="AudioStream" uid="uid://gavflm74r4xm" path="res://Sound Effects/FinlandBackground.mp3" id="13_2k7c1"]
+[ext_resource type="AudioStream" uid="uid://bykwrf0sv8ua7" path="res://Sound Effects/Building.mp3" id="14_odkrj"]
+[ext_resource type="PackedScene" uid="uid://1i5vnxbi5l12" path="res://scenes/dialogue_window.tscn" id="15_ykeo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k7c1"]
 texture = ExtResource("2_xh0mk")
@@ -151,3 +154,15 @@ shape = SubResource("RectangleShape2D_2k7c1")
 stream = ExtResource("12_xh0mk")
 
 [node name="BGMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2126332616]
+stream = ExtResource("13_2k7c1")
+
+[node name="BuildingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=690616198]
+stream = ExtResource("14_odkrj")
+
+[node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
+visible = false
+offset_left = 413.0
+offset_top = 462.0
+offset_right = 413.0
+offset_bottom = 462.0
+scene_id = 3

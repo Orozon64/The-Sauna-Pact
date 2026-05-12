@@ -57,7 +57,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tdpx6")
-scene_id = 2
 
 [node name="BubbleSprite" type="Sprite2D" parent="." unique_id=2061394449]
 position = Vector2(51.000015, -71.00001)

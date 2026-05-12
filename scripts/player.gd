@@ -23,6 +23,7 @@ var money #for testing purposes
 signal item_placed(item_name)
 
 signal build
+var current_character_save_data
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -30,12 +31,15 @@ func _ready() -> void:
 
 	var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	complete_save_data = loaded_file.get_var()
-	var current_character_save_data = complete_save_data.get(character_name)
+	current_character_save_data = complete_save_data.get(character_name)
 	print(complete_save_data)
 	if current_character_save_data.get("last_item") == "":
 		position = $"../StartingPoint".position
 	else:
 		position = current_character_save_data.get("position")
+
+	last_item = current_character_save_data.get("last_item")
+	touched_item_name = last_item
 	if dev_mode:
 		money = 999
 	else:
@@ -43,8 +47,13 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 
 func save_game():
-	var current_scene_save_data = {"position":position, "last_item":last_item, "money":money}
-	complete_save_data.set(character_name, current_scene_save_data)
+	if get_parent().name != "CaveLevel":
+		var current_scene_save_data = {"position":position, "last_item":last_item, "money":money} 
+		complete_save_data.set(character_name, current_scene_save_data)
+	else:
+		current_character_save_data.set("last_item", last_item)
+		current_character_save_data.set("money", money)
+		complete_save_data.set(character_name, current_character_save_data)
 	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
 	file.store_var(complete_save_data)
 	file.close()
@@ -88,20 +97,22 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("item_interact"):
 		match place_name:
 			"construction site":
+				print(touched_item_name)
 				if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
-					item_placed.emit(touched_item_name)
+					item_placed.emit(touched_item_name) #touched item for furnace or last for stone, but that's too convoluted
+					#ideally, we'd set 
 				elif ready_to_build:
 					build.emit()
 			"cave":
 				if last_item == "Furnace":
-					get_tree().change_scene_to_file("res://scenes/cave_level.tscn")
+					get_tree().change_scene_to_file("res://scenes/quiz.tscn")
 			"airport":
 				if touched_item_name == "Beer":
 					get_tree().change_scene_to_file("res://scenes/flying.tscn")
 			"casino":
 				get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
 			"store":
-				if money >= 50:
+				if money >= 250:
 					_on_item_picked_up("Beer")
 			"sauna":
 				get_tree().change_scene_to_file("res://scenes/ending.tscn")
@@ -111,7 +122,7 @@ func _on_item_picked_up(item_name): #this entire function feels very unoptimized
 	if item_name != "Beer":
 		get_parent().get_node("PickUpSoundPlayer").play()
 	else:
-		get_parent().get_node("PickUpSoundPlayer").play()
+		get_parent().get_node("CashAudioPlayer").play()
 	touched_item_name = item_name
 	print(touched_item_name + " found!")
 	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
@@ -121,11 +132,11 @@ func _on_item_picked_up(item_name): #this entire function feels very unoptimized
 		else:
 			last_item = touched_item_name
 		save_game()
-		if touched_item_name != "Furnace" and touched_item_name != "Stones" and touched_item_name != "Beer":
-			if get_parent().name == "FinnishRootNode":
-				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
-			else:
+		if touched_item_name != "Furnace" and touched_item_name != "Beer":
+			if get_parent().name == "PolishRootNode" or get_parent().name == "CaveLevel":
 				get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 		
 	else:
 		last_item = touched_item_name

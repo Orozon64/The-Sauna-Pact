@@ -7,8 +7,9 @@ var dialogue_dict = {
 	1:
 		["Rudolf:Hello! My name is Rudolf and I will guide you through the game rules.", "Rudolf:First of all, move your character with  W(up), S(down), A(left), D(right). ", "Rudolf:To pick up an item from the ground or to interact with objects, press  E.", "Rudolf:Your goal is to get materials from both Polish and Finnish maps to hit a sauna together!", "Rudolf:You start as a Finnish character. After picking one or two materials (depending on the level) you will move to the second map and play as a second character.", "Rudolf:On the Finnish map, find wooden logs, an empty furnace and stones from the cave to fill the furnace.", "Rudolf:On the Polish map, find towels, plus oil and lavender to create the sauna aroma. As for the final item, go to the casino, win some money, then buy some beer in Żabka!","Rudolf:After collecting all of the materials and items, walk to the airport and fly to Finland!", "Rudolf:The game ends when you successfully build a sauna with the materials gathered and go in with both characters to chill out together.","Rudolf:Good luck!"],
 	2:
-		["Troll:Uhehehe! Not so fast, kaveri!", "Troll:If you wish to explore this cave, you must answer my questions fist!", "Troll:Three wrong answers, and you're OUT!", "Troll:Oletko valmis? Yks, kaks...", "Troll:Q-What is the Finnish word for “dom”?", "Troll:Q-What does the Finnish word “vesi” mean in Polish?", "Troll:Q-What is the Polish translation of the Finnish word “ystävä”?", "Troll:Q-What does the Polish word “szkoła” mean in Finnish?","Troll:Q-What is the Finnish word for “książka”?","Troll:Q-What does the Finnish word “aurinko” mean in Polish?","Troll:Q-How do you say “samochód” in Finnish?","Troll:Q-What does the Polish word “jabłko” mean in Finnish?","Troll:Q-What is the Finnish word for “okno”?","Troll:Q-What does the Finnish word “ruoka” mean in Polish?", "Troll:Done! You have X/10 correct answers, and you need at least 7 to pass!"]
-
+		["Troll:Uhehehe! Not so fast, kaveri!", "Troll:If you wish to explore this cave, you must answer my questions fist!", "Troll:Three wrong answers, and you're OUT!", "Troll:Oletko valmis? Yks, kaks...", "Troll:Q-What is the Finnish word for “dom”?", "Troll:Q-What does the Finnish word “vesi” mean in Polish?", "Troll:Q-What is the Polish translation of the Finnish word “ystävä”?", "Troll:Q-What does the Polish word “szkoła” mean in Finnish?","Troll:Q-What is the Finnish word for “książka”?","Troll:Q-What does the Finnish word “aurinko” mean in Polish?","Troll:Q-How do you say “samochód” in Finnish?","Troll:Q-What does the Polish word “jabłko” mean in Finnish?","Troll:Q-What is the Finnish word for “okno”?","Troll:Q-What does the Finnish word “ruoka” mean in Polish?", "Troll:Done! You have X/10 correct answers, and you need at least 7 to pass!"],
+	3:
+		["Rudolf:Tervetuloa Suomeen! Now, walk to the building spot, and press E to construct your sauna."]
 }
 var answers = [
 	["koulu", "talo", "kirja"],
@@ -77,6 +78,7 @@ func _process(delta:float) -> void:
 				$AnswerCButton.text = "C." + answers[question_id][2]				
 				$AnswerCButton.show()
 
+				$TalkingSFXPlayer.stop() 
 			else: 
 				if line_id < current_scene_dialogue.size()-1:
 					show_next_line()
@@ -87,7 +89,8 @@ func _process(delta:float) -> void:
 							next_scene = "cave_level"
 						else:
 							next_scene = "finnish_map"
-					get_tree().change_scene_to_file("res://scenes/" + next_scene+".tscn")
+					if scene_id != 3: #so it doesn't trigger on the sauna building level
+						get_tree().change_scene_to_file("res://scenes/" + next_scene+".tscn")
 
 	elif not is_line_finished:
 		if character_index >= current_line.length():
@@ -132,6 +135,7 @@ func show_next_line():
 		$TalkerSprite.show()
 		$AdvanceTipLabel.show()
 		question_id += 1
+	$TalkingSFXPlayer.play() 
 	$AdvanceTipLabel.hide()
 	line_id += 1
 	$TalkerSprite.animation = current_scene_dialogue[line_id].split(":")[0] + "Talk"

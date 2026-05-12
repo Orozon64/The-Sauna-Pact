@@ -1,10 +1,15 @@
 [gd_scene format=4 uid="uid://qpuqh5rtr0sf"]
 
+[ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_260ue"]
 [ext_resource type="TileSet" uid="uid://cwcbkrd51j3xi" path="res://Cave.tres" id="1_br21b"]
 [ext_resource type="PackedScene" uid="uid://dsb1n48yjysol" path="res://scenes/stones.tscn" id="2_sfygl"]
+[ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_hs0xw"]
 [ext_resource type="PackedScene" uid="uid://coqpab58ln317" path="res://scenes/finnish_player.tscn" id="3_m2ful"]
+[ext_resource type="AudioStream" uid="uid://b4xtyuh2or27v" path="res://Sound Effects/CaveBackground.mp3" id="6_vwl33"]
+[ext_resource type="AudioStream" uid="uid://fefnvoj3le3i" path="res://Sound Effects/ItemPickup.mp3" id="7_vwl33"]
 
 [node name="CaveLevel" type="Node2D" unique_id=550789720]
+script = ExtResource("1_260ue")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=557926912]
 position = Vector2(-45, -1)
@@ -19,9 +24,16 @@ tile_map_data = PackedByteArray("AAAKAAgABgAAAAAAAAAEAAgABgAAAAAAAAAEAAYABgAAAAA
 tile_set = ExtResource("1_br21b")
 
 [node name="Stones" parent="." unique_id=1981020031 instance=ExtResource("2_sfygl")]
-position = Vector2(476, 78)
+position = Vector2(397, 262)
+script = ExtResource("3_hs0xw")
 
 [node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("3_m2ful")]
 position = Vector2(526, 606)
 
 [node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1668349751]
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1539457217]
+stream = ExtResource("6_vwl33")
+
+[node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=498466036]
+stream = ExtResource("7_vwl33")
