@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cxybxgftttmfk"]
 
-[ext_resource type="Script" uid="uid://b6cgmjv4s51je" path="res://scenes/obstacle.gd" id="1_ltan4"]
-[ext_resource type="Texture2D" uid="uid://baypih7oi53go" path="res://images/TileMapTiles/path2.png" id="2_gxjqd"]
+[ext_resource type="Script" uid="uid://b6cgmjv4s51je" path="res://scripts/obstacle.gd" id="1_ltan4"]
+[ext_resource type="Texture2D" uid="uid://wygce61rf3mf" path="res://images/sprites/flyingObstacle.png" id="2_ltan4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkmd0"]
-size = Vector2(83, 561.75)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_gxjqd"]
+points = PackedVector2Array(5.5, -274.5625, 38.5, -247.5625, 34.5, -186.5625, 13.5, -178.5625, 13.5, 176.4375, 40.5, 195.4375, 31.5, 254.4375, 6.5, 275.4375, -26.5, 255.4375, -37.5, 221.4375, -6.5, 182.4375, -6.5, -184.5625, -34.5, -207.5625, -32.5, -259.5625)
 
 [node name="Node2D" type="Node2D" unique_id=1325106014]
 
@@ -13,10 +13,10 @@ position = Vector2(577, 319)
 script = ExtResource("1_ltan4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle" unique_id=1130381306]
-position = Vector2(0, -1)
-scale = Vector2(3.5625, 8.761719)
-texture = ExtResource("2_gxjqd")
+position = Vector2(2.9999833, 0.99999714)
+scale = Vector2(0.9589844, 1.1876894)
+texture = ExtResource("2_ltan4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=125774398]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_jkmd0")
+position = Vector2(0.5, 3.5625)
+shape = SubResource("ConvexPolygonShape2D_gxjqd")
