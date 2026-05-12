@@ -57,6 +57,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tdpx6")
+scene_id = 2
 
 [node name="BubbleSprite" type="Sprite2D" parent="." unique_id=2061394449]
 position = Vector2(51.000015, -71.00001)
@@ -87,7 +88,6 @@ sprite_frames = SubResource("SpriteFrames_1puwe")
 animation = &"RudolfTalk"
 
 [node name="AdvanceTipLabel" type="Label" parent="." unique_id=16277458]
-visible = false
 layout_mode = 0
 offset_left = -86.0
 offset_top = 52.0
@@ -99,3 +99,34 @@ text = "PRESS ENTER TO CONTINUE"
 
 [node name="TalkingSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=506352693]
 stream = ExtResource("8_ppgup")
+
+[node name="AnswerAButton" type="Button" parent="." unique_id=1885128724]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "A. koulu"
+
+[node name="AnswerBButton" type="Button" parent="." unique_id=154008332]
+visible = false
+layout_mode = 0
+offset_top = 35.0
+offset_right = 23.0
+offset_bottom = 66.0
+text = "B. talo"
+
+[node name="AnswerCButton" type="Button" parent="." unique_id=973221287]
+visible = false
+layout_mode = 0
+offset_top = 74.0
+offset_right = 23.0
+offset_bottom = 105.0
+text = "C.kirja"
+
+[node name="VerificationLabel" type="Label" parent="." unique_id=164165462]
+visible = false
+layout_mode = 0
+offset_top = 111.0
+offset_right = 72.0
+offset_bottom = 134.0
+text = "CORRECT!!!"

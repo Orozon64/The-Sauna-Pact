@@ -8,6 +8,7 @@ var play_ending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$BGMusicPlayer.play()
 	var file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	match name:
 		"FinnishRootNode":

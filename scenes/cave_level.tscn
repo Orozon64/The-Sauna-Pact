@@ -23,3 +23,5 @@ position = Vector2(476, 78)
 
 [node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("3_m2ful")]
 position = Vector2(526, 606)
+
+[node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1668349751]

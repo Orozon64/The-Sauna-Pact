@@ -149,3 +149,5 @@ shape = SubResource("RectangleShape2D_2k7c1")
 
 [node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1240962228]
 stream = ExtResource("12_xh0mk")
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2126332616]
