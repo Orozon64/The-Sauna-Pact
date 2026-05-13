@@ -9,7 +9,9 @@ var dialogue_dict = {
 	2:
 		["Troll:Uhehehe! Not so fast, kaveri!", "Troll:If you wish to explore this cave, you must answer my questions fist!", "Troll:Three wrong answers, and you're OUT!", "Troll:Oletko valmis? Yks, kaks...", "Troll:Q-What is the Finnish word for “dom”?", "Troll:Q-What does the Finnish word “vesi” mean in Polish?", "Troll:Q-What is the Polish translation of the Finnish word “ystävä”?", "Troll:Q-What does the Polish word “szkoła” mean in Finnish?","Troll:Q-What is the Finnish word for “książka”?","Troll:Q-What does the Finnish word “aurinko” mean in Polish?","Troll:Q-How do you say “samochód” in Finnish?","Troll:Q-What does the Polish word “jabłko” mean in Finnish?","Troll:Q-What is the Finnish word for “okno”?","Troll:Q-What does the Finnish word “ruoka” mean in Polish?", "Troll:Done! You have X/10 correct answers, and you need at least 7 to pass!"],
 	3:
-		["Rudolf:Tervetuloa Suomeen! Now, walk to the building spot, and press E to construct your sauna."]
+		["Rudolf:Tervetuloa Suomeen! Now, walk to the building spot, and press E to construct your sauna."],
+	4:
+		["Rudolf:Beautiful! Now let's hop into the sauna together. Walk in there with one character, then with the second one."]
 }
 var answers = [
 	["koulu", "talo", "kirja"],
@@ -38,69 +40,75 @@ var quiz_mode = false
 var number_of_correct_answers = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+func initiate():
+	$TalkerSprite.play()
 	$AnswerAButton.pressed.connect(_on_player_select_answer_a)
 	$AnswerBButton.pressed.connect(_on_player_select_answer_b)
 	$AnswerCButton.pressed.connect(_on_player_select_answer_c)
-
 	position = get_viewport_rect().get_center()
 	match scene_id: #i know this doesn't deal with the quiz, but that's handled below, dw
 		0:
 			next_scene = "tutorial"
 		1:
 			next_scene = "finnish_map"
-
 	$DialogueRTLabel.text = ""
 	current_scene_dialogue = dialogue_dict.get(scene_id)
+	$TalkingSFXPlayer.play()
 	$TalkerSprite.animation = current_scene_dialogue[0].split(":")[0] + "Talk"
 	$TalkerSprite.play()
 	current_line = current_scene_dialogue[0].split(":")[1]
+func _ready() -> void:
+
+	if visible:
+		initiate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:
-	if Input.is_action_just_pressed("advance_dialogue") and visible:
-		$TalkingSFXPlayer.play() 
-		if is_line_finished:
-			if current_line.contains("Q-"):
-				if !quiz_mode:
-					quiz_mode = true
-				$DialogueRTLabel.hide()
-				$BubbleSprite.hide()
-				$TalkerSprite.hide()
-				$AdvanceTipLabel.hide()
+	if visible:
+		if Input.is_action_just_pressed("advance_dialogue"):
+			
+			if is_line_finished:
+				if current_line.contains("Q-"):
+					if !quiz_mode:
+						quiz_mode = true
+					$DialogueRTLabel.hide()
+					$BubbleSprite.hide()
+					$TalkerSprite.hide()
+					$AdvanceTipLabel.hide()
 
-				$AnswerAButton.text = "A." + answers[question_id][0]
-				$AnswerAButton.show()
+					$AnswerAButton.text = "A." + answers[question_id][0]
+					$AnswerAButton.show()
 
-				$AnswerBButton.text = "B." + answers[question_id][1]
-				$AnswerBButton.show()
+					$AnswerBButton.text = "B." + answers[question_id][1]
+					$AnswerBButton.show()
 
-				$AnswerCButton.text = "C." + answers[question_id][2]				
-				$AnswerCButton.show()
+					$AnswerCButton.text = "C." + answers[question_id][2]				
+					$AnswerCButton.show()
 
-				$TalkingSFXPlayer.stop() 
-			else: 
-				if line_id < current_scene_dialogue.size()-1:
-					show_next_line()
-				else:
-					hide()
-					if quiz_mode:
-						if number_of_correct_answers >= 7:
-							next_scene = "cave_level"
-						else:
-							next_scene = "finnish_map"
-					if scene_id != 3: #so it doesn't trigger on the sauna building level
-						get_tree().change_scene_to_file("res://scenes/" + next_scene+".tscn")
+					$TalkingSFXPlayer.stop() 
+				else: 
+					if line_id < current_scene_dialogue.size()-1:
+						show_next_line()
+					else:
+						hide()
+						if quiz_mode:
+							if number_of_correct_answers >= 7:
+								next_scene = "cave_level"
+							else:
+								next_scene = "finnish_map"
+						if scene_id != 3 and scene_id != 4: #so it doesn't trigger on the sauna building level
+							get_tree().change_scene_to_file("res://scenes/" + next_scene+".tscn")
 
-	elif not is_line_finished:
-		if character_index >= current_line.length():
-			is_line_finished = true
-			$TalkerSprite.stop()
-			$AdvanceTipLabel.show()
-			$TalkingSFXPlayer.stop()
-		else:
-			$DialogueRTLabel.text += current_line[character_index]
-			character_index += 1
+		elif not is_line_finished:
+			if character_index >= current_line.length():
+				is_line_finished = true
+				$TalkerSprite.stop()
+				$AdvanceTipLabel.show()
+				$TalkingSFXPlayer.stop()
+			else:
+				$DialogueRTLabel.text += current_line[character_index]
+				character_index += 1
 
 func _on_player_select_answer_a():
 	answer_id = 0
@@ -143,6 +151,7 @@ func show_next_line():
 	$DialogueRTLabel.text = ""
 	is_line_finished = false
 	character_index = 0
+	
 	current_line = current_scene_dialogue[line_id].split(":")[1]
 	if current_line.contains("X"):
 		current_line = current_line.replace("X", str(number_of_correct_answers))

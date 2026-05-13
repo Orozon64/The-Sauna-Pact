@@ -159,10 +159,18 @@ stream = ExtResource("13_2k7c1")
 [node name="BuildingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=690616198]
 stream = ExtResource("14_odkrj")
 
-[node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
+[node name="FirstLineDialogueWindow" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
 visible = false
-offset_left = 413.0
-offset_top = 462.0
-offset_right = 413.0
-offset_bottom = 462.0
+offset_left = 453.0
+offset_top = 337.0
+offset_right = 453.0
+offset_bottom = 337.0
 scene_id = 3
+
+[node name="SecondLineDialogueWindow" parent="." unique_id=1139858209 instance=ExtResource("15_ykeo4")]
+visible = false
+offset_left = 454.0
+offset_top = 331.0
+offset_right = 454.0
+offset_bottom = 331.0
+scene_id = 4

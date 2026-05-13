@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bw4082c3crpcb" path="res://images/sprites/HeadPole.png" id="4_dh7dl"]
 [ext_resource type="Texture2D" uid="uid://crlodvs8o2vlx" path="res://images/sprites/Rudolf.png" id="5_dm3cl"]
 [ext_resource type="Texture2D" uid="uid://c23remn6tsev6" path="res://images/sprites/RudolfTalking.png" id="6_uiwr4"]
-[ext_resource type="Texture2D" uid="uid://dufl3u0asmytv" path="res://images/placeholders/troll.jpg" id="7_uiwr4"]
+[ext_resource type="Texture2D" uid="uid://bq3yndw7ghkbm" path="res://images/sprites/troll.png" id="7_ppgup"]
 [ext_resource type="AudioStream" uid="uid://cbgnmmtpm5mt0" path="res://Sound Effects/PhoneChatter.mp3" id="8_ppgup"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1puwe"]
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_uiwr4")
+"texture": ExtResource("7_ppgup")
 }],
 "loop": true,
 "name": &"TrollTalk",
@@ -84,7 +84,7 @@ text = "Hello world"
 position = Vector2(-357, 123)
 scale = Vector2(2.8965383, 2.8965383)
 sprite_frames = SubResource("SpriteFrames_1puwe")
-animation = &"RudolfTalk"
+animation = &"TrollTalk"
 
 [node name="AdvanceTipLabel" type="Label" parent="." unique_id=16277458]
 layout_mode = 0

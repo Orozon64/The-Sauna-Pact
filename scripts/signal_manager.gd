@@ -8,6 +8,7 @@ var play_ending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	$BGMusicPlayer.play()
 	var file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	match name:
@@ -22,6 +23,7 @@ func _ready() -> void:
 			
 			$Cave.body_entered.connect(player._on_enter_cave)
 			$Cave.body_exited.connect(player._on_exit_place)
+
 		"PolishRootNode":
 			last_item = file.get_var().get("Pole").get("last_item")
 			items_for_current_player = ["Towel", "Sauna oil", "Beer"]
@@ -70,9 +72,16 @@ func _ready() -> void:
 		play_ending = true
 	file.close()
 	if play_ending:
-		$DialogueControl.show()
+		$FirstLineDialogueWindow.show()
+		$FirstLineDialogueWindow.initiate()
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
+
+		
+
+		var position_vector = $FinnCharacter.position
+		position_vector.x += 30
+		$PoleCharacter.position = position_vector
 		$FinnCharacter.ready_to_build = true
 		$FinnCharacter.build.connect(_on_player_begin_building)
 
@@ -84,6 +93,7 @@ func _on_player_begin_building():
 	$SaunaBuildingSprite.animation = "Building"
 	$SaunaBuildingSprite.play()
 	get_tree().create_timer(3).timeout.connect(finish_building)
+
 func finish_building():
 	$SaunaBuildingSprite.stop()
 	$SaunaBuildingSprite.hide()
@@ -91,15 +101,21 @@ func finish_building():
 	$ConstructionArea/CollisionShape2D.disabled = true
 	$Sauna.show()
 	$Sauna/CollisionShape2D.disabled = false
+
+	$SecondLineDialogueWindow.show() #having them be 2 completely separate windows seems bad, i may change it later
+	$SecondLineDialogueWindow.initiate()
 	$Sauna.body_entered.connect(player._on_enter_sauna)
 
 func place_item(item_name):
 	match item_name:
 		"Furnace":
-			$Furnace.position = Vector2(467.332, 241.607)
-			$Furnace.show()
-			#then wait like half a sec so the player can see what they did
-			get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
+			if current_item_name != "Stones":
+				
+				$Furnace.position = Vector2(467.332, 241.607)
+				$Furnace.show()
+				player.save_game()
+				#then wait like half a sec so the player can see what they did
+				get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
 		"Stones":
 			player.last_item = "Filled furnace"
 			player.save_game()

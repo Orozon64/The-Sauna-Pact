@@ -39,6 +39,7 @@ offset_bottom = 85.0
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_dkbag")
 script = ExtResource("4_dkbag")
+dev_mode = true
 
 [node name="Start" type="Label" parent="." unique_id=913174795]
 z_index = 10
@@ -47,7 +48,7 @@ offset_top = 189.0
 offset_right = 838.0
 offset_bottom = 310.0
 theme_override_font_sizes/font_size = 45
-text = "Press space to start"
+text = "Press space to start and jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 

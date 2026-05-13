@@ -18,7 +18,7 @@ var can_enter_store_and_casino
 
 var ready_to_build = false
 
-var money #for testing purposes
+var money
 
 signal item_placed(item_name)
 
@@ -100,7 +100,6 @@ func _process(delta: float) -> void:
 				print(touched_item_name)
 				if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
 					item_placed.emit(touched_item_name) #touched item for furnace or last for stone, but that's too convoluted
-					#ideally, we'd set 
 				elif ready_to_build:
 					build.emit()
 			"cave":
