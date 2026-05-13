@@ -11,7 +11,9 @@ offset_right = 606.0
 offset_bottom = 383.0
 scene_id = 2
 
-[node name="Button" type="Button" parent="." unique_id=1498491474]
+[node name="SkipButton" type="Button" parent="." unique_id=1498491474]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "SKIP QUIZ"
+
+[connection signal="pressed" from="SkipButton" to="DialogueControl" method="_on_skip_button_pressed"]

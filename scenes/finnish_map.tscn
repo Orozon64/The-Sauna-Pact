@@ -937,13 +937,13 @@ shape = SubResource("RectangleShape2D_3r76t")
 
 [node name="SaunaBuildingSprite" type="AnimatedSprite2D" parent="." unique_id=186250386]
 visible = false
-position = Vector2(469, 253)
+position = Vector2(863, 477)
 sprite_frames = SubResource("SpriteFrames_3r76t")
 animation = &"Building"
 
 [node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
 visible = false
-position = Vector2(464, 246)
+position = Vector2(860, 460)
 scale = Vector2(1.5215461, 1.5215461)
 
 [node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]

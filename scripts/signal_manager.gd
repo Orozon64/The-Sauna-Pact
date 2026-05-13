@@ -50,7 +50,7 @@ func _ready() -> void:
 		else:
 			current_item_name = items_for_current_player[items_for_current_player.find(last_item) + 1]
 			if (last_item == "Furnace" and name != "CaveLevel") or last_item == "Stones":
-				$Furnace.position = Vector2(467.332, 241.607)
+				$Furnace.position = $ConstructionArea.position
 				$Furnace.show()
 
 		if current_item_name != "Beer" and !(current_item_name == "Stones" and name != "CaveLevel") and current_item_name != "Filled furnace":
@@ -111,7 +111,7 @@ func place_item(item_name):
 		"Furnace":
 			if current_item_name != "Stones":
 				
-				$Furnace.position = Vector2(467.332, 241.607)
+				$Furnace.position = $ConstructionArea.position
 				$Furnace.show()
 				player.save_game()
 				#then wait like half a sec so the player can see what they did

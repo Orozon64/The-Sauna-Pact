@@ -42,6 +42,7 @@ var number_of_correct_answers = 0
 # Called when the node enters the scene tree for the first time.
 
 func initiate():
+	
 	$TalkerSprite.play()
 	$AnswerAButton.pressed.connect(_on_player_select_answer_a)
 	$AnswerBButton.pressed.connect(_on_player_select_answer_b)
@@ -129,6 +130,7 @@ func verify_answer():
 	$VerificationLabel.show()
 	get_tree().create_timer(1).timeout.connect(show_next_line)
 
+
 func show_next_line():
 	if quiz_mode:
 		
@@ -155,3 +157,9 @@ func show_next_line():
 	current_line = current_scene_dialogue[line_id].split(":")[1]
 	if current_line.contains("X"):
 		current_line = current_line.replace("X", str(number_of_correct_answers))
+
+
+func _on_skip_button_pressed() -> void:
+	number_of_correct_answers = 10
+	line_id = -2
+	show_next_line()
