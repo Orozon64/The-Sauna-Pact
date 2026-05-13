@@ -139,7 +139,7 @@ func _on_item_picked_up(item_name): #this entire function feels very unoptimized
 				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 		
 	else:
-		last_item = touched_item_name
+		last_item = touched_item_name #this should trigger for oil and lavender, but NOT furnace!
 
 func _on_enter_sauna(args):
 	place_name = "sauna"
