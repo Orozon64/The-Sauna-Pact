@@ -14,6 +14,13 @@ Nokia/Phone Calling - during the intro scene with the phone call
 
 REINDEER INTRO - please read the README in the separate folder.
 
+
+SFX VOL.3
+FlappyBirdFly - when pressing space during the flappy bird minigame
+FlappyBirdFail - when you crash into the tree during the minigame
+SamolotBumBum - when the plane crashes after coming to Finland
+TrollCave1/2 - use for troll chat popups
+
 OPTIONAL SOUNDS DUE TO INCOVENIENCES:
 MagicWHOOSH - when the reindeer appears/disappears
 PlaneTakeoff - when the Pole boards the plane
