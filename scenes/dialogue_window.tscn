@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://crlodvs8o2vlx" path="res://images/sprites/Rudolf.png" id="5_dm3cl"]
 [ext_resource type="Texture2D" uid="uid://c23remn6tsev6" path="res://images/sprites/RudolfTalking.png" id="6_uiwr4"]
 [ext_resource type="Texture2D" uid="uid://bq3yndw7ghkbm" path="res://images/sprites/troll.png" id="7_ppgup"]
-[ext_resource type="AudioStream" uid="uid://cbgnmmtpm5mt0" path="res://Sound Effects/PhoneChatter.mp3" id="8_ppgup"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1puwe"]
 animations = [{
@@ -96,9 +95,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
 text = "PRESS ENTER TO CONTINUE"
 
-[node name="TalkingSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=506352693]
-stream = ExtResource("8_ppgup")
-
 [node name="AnswerAButton" type="Button" parent="." unique_id=1885128724]
 visible = false
 layout_mode = 0
@@ -129,3 +125,5 @@ offset_top = 111.0
 offset_right = 72.0
 offset_bottom = 134.0
 text = "CORRECT!!!"
+
+[node name="TalkingSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=57839599]

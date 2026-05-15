@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr2j1mv1snm6q"]
 
 [ext_resource type="Texture2D" uid="uid://bibngvdwfk8k5" path="res://images/sprites/Lavender.png" id="1_732j4"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="2_txs5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txs5i"]
 size = Vector2(28, 48)
@@ -24,3 +25,7 @@ shape = SubResource("RectangleShape2D_txs5i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=628104179]
 sprite_frames = SubResource("SpriteFrames_vctnf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=474428837]
+position = Vector2(0, 1)
+stream = ExtResource("2_txs5i")

@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dsb1n48yjysol" path="res://scenes/stones.tscn" id="2_sfygl"]
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_hs0xw"]
 [ext_resource type="PackedScene" uid="uid://coqpab58ln317" path="res://scenes/finnish_player.tscn" id="3_m2ful"]
-[ext_resource type="AudioStream" uid="uid://b4xtyuh2or27v" path="res://Sound Effects/CaveBackground.mp3" id="6_vwl33"]
-[ext_resource type="AudioStream" uid="uid://fefnvoj3le3i" path="res://Sound Effects/ItemPickup.mp3" id="7_vwl33"]
+[ext_resource type="AudioStream" uid="uid://bafm6v5xff24a" path="res://Sound Effects/CaveBackground.mp3" id="6_vwl33"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="7_vwl33"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="8_e2lr5"]
 
 [node name="CaveLevel" type="Node2D" unique_id=550789720]
 script = ExtResource("1_260ue")
@@ -37,3 +38,14 @@ stream = ExtResource("6_vwl33")
 
 [node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=498466036]
 stream = ExtResource("7_vwl33")
+
+[node name="LevelBGPlayer" type="AudioStreamPlayer" parent="." unique_id=2022238203]
+stream = ExtResource("6_vwl33")
+autoplay = true
+bus = &"LevelBG"
+parameters/looping = true
+
+[node name="BGMusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=2095105572]
+stream = ExtResource("8_e2lr5")
+autoplay = true
+parameters/looping = true

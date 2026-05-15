@@ -5,11 +5,11 @@ var last_item
 var current_item_name
 var player
 var play_ending = false
-
+var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
-	$BGMusicPlayer.play()
+	screen_size = get_viewport_rect().size
+	
 	var file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	match name:
 		"FinnishRootNode":
@@ -114,15 +114,13 @@ func place_item(item_name):
 				$Furnace.position = $ConstructionArea.position
 				$Furnace.show()
 				player.save_game()
-				#then wait like half a sec so the player can see what they did
-				get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
+				
 		"Stones":
 			player.last_item = "Filled furnace"
 			player.save_game()
 			$Furnace/Sprite2D.texture = load("res://images/sprites/furnaceFilled.png")
-			get_tree().create_timer(0.5).timeout.connect(item_placed_timeout)
-		
-func item_placed_timeout():
+			
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
 
 

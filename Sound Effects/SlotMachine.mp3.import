@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6x2o5s5s2tyd"
+path="res://.godot/imported/SlotMachine.mp3-3df3c4c581209e5cbd7c987c3b18b780.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/SlotMachine.mp3"
+dest_files=["res://.godot/imported/SlotMachine.mp3-3df3c4c581209e5cbd7c987c3b18b780.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

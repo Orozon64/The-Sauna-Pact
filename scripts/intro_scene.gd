@@ -7,17 +7,15 @@ func _ready() -> void:
 	$FinnishPhoneSprite.animation = "Ring"
 	$FinnishPhoneSprite.play()
 	$NokiaAudioPlayer.play()
-	get_tree().create_timer(5.0).timeout.connect(polish_phone_call) #the timer should run for the total length of both sound effects
+	await get_tree().create_timer(5.0).timeout
 
-func polish_phone_call():
 	$FinnishPhoneSprite.stop()
 	$NokiaAudioPlayer.stop()
 	$PolishPhoneSprite.animation = "Ring"
 	$PolishPhoneSprite.play()
 	$PolishPhoneAudioPlayer.play()
-	get_tree().create_timer(8.0).timeout.connect(timeout)
+	await get_tree().create_timer(8.0).timeout
 
-func timeout():
 	$PolishPhoneSprite.stop()
 	$PolishPhoneAudioPlayer.stop()
 

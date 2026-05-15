@@ -5,6 +5,7 @@ signal picked_up(name)
 var can_be_picked_up = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	hide()
 	$CollisionShape2D.disabled = true
 	body_entered.connect(_on_player_entered_area)
@@ -13,6 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("item_interact") and can_be_picked_up:
+		$AudioStreamPlayer2D.play()
 		hide()
 		$CollisionShape2D.set_deferred("disabled", true)
 		picked_up.emit(name)

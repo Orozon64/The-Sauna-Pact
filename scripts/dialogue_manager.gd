@@ -39,12 +39,15 @@ var answer_id = 0
 var quiz_mode = false
 var number_of_correct_answers = 0
 var opacityDirection = -1
+var dialogue_sfx = []
 
+var current_sound_name
 # Called when the node enters the scene tree for the first time.
 
 func initiate():
 	
 	$TalkerSprite.play()
+	
 	$AnswerAButton.pressed.connect(_on_player_select_answer_a)
 	$AnswerBButton.pressed.connect(_on_player_select_answer_b)
 	$AnswerCButton.pressed.connect(_on_player_select_answer_c)
@@ -52,10 +55,14 @@ func initiate():
 	match scene_id: #i know this doesn't deal with the quiz, but that's handled below, dw
 		0:
 			next_scene = "tutorial"
+			dialogue_sfx = ["PhoneChatter1","PhoneChatter2", "PhoneChatter1","PhoneChatter2", "PhoneChatter1","PhoneChatter2", "PhoneChatter1","PhoneChatter2", "PhoneChatter1"]
+
 		1:
 			next_scene = "finnish_map"
+			dialogue_sfx = ["ReindeerIntro/ri1", "ReindeerIntro/ri2", "ReindeerIntro/ri3", "ReindeerIntro/ri4", "ReindeerIntro/ri5", "ReindeerIntro/ri6", "ReindeerIntro/ri7", "ReindeerIntro/ri8", "ReindeerIntro/ri9", "ReindeerIntro/ri10",]
 	$DialogueRTLabel.text = ""
 	current_scene_dialogue = dialogue_dict.get(scene_id)
+	$TalkingSFXPlayer.stream = ResourceLoader.load("res://Sound Effects/" + dialogue_sfx[0] + ".mp3")
 	$TalkingSFXPlayer.play()
 	$TalkerSprite.animation = current_scene_dialogue[0].split(":")[0] + "Talk"
 	$TalkerSprite.play()
@@ -67,6 +74,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:
+	#could be a good idea to set the text speed to match the speaking speed of the mp3 file
 	if $AdvanceTipLabel.visible:
 		$AdvanceTipLabel.modulate.a += 1 * opacityDirection * delta
 		if $AdvanceTipLabel.modulate.a < 0.3 or $AdvanceTipLabel.modulate.a >= 1:
@@ -96,8 +104,9 @@ func _process(delta:float) -> void:
 					$AnswerCButton.text = "C." + answers[question_id][2]				
 					$AnswerCButton.show()
 
-					$TalkingSFXPlayer.stop() 
+					#$TalkingSFXPlayer.stop() 
 				else: 
+					
 					if line_id < current_scene_dialogue.size()-1:
 						show_next_line()
 					else:
@@ -109,24 +118,27 @@ func _process(delta:float) -> void:
 								next_scene = "finnish_map"
 						if scene_id != 3 and scene_id != 4: #so it doesn't trigger on the sauna building level
 							get_tree().change_scene_to_file("res://scenes/" + next_scene+".tscn")
+			else:
+				if character_index > 4:
+					is_line_finished = true
+					$DialogueRTLabel.text = current_line
+					character_index = current_line.length()
+					$TalkerSprite.stop()
+					$AdvanceTipLabel.show()
+					#$TalkingSFXPlayer.stop()
 
 		elif not is_line_finished:
 			if character_index >= current_line.length():
 				is_line_finished = true
 				$TalkerSprite.stop()
 				$AdvanceTipLabel.show()
-				$TalkingSFXPlayer.stop()
+				#$TalkingSFXPlayer.stop()
 			else:
 				$DialogueRTLabel.text += current_line[character_index]
 				character_index += 1
 				
-	if Input.is_key_pressed(KEY_ENTER) and not is_line_finished and character_index > 4:
-		is_line_finished = true
-		$DialogueRTLabel.text = current_line
-		character_index = current_line.length()
-		$TalkerSprite.stop()
-		$AdvanceTipLabel.show()
-		$TalkingSFXPlayer.stop()
+	
+		
 
 func _on_player_select_answer_a():
 	answer_id = 0
@@ -162,9 +174,14 @@ func show_next_line():
 		$TalkerSprite.show()
 		$AdvanceTipLabel.show()
 		question_id += 1
-	$TalkingSFXPlayer.play() 
+	
+	
 	$AdvanceTipLabel.hide()
 	line_id += 1
+	
+	current_sound_name = dialogue_sfx[line_id]
+	$TalkingSFXPlayer.stream = ResourceLoader.load("res://Sound Effects/" + current_sound_name + ".mp3")
+	$TalkingSFXPlayer.play() 
 	$TalkerSprite.animation = current_scene_dialogue[line_id].split(":")[0] + "Talk"
 	$TalkerSprite.play()
 	$DialogueRTLabel.text = ""

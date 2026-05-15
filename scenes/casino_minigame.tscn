@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://62bnpa0q22mk" path="res://images/Casino_slots.png" id="2_5gemk"]
 [ext_resource type="StyleBox" uid="uid://cs5delmkrhwxd" path="res://shaders/gameOverBtn.tres" id="4_xkfhx"]
 [ext_resource type="Texture2D" uid="uid://6jawo25loif8" path="res://images/sprites/Money.png" id="5_dpyi5"]
+[ext_resource type="AudioStream" uid="uid://cpxce58befl8" path="res://Sound Effects/CasinoWin.mp3" id="6_pdueh"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="7_wvfc3"]
 
 [sub_resource type="Gradient" id="Gradient_cobd6"]
 offsets = PackedFloat32Array(0.9794521, 1)
@@ -474,6 +476,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_l83ik")
 text = "YOU CAN EXIT NOW
 OR RISK AND PLAY MORE"
 horizontal_alignment = 1
+
+[node name="VictorySoundPlayer" type="AudioStreamPlayer" parent="." unique_id=992202136]
+stream = ExtResource("6_pdueh")
+volume_db = -10.0
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1570315622]
+stream = ExtResource("7_wvfc3")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/SpinBtn" to="." method="spin"]
 [connection signal="button_down" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ExitBtn" to="." method="_on_exitbtn_button_down"]

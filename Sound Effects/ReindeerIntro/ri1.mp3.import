@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://txkde8osyqru"
+path="res://.godot/imported/ri1.mp3-12bd247aebbf69bd7b731c714020b8c8.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ReindeerIntro/ri1.mp3"
+dest_files=["res://.godot/imported/ri1.mp3-12bd247aebbf69bd7b731c714020b8c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

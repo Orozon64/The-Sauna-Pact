@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://caurp0axx2i5p"]
 
 [ext_resource type="Texture2D" uid="uid://kiwidlbq1n6p" path="res://images/sprites/woodLogs.png" id="1_y25wi"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="2_d45ue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d45ue"]
 animations = [{
@@ -24,3 +25,7 @@ sprite_frames = SubResource("SpriteFrames_d45ue")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94329326]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_es2n6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1024081541]
+position = Vector2(0, 1)
+stream = ExtResource("2_d45ue")

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cg2crrk18uee6" path="res://images/sprites/finRightIdle.png" id="8_kcs62"]
 [ext_resource type="Texture2D" uid="uid://c1hk33e355ym2" path="res://images/sprites/finBackWalk1.png" id="11_afyib"]
 [ext_resource type="Texture2D" uid="uid://kqtnt46gfiux" path="res://images/sprites/finBackWalk2.png" id="12_4ff60"]
+[ext_resource type="AudioStream" uid="uid://bfeyyuy88yayt" path="res://Sound Effects/Walking.mp3" id="16_0u6nr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_snp3n"]
 animations = [{
@@ -108,7 +109,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shgrp"]
-size = Vector2(24, 39)
+size = Vector2(24, 11)
 
 [node name="FinnCharacter" type="CharacterBody2D" unique_id=486509689]
 script = ExtResource("1_6g0t5")
@@ -118,5 +119,13 @@ sprite_frames = SubResource("SpriteFrames_snp3n")
 animation = &"idle_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118586435]
-position = Vector2(-3, -1.5)
+position = Vector2(-3, 12.5)
 shape = SubResource("RectangleShape2D_shgrp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=396568547]
+position = Vector2(-15, -20)
+zoom = Vector2(2.5, 2.5)
+
+[node name="WalkingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1534924156]
+stream = ExtResource("16_0u6nr")
+bus = &"SFX"

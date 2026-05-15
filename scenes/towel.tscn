@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="1_csf4g"]
 [ext_resource type="Texture2D" uid="uid://c5f2133grvi3v" path="res://images/sprites/towels.png" id="2_u1688"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="3_d8tsr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1688"]
 size = Vector2(4, 4)
@@ -27,3 +28,7 @@ shape = SubResource("RectangleShape2D_u1688")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=678316695]
 scale = Vector2(0.08166666, 0.08208511)
 sprite_frames = SubResource("SpriteFrames_d8tsr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=506855480]
+position = Vector2(0, 1)
+stream = ExtResource("3_d8tsr")

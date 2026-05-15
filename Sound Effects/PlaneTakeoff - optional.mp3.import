@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvkhti4bjvb0b"
+path="res://.godot/imported/PlaneTakeoff - optional.mp3-65197bb67596d390e285e4aecc74c4c4.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/PlaneTakeoff - optional.mp3"
+dest_files=["res://.godot/imported/PlaneTakeoff - optional.mp3-65197bb67596d390e285e4aecc74c4c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

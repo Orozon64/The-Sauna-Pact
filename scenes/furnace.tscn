@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlah7vce3xvpw"]
 
 [ext_resource type="Texture2D" uid="uid://3fp8uwb2s8pl" path="res://images/sprites/furnaceEmpty.png" id="1_0y7ne"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="2_61l8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61l8k"]
 size = Vector2(25, 62)
@@ -13,3 +14,7 @@ texture = ExtResource("1_0y7ne")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757216129]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_61l8k")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=661594716]
+position = Vector2(0, 1)
+stream = ExtResource("2_61l8k")

@@ -45,7 +45,10 @@ func _ready() -> void:
 	else:
 		money = current_character_save_data.get("money")
 	screen_size = get_viewport_rect().size
-
+	$Camera2D.set_limit(Side.SIDE_LEFT, 0)
+	$Camera2D.set_limit(Side.SIDE_RIGHT, int(screen_size.x))
+	$Camera2D.set_limit(Side.SIDE_TOP, 0)
+	$Camera2D.set_limit(Side.SIDE_BOTTOM, int(screen_size.y))
 func save_game():
 	if get_parent().name != "CaveLevel":
 		var current_scene_save_data = {"position":position, "last_item":last_item, "money":money} 
@@ -70,11 +73,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if velocity.length() > 0:
-		get_parent().get_node("WalkingSoundPlayer").play()
-		velocity = velocity.normalized() * speed
+		if !$WalkingSoundPlayer.playing:
+			$WalkingSoundPlayer.play()
 		$PlayerSprite.play()
 		
 	else:
+		$WalkingSoundPlayer.stop()
 		$PlayerSprite.stop()
 		$PlayerSprite.animation = $PlayerSprite.animation.replace("walk", "idle")
 		$PlayerSprite.play()
@@ -99,47 +103,51 @@ func _process(delta: float) -> void:
 			"construction site":
 				print(touched_item_name)
 				if (touched_item_name == "Furnace" or touched_item_name == "Stones"):
-					item_placed.emit(touched_item_name) #touched item for furnace or last for stone, but that's too convoluted
+					last_item = touched_item_name
+					item_placed.emit(touched_item_name)
 				elif ready_to_build:
 					build.emit()
 			"cave":
 				if last_item == "Furnace":
+					save_game()
 					get_tree().change_scene_to_file("res://scenes/quiz.tscn")
 			"airport":
 				if touched_item_name == "Beer":
 					get_tree().change_scene_to_file("res://scenes/flying.tscn")
 			"casino":
 				if last_item == "Sauna oil":
+					save_game()
 					get_tree().change_scene_to_file("res://scenes/casino_minigame.tscn")
 			"store":
 				if money >= 250:
+					get_parent().get_node("CashSoundPlayer").play()
+					money -= 250
 					_on_item_picked_up("Beer")
 			"sauna":
 				get_tree().change_scene_to_file("res://scenes/ending.tscn")
 
 
 func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out
-	if item_name != "Beer":
-		get_parent().get_node("PickUpSoundPlayer").play()
-	else:
-		get_parent().get_node("CashAudioPlayer").play()
+	await get_tree().create_timer(0.5).timeout
 	touched_item_name = item_name
 	print(touched_item_name + " found!")
-	if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
-
-		if touched_item_name == "Oil" or touched_item_name == "Lavender":
-			last_item = "Sauna oil"
-		else:
-			last_item = touched_item_name
-		save_game()
-		if touched_item_name != "Furnace" and touched_item_name != "Beer":
-			if get_parent().name == "PolishRootNode" or get_parent().name == "CaveLevel":
-				get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
-			else:
-				get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
+	if touched_item_name != "Furnace":
 		
-	else:
-		last_item = touched_item_name #this should trigger for oil and lavender, but NOT furnace!
+		if !((touched_item_name == "Oil" and last_item != "Lavender") or (touched_item_name == "Lavender" and last_item != "Oil")):
+
+			if touched_item_name == "Oil" or touched_item_name == "Lavender":
+				last_item = "Sauna oil"
+			else:
+				last_item = touched_item_name
+			save_game()
+			if touched_item_name != "Beer":
+				if get_parent().name == "PolishRootNode" or get_parent().name == "CaveLevel":
+					get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+				else:
+					get_tree().change_scene_to_file("res://scenes/polish_map.tscn")
+			
+		else:
+			last_item = touched_item_name #this should trigger for oil and lavender, but NOT furnace!
 
 func _on_enter_sauna(args):
 	place_name = "sauna"

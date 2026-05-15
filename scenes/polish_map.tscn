@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://o5dowhtvpp1b" path="res://images/sprites/Airport.png" id="9_xpv0b"]
 [ext_resource type="Texture2D" uid="uid://buxip6hvbpm6k" path="res://images/sprites/Plane.png" id="10_dq56n"]
 [ext_resource type="Texture2D" uid="uid://b51nhl47r8lvc" path="res://images/sprites/Casino.png" id="11_d0c66"]
-[ext_resource type="AudioStream" uid="uid://cue57a4icm8nh" path="res://Sound Effects/CashZabka.mp3" id="12_tr50w"]
-[ext_resource type="AudioStream" uid="uid://bysrlyb2my5y6" path="res://Sound Effects/BackgroundMusic.mp3" id="13_tr50w"]
+[ext_resource type="AudioStream" uid="uid://dvqay2b6yoaq" path="res://Sound Effects/CashZabka.mp3" id="12_tr50w"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="13_tr50w"]
+[ext_resource type="AudioStream" uid="uid://p5njax4jq4xq" path="res://Sound Effects/PolandBackground.mp3" id="16_jyobr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tr50w"]
 texture = ExtResource("2_u03f7")
@@ -138,6 +139,8 @@ position = Vector2(42.5, 39)
 shape = SubResource("RectangleShape2D_tr50w")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]
+speed = null
+dev_mode = null
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=721784626]
 position = Vector2(867, 691)
@@ -152,5 +155,19 @@ shape = SubResource("RectangleShape2D_d0c66")
 [node name="CashAudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=332224694]
 stream = ExtResource("12_tr50w")
 
-[node name="BGMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2060321343]
+[node name="CashSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=505503193]
+position = Vector2(1539, 905)
+stream = ExtResource("12_tr50w")
+bus = &"SFX"
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=442326848]
 stream = ExtResource("13_tr50w")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="LevelBGPlayer" type="AudioStreamPlayer" parent="." unique_id=2109381616]
+stream = ExtResource("16_jyobr")
+autoplay = true
+bus = &"LevelBG"
+parameters/looping = true

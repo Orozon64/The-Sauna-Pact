@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm832i263pj1x"
+path="res://.godot/imported/ItemPickup.mp3-74ac717a7180407586322fae20dcc791.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ItemPickup.mp3"
+dest_files=["res://.godot/imported/ItemPickup.mp3-74ac717a7180407586322fae20dcc791.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

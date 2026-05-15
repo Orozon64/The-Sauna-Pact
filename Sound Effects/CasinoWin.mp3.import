@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpxce58befl8"
+path="res://.godot/imported/CasinoWin.mp3-4693415d26e5c32234f3bcce3441d7d2.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/CasinoWin.mp3"
+dest_files=["res://.godot/imported/CasinoWin.mp3-4693415d26e5c32234f3bcce3441d7d2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

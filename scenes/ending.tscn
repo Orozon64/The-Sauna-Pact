@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cxut8nfbn68gi" path="res://scripts/ending.gd" id="1_fyrdv"]
 [ext_resource type="Texture2D" uid="uid://cg6f0qrlkwv78" path="res://images/sprites/endingScene.png" id="1_mqjok"]
 [ext_resource type="Texture2D" uid="uid://dlpy8uot135rx" path="res://images/sprites/endingScene2.png" id="3_2x1jc"]
-[ext_resource type="Texture2D" uid="uid://btmvmvb6a8tjx" path="res://images/placeholders/the_end.png" id="4_nfmnx"]
+[ext_resource type="Texture2D" uid="uid://cmp1emc715u7u" path="res://images/sprites/TheEnd.png" id="4_nfmnx"]
+[ext_resource type="AudioStream" uid="uid://fs3grmhftp83" path="res://Sound Effects/Furnace.mp3" id="5_5amew"]
+[ext_resource type="AudioStream" uid="uid://b5e15bssr8ap8" path="res://Sound Effects/Outro.mp3" id="6_t1k4y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nfmnx"]
 animations = [{
@@ -17,20 +19,28 @@ animations = [{
 "loop": true,
 "name": &"Drinking",
 "speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_nfmnx")
-}],
-"loop": true,
-"name": &"The End",
-"speed": 5.0
 }]
 
 [node name="Node2D" type="Node2D" unique_id=1594924612]
 script = ExtResource("1_fyrdv")
 
 [node name="EndingSprite" type="AnimatedSprite2D" parent="." unique_id=2049335228]
-position = Vector2(575, 360)
+position = Vector2(887, 396)
+scale = Vector2(2.603454, 2.603454)
 sprite_frames = SubResource("SpriteFrames_nfmnx")
-animation = &"The End"
+animation = &"Drinking"
+
+[node name="EndingText" type="Sprite2D" parent="." unique_id=1720706756]
+position = Vector2(892, 171)
+scale = Vector2(0.26519173, 0.26519173)
+texture = ExtResource("4_nfmnx")
+
+[node name="LevelBGPlayer" type="AudioStreamPlayer" parent="." unique_id=1583095793]
+stream = ExtResource("5_5amew")
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1576596550]
+stream = ExtResource("6_t1k4y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1754921416]
+position = Vector2(921, 410)
+zoom = Vector2(1.7, 1.7)

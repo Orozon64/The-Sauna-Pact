@@ -76,6 +76,7 @@ func spin(): #function for spining all spiners
 			file.close()
 			get_node("ProgressBar").value=money
 			if money>=250:
+				$VictorySoundPlayer.play()
 				get_node("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/ExitBtn").disabled=false
 				if !popupPlayed:
 					var popup=get_node("popup")

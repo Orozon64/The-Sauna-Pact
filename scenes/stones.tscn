@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsb1n48yjysol"]
 
 [ext_resource type="Texture2D" uid="uid://dfnjvtynpacxu" path="res://images/sprites/saunaRocks.png" id="1_tdiv5"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="2_gv6ye"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gv6ye"]
 animations = [{
@@ -24,3 +25,7 @@ sprite_frames = SubResource("SpriteFrames_gv6ye")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605555080]
 position = Vector2(2, 5)
 shape = SubResource("RectangleShape2D_8oig3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=303655268]
+position = Vector2(0, 1)
+stream = ExtResource("2_gv6ye")
