@@ -38,6 +38,7 @@ var question_id = 0
 var answer_id = 0
 var quiz_mode = false
 var number_of_correct_answers = 0
+var opacityDirection = -1
 
 # Called when the node enters the scene tree for the first time.
 
@@ -66,6 +67,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:
+	if $AdvanceTipLabel.visible:
+		$AdvanceTipLabel.modulate.a += 1 * opacityDirection * delta
+		if $AdvanceTipLabel.modulate.a < 0.3 or $AdvanceTipLabel.modulate.a >= 1:
+			opacityDirection *= -1
+	#print($AdvanceTipLabel.modulate.a)
+		
+			
+		
 	if visible:
 		if Input.is_action_just_pressed("advance_dialogue"):
 			
@@ -110,6 +119,14 @@ func _process(delta:float) -> void:
 			else:
 				$DialogueRTLabel.text += current_line[character_index]
 				character_index += 1
+				
+	if Input.is_key_pressed(KEY_ENTER) and not is_line_finished and character_index > 4:
+		is_line_finished = true
+		$DialogueRTLabel.text = current_line
+		character_index = current_line.length()
+		$TalkerSprite.stop()
+		$AdvanceTipLabel.show()
+		$TalkingSFXPlayer.stop()
 
 func _on_player_select_answer_a():
 	answer_id = 0
