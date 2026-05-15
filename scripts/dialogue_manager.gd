@@ -60,7 +60,8 @@ func initiate():
 		1:
 			next_scene = "finnish_map"
 			dialogue_sfx = ["ReindeerIntro/ri1", "ReindeerIntro/ri2", "ReindeerIntro/ri3", "ReindeerIntro/ri4", "ReindeerIntro/ri5", "ReindeerIntro/ri6", "ReindeerIntro/ri7", "ReindeerIntro/ri8", "ReindeerIntro/ri9", "ReindeerIntro/ri10",]
-		
+		2:
+			dialogue_sfx = ["TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2",]
 	$DialogueRTLabel.text = ""
 	current_scene_dialogue = dialogue_dict.get(scene_id)
 	$TalkingSFXPlayer.stream = ResourceLoader.load("res://Sound Effects/" + dialogue_sfx[0] + ".mp3")
