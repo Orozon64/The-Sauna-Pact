@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 func _input(ev):
 	
 	if Input.is_key_pressed(KEY_SPACE) and cooldown == 0 and !ended:
+		$FlySoundPlayer.play()
 		if !started:
 			started = true
 		print("Space")

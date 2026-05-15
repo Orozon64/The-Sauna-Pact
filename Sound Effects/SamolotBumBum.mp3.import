@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://22plo0g6g3gp"
+path="res://.godot/imported/SamolotBumBum.mp3-7b45ca3a817c62ff2ea06a053148ed5b.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/SamolotBumBum.mp3"
+dest_files=["res://.godot/imported/SamolotBumBum.mp3-7b45ca3a817c62ff2ea06a053148ed5b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

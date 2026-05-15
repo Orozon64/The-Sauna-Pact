@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfyvwviicfyjo"]
 
 [ext_resource type="Script" uid="uid://dfhwccpggjc4c" path="res://scripts/gameOver.gd" id="1_ff314"]
+[ext_resource type="AudioStream" uid="uid://dp60h4qga6juv" path="res://Sound Effects/FlappyBirdFail.mp3" id="2_bv3ie"]
 
 [node name="Node2D" type="Node2D" unique_id=1854361263]
 position = Vector2(586, 333)
@@ -25,5 +26,9 @@ text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="GameOverSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1607336771]
+stream = ExtResource("2_bv3ie")
+autoplay = true
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

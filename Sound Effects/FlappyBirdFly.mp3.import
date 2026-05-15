@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnai7jxnsg4re"
+path="res://.godot/imported/FlappyBirdFly.mp3-3211e2711c3c7765eefb21f49bdc5923.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/FlappyBirdFly.mp3"
+dest_files=["res://.godot/imported/FlappyBirdFly.mp3-3211e2711c3c7765eefb21f49bdc5923.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

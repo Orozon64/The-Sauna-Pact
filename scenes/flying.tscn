@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bgxyyt3qxapgm" path="res://scripts/flying.gd" id="1_itql5"]
 [ext_resource type="Script" uid="uid://dc2pivwqe1mm6" path="res://scripts/plane.gd" id="2_f8bqj"]
 [ext_resource type="Script" uid="uid://525dooou10pn" path="res://scripts/progress.gd" id="4_dkbag"]
+[ext_resource type="AudioStream" uid="uid://cnai7jxnsg4re" path="res://Sound Effects/FlappyBirdFly.mp3" id="4_h2m2m"]
 [ext_resource type="Texture2D" uid="uid://cbplb3373wg11" path="res://images/sprites/flyingBackgroundHigh.png" id="5_75y6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itql5"]
@@ -30,6 +31,10 @@ texture = ExtResource("1_ertuq")
 position = Vector2(-1.5, 5)
 shape = SubResource("RectangleShape2D_itql5")
 
+[node name="FlySoundPlayer" type="AudioStreamPlayer2D" parent="Plane" unique_id=1296171907]
+stream = ExtResource("4_h2m2m")
+bus = &"SFX"
+
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=956929495]
 z_index = 10
 offset_left = 173.0
@@ -55,7 +60,7 @@ vertical_alignment = 1
 [node name="SkyBox" type="Parallax2D" parent="." unique_id=671951024]
 z_index = -6
 scroll_scale = Vector2(0.1, 1)
-scroll_offset = Vector2(562, 333)
+scroll_offset = Vector2(-743, 472)
 repeat_size = Vector2(1294, 0)
 repeat_times = 2
 
