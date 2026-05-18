@@ -5,15 +5,8 @@
 [node name="Quiz" type="Node2D" unique_id=1444673492]
 
 [node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("1_36y45")]
-offset_left = 606.0
-offset_top = 383.0
-offset_right = 606.0
-offset_bottom = 383.0
+offset_left = 1068.0
+offset_top = 515.0
+offset_right = 1068.0
+offset_bottom = 515.0
 scene_id = 2
-
-[node name="SkipButton" type="Button" parent="." unique_id=1498491474]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "SKIP QUIZ"
-
-[connection signal="pressed" from="SkipButton" to="DialogueControl" method="_on_skip_button_pressed"]

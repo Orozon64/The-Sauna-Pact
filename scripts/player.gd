@@ -23,7 +23,11 @@ var money
 signal item_placed(item_name)
 
 signal build
+
+signal enter_sauna
 var current_character_save_data
+
+var is_secondary = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -64,13 +68,13 @@ func save_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed("move_right"):
+	if (Input.is_action_pressed("move_right") and !is_secondary) or (is_secondary and  Input.is_action_pressed("move_right_secondary")):
 		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
+	if (Input.is_action_pressed("move_left") and !is_secondary) or (is_secondary and  Input.is_action_pressed("move_left_secondary")):
 		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
+	if (Input.is_action_pressed("move_down") and !is_secondary) or (is_secondary and  Input.is_action_pressed("move_down_secondary")):
 		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
+	if (Input.is_action_pressed("move_up") and !is_secondary) or (is_secondary and  Input.is_action_pressed("move_up_secondary")):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		if !$WalkingSoundPlayer.playing:
@@ -124,7 +128,8 @@ func _process(delta: float) -> void:
 					money -= 250
 					_on_item_picked_up("Beer")
 			"sauna":
-				get_tree().change_scene_to_file("res://scenes/ending.tscn")
+				enter_sauna.emit()
+				queue_free()
 
 
 func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out

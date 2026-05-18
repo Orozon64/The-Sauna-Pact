@@ -6,6 +6,7 @@ var current_item_name
 var player
 var play_ending = false
 var screen_size
+var num_of_players_in_sauna
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -74,9 +75,10 @@ func _ready() -> void:
 	if play_ending:
 		$FirstLineDialogueWindow.show()
 		$FirstLineDialogueWindow.initiate()
+		$FinnCharacter.enter_sauna.connect(_on_player_enter_sauna)
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
-
+		$PoleCharacter.is_secondary = true
 		
 
 		var position_vector = $FinnCharacter.position
@@ -85,16 +87,18 @@ func _ready() -> void:
 		$FinnCharacter.ready_to_build = true
 		$FinnCharacter.build.connect(_on_player_begin_building)
 
-
+func _on_player_enter_sauna(args):
+	num_of_players_in_sauna += 1
+	if num_of_players_in_sauna == 2:
+		get_tree().change_scene_to_file("res://scenes/ending.tscn")
 
 func _on_player_begin_building():
 	$BuildingSoundPlayer.play()
 	$SaunaBuildingSprite.show()
 	$SaunaBuildingSprite.animation = "Building"
 	$SaunaBuildingSprite.play()
-	get_tree().create_timer(3).timeout.connect(finish_building)
+	await get_tree().create_timer(3).timeout
 
-func finish_building():
 	$SaunaBuildingSprite.stop()
 	$SaunaBuildingSprite.hide()
 	$ConstructionArea.hide()

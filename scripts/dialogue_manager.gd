@@ -51,7 +51,7 @@ func initiate():
 	$AnswerAButton.pressed.connect(_on_player_select_answer_a)
 	$AnswerBButton.pressed.connect(_on_player_select_answer_b)
 	$AnswerCButton.pressed.connect(_on_player_select_answer_c)
-	position = get_viewport_rect().get_center()
+	
 	match scene_id: #i know this doesn't deal with the quiz, but that's handled below, dw
 		0:
 			next_scene = "tutorial"
@@ -62,6 +62,10 @@ func initiate():
 			dialogue_sfx = ["ReindeerIntro/ri1", "ReindeerIntro/ri2", "ReindeerIntro/ri3", "ReindeerIntro/ri4", "ReindeerIntro/ri5", "ReindeerIntro/ri6", "ReindeerIntro/ri7", "ReindeerIntro/ri8", "ReindeerIntro/ri9", "ReindeerIntro/ri10",]
 		2:
 			dialogue_sfx = ["TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2", "TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2","TrollCave1", "TrollCave2",]
+		3:
+			dialogue_sfx = ["PhoneChatter1"]
+		4:
+			dialogue_sfx = ["PhoneChatter1"]
 	$DialogueRTLabel.text = ""
 	current_scene_dialogue = dialogue_dict.get(scene_id)
 	$TalkingSFXPlayer.stream = ResourceLoader.load("res://Sound Effects/" + dialogue_sfx[0] + ".mp3")
@@ -195,7 +199,4 @@ func show_next_line():
 		current_line = current_line.replace("X", str(number_of_correct_answers))
 
 
-func _on_skip_button_pressed() -> void:
-	number_of_correct_answers = 10
-	line_id = -2
-	show_next_line()
+

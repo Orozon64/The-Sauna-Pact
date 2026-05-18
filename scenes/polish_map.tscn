@@ -8,12 +8,12 @@
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="4_7velx"]
 [ext_resource type="Texture2D" uid="uid://kssx8i5uroqj" path="res://images/TileMapTiles/PolishWarsawCity.png" id="4_jyobr"]
 [ext_resource type="Texture2D" uid="uid://bu617ul2sf4ig" path="res://images/TileMapTiles/stones.png" id="5_jyobr"]
-[ext_resource type="Texture2D" uid="uid://cwpowt6dkgicm" path="res://images/sprites/barn.png" id="6_6gmyk"]
-[ext_resource type="Texture2D" uid="uid://5jsj7joyr0aj" path="res://images/sprites/house.png" id="7_03ppv"]
+[ext_resource type="Texture2D" uid="uid://xbtcfobpskfs" path="res://images/sprites/barn.png" id="6_6gmyk"]
+[ext_resource type="Texture2D" uid="uid://c8ytydo7dj5qv" path="res://images/sprites/house.png" id="7_03ppv"]
 [ext_resource type="PackedScene" uid="uid://b5d4fabfah5by" path="res://scenes/oil.tscn" id="7_167yp"]
 [ext_resource type="PackedScene" uid="uid://cr2j1mv1snm6q" path="res://scenes/lavender.tscn" id="8_6qxas"]
-[ext_resource type="Texture2D" uid="uid://ccqg57jigpvlr" path="res://images/sprites/windmil.png" id="8_d6dv1"]
-[ext_resource type="Texture2D" uid="uid://c1fq3niosbsc1" path="res://images/sprites/house2.png" id="9_03ppv"]
+[ext_resource type="Texture2D" uid="uid://cg51ntuml8say" path="res://images/sprites/windmil.png" id="8_d6dv1"]
+[ext_resource type="Texture2D" uid="uid://srmucqcc6unp" path="res://images/sprites/house2.png" id="9_03ppv"]
 [ext_resource type="Texture2D" uid="uid://o5dowhtvpp1b" path="res://images/sprites/Airport.png" id="9_xpv0b"]
 [ext_resource type="Texture2D" uid="uid://b15twc55c6cex" path="res://images/TileMapTiles/road.png" id="10_d6dv1"]
 [ext_resource type="Texture2D" uid="uid://buxip6hvbpm6k" path="res://images/sprites/Plane.png" id="10_dq56n"]
@@ -184,8 +184,6 @@ position = Vector2(42.5, 39)
 shape = SubResource("RectangleShape2D_tr50w")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]
-speed = null
-dev_mode = null
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=721784626]
 position = Vector2(867, 691)

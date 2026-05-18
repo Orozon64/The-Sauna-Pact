@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bkc4tp8b07cto" path="res://images/sprites/PolskiPhone.png" id="2_0y5sa"]
 [ext_resource type="Texture2D" uid="uid://bk8ievc0l2eo3" path="res://images/sprites/PolskiPhoneCall.png" id="3_0f06d"]
 [ext_resource type="Texture2D" uid="uid://k7ptyfc5jhw8" path="res://images/sprites/FinFinPhone.png" id="3_gsw8x"]
-[ext_resource type="AudioStream" uid="uid://ck4jxdbu6lypy" path="res://Sound Effects/NokiaCalling.mp3" id="4_jkhwn"]
+[ext_resource type="AudioStream" uid="uid://8hhdrmd2mcd8" path="res://Sound Effects/NokiaCalling.mp3" id="4_jkhwn"]
 [ext_resource type="Texture2D" uid="uid://bx4uj47lkd8lc" path="res://images/sprites/FinFinPhoneCalling.png" id="5_01j2m"]
-[ext_resource type="AudioStream" uid="uid://by7cc2iwein6c" path="res://Sound Effects/PhoneCalling.mp3" id="5_tij55"]
+[ext_resource type="AudioStream" uid="uid://uq2x6535k7fy" path="res://Sound Effects/PhoneCalling.mp3" id="5_tij55"]
+[ext_resource type="Texture2D" uid="uid://ceuxdsv4l1ih4" path="res://images/sprites/TloDoGadania.png" id="8_01j2m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gsw8x"]
 animations = [{
@@ -39,13 +40,20 @@ animations = [{
 [node name="IntroScene" type="Node2D" unique_id=975035797]
 script = ExtResource("1_jkhwn")
 
+[node name="TalkingBGSprite" type="Sprite2D" parent="." unique_id=1798575798]
+position = Vector2(963, 538)
+scale = Vector2(1.9139934, 1.7439553)
+texture = ExtResource("8_01j2m")
+
 [node name="PolishPhoneSprite" type="AnimatedSprite2D" parent="." unique_id=645759387]
-position = Vector2(761, 331)
+position = Vector2(1445, 510)
+scale = Vector2(3.267, 3.267)
 sprite_frames = SubResource("SpriteFrames_gsw8x")
 animation = &"Ring"
 
 [node name="FinnishPhoneSprite" type="AnimatedSprite2D" parent="." unique_id=1506667193]
-position = Vector2(391, 333)
+position = Vector2(644, 522)
+scale = Vector2(3.2668557, 3.2668557)
 sprite_frames = SubResource("SpriteFrames_jkhwn")
 animation = &"Ring"
 
