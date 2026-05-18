@@ -32,27 +32,31 @@ var is_secondary = false
 func _ready() -> void:
 	
 	character_name = name.replace("Character", "")
+	print(character_name)
+	if character_name == "Finn" or character_name == "Pole": #for SOME reason, there appears to be a third node with this script and a weird name
+		
+		var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
+		complete_save_data = loaded_file.get_var()
+		current_character_save_data = complete_save_data.get(character_name)
+		print(complete_save_data)
+		if current_character_save_data.get("last_item") == "":
+			position = $"../StartingPoint".position
+		else:
+			position = current_character_save_data.get("position")
 
-	var loaded_file = FileAccess.open("res://save_game.data", FileAccess.READ)
-	complete_save_data = loaded_file.get_var()
-	current_character_save_data = complete_save_data.get(character_name)
-	print(complete_save_data)
-	if current_character_save_data.get("last_item") == "":
-		position = $"../StartingPoint".position
+		last_item = current_character_save_data.get("last_item")
+		touched_item_name = last_item
+		if dev_mode:
+			money = 999
+		else:
+			money = current_character_save_data.get("money")
+		screen_size = get_viewport_rect().size
+		$Camera2D.set_limit(Side.SIDE_LEFT, 0)
+		$Camera2D.set_limit(Side.SIDE_RIGHT, int(screen_size.x))
+		$Camera2D.set_limit(Side.SIDE_TOP, 0)
+		$Camera2D.set_limit(Side.SIDE_BOTTOM, int(screen_size.y))
 	else:
-		position = current_character_save_data.get("position")
-
-	last_item = current_character_save_data.get("last_item")
-	touched_item_name = last_item
-	if dev_mode:
-		money = 999
-	else:
-		money = current_character_save_data.get("money")
-	screen_size = get_viewport_rect().size
-	$Camera2D.set_limit(Side.SIDE_LEFT, 0)
-	$Camera2D.set_limit(Side.SIDE_RIGHT, int(screen_size.x))
-	$Camera2D.set_limit(Side.SIDE_TOP, 0)
-	$Camera2D.set_limit(Side.SIDE_BOTTOM, int(screen_size.y))
+		queue_free()
 func save_game():
 	if get_parent().name != "CaveLevel":
 		var current_scene_save_data = {"position":position, "last_item":last_item, "money":money} 
@@ -102,7 +106,8 @@ func _process(delta: float) -> void:
 		
 	last_played_anim = 	$PlayerSprite.animation
 
-	if Input.is_action_just_pressed("item_interact"):
+	if Input.is_action_just_pressed("item_interact") and !is_secondary:
+		print(place_name)
 		match place_name:
 			"construction site":
 				print(touched_item_name)
@@ -132,6 +137,10 @@ func _process(delta: float) -> void:
 				queue_free()
 
 
+	if Input.is_action_just_pressed("item_interact_secondary") and is_secondary:
+		if place_name == "sauna":
+			enter_sauna.emit()
+			queue_free()
 func _on_item_picked_up(item_name): #this entire function feels very unoptimized, try to smmoothen it out
 	await get_tree().create_timer(0.5).timeout
 	touched_item_name = item_name

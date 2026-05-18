@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		else:
 			crashed = true
 			$Explosion.visible = true
+			$ExplosionSoundPlayer.play()
 			$Plane.visible = false
 	else:
 		if cooldown == 0:

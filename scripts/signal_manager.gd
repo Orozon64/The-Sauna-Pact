@@ -6,7 +6,7 @@ var current_item_name
 var player
 var play_ending = false
 var screen_size
-var num_of_players_in_sauna
+var num_of_players_in_sauna = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -76,18 +76,24 @@ func _ready() -> void:
 		$FirstLineDialogueWindow.show()
 		$FirstLineDialogueWindow.initiate()
 		$FinnCharacter.enter_sauna.connect(_on_player_enter_sauna)
+
+		
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
+		$PoleCharacter.enter_sauna.connect(_on_player_enter_sauna)
+		var plane_crash = preload("res://scenes/polish_player.tscn")
+		add_child(plane_crash.instantiate())
+
 		$PoleCharacter.is_secondary = true
 		
-
+		
 		var position_vector = $FinnCharacter.position
 		position_vector.x += 30
 		$PoleCharacter.position = position_vector
 		$FinnCharacter.ready_to_build = true
 		$FinnCharacter.build.connect(_on_player_begin_building)
 
-func _on_player_enter_sauna(args):
+func _on_player_enter_sauna():
 	num_of_players_in_sauna += 1
 	if num_of_players_in_sauna == 2:
 		get_tree().change_scene_to_file("res://scenes/ending.tscn")
@@ -108,7 +114,11 @@ func _on_player_begin_building():
 
 	$SecondLineDialogueWindow.show() #having them be 2 completely separate windows seems bad, i may change it later
 	$SecondLineDialogueWindow.initiate()
+	var pole = $PoleCharacter
 	$Sauna.body_entered.connect(player._on_enter_sauna)
+	$Sauna.body_entered.connect(pole._on_enter_sauna)
+	$Sauna.body_exited.connect(player._on_exit_place)
+	$Sauna.body_exited.connect(pole._on_exit_place)
 
 func place_item(item_name):
 	match item_name:

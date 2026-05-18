@@ -429,8 +429,8 @@ text = "RESTART"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1859035571]
 layout_mode = 0
-offset_left = 960.0
-offset_right = 1152.0
+offset_left = 1723.0
+offset_right = 1915.0
 offset_bottom = 44.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1597697860]

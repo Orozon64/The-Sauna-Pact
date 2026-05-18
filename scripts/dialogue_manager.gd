@@ -51,7 +51,8 @@ func initiate():
 	$AnswerAButton.pressed.connect(_on_player_select_answer_a)
 	$AnswerBButton.pressed.connect(_on_player_select_answer_b)
 	$AnswerCButton.pressed.connect(_on_player_select_answer_c)
-	
+	if scene_id != 3 and scene_id != 4:
+		position = get_viewport_rect().get_center()
 	match scene_id: #i know this doesn't deal with the quiz, but that's handled below, dw
 		0:
 			next_scene = "tutorial"
