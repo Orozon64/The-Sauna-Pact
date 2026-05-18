@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dsn63un22ddjx"]
+
+[ext_resource type="Script" uid="uid://8qspt4fdpfed" path="res://scripts/plane_falling.gd" id="1_beg4p"]
+[ext_resource type="Texture2D" uid="uid://d2q6umlgqmjvw" path="res://images/sprites/finnishMapPlane.png" id="1_imawb"]
+[ext_resource type="Texture2D" uid="uid://yvpgc8tfvoxk" path="res://images/sprites/planeFlyResized.png" id="2_krirw"]
+[ext_resource type="Texture2D" uid="uid://bqv448h5corwr" path="res://images/sprites/planeCrash.png" id="3_beg4p"]
+[ext_resource type="Texture2D" uid="uid://cd7p5moas1vjy" path="res://images/sprites/PolakStands.png" id="5_nu7b8"]
+[ext_resource type="Texture2D" uid="uid://bn63j857chken" path="res://images/sprites/AnimacjaBudowania2.png" id="6_qp7mp"]
+
+[node name="Node2D" type="Node2D" unique_id=474966126]
+script = ExtResource("1_beg4p")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=1226712382]
+position = Vector2(1021.797, 545)
+scale = Vector2(2.037594, 2.037594)
+texture = ExtResource("1_imawb")
+
+[node name="Plane" type="Sprite2D" parent="." unique_id=545528257]
+position = Vector2(761, 565)
+rotation = 0.8709193
+scale = Vector2(0.6919574, 0.6919574)
+texture = ExtResource("2_krirw")
+
+[node name="CrashedPlane" type="Sprite2D" parent="." unique_id=739398858]
+position = Vector2(827, 588)
+scale = Vector2(0.7050781, 0.7050781)
+texture = ExtResource("3_beg4p")
+
+[node name="Polak" type="Sprite2D" parent="." unique_id=56044]
+position = Vector2(850, 628)
+scale = Vector2(2.6875, 2.6875)
+texture = ExtResource("5_nu7b8")
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=713097379]
+position = Vector2(799, 622)
+scale = Vector2(4.296875, 4.296875)
+texture = ExtResource("6_qp7mp")
