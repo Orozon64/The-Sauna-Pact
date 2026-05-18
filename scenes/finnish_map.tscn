@@ -7,17 +7,18 @@
 [ext_resource type="Script" uid="uid://miaagsuefkm0" path="res://scripts/collectible.gd" id="3_f626w"]
 [ext_resource type="Texture2D" uid="uid://bmdcq8rf84faq" path="res://images/TileMapTiles/lakeTerrain.png" id="3_twk46"]
 [ext_resource type="Texture2D" uid="uid://bu617ul2sf4ig" path="res://images/TileMapTiles/stones.png" id="4_7qru2"]
-[ext_resource type="Texture2D" uid="uid://c1fq3niosbsc1" path="res://images/TileMapTiles/house2.png" id="5_soh5a"]
+[ext_resource type="Texture2D" uid="uid://bwjvkq6u8ckjn" path="res://images/TileMapTiles/house2.png" id="5_soh5a"]
 [ext_resource type="Texture2D" uid="uid://r2jv270p20ci" path="res://images/TileMapTiles/finnishTreeBorder.png" id="6_qka1s"]
+[ext_resource type="Texture2D" uid="uid://dx7kwdrvgwvwn" path="res://images/sprites/constructionSite.png" id="7_lo20u"]
 [ext_resource type="PackedScene" uid="uid://dlah7vce3xvpw" path="res://scenes/furnace.tscn" id="7_u3hsj"]
-[ext_resource type="Texture2D" uid="uid://cf1ay00jcm2u8" path="res://images/placeholders/construction_site.png" id="8_mbhtb"]
 [ext_resource type="Texture2D" uid="uid://c4r4dxcfcy4iw" path="res://images/sprites/caveEntrance.png" id="9_3r76t"]
 [ext_resource type="Texture2D" uid="uid://cnsqkjcgica66" path="res://images/sprites/AnimacjaBudowania1.png" id="10_xh0mk"]
 [ext_resource type="Texture2D" uid="uid://bn63j857chken" path="res://images/sprites/AnimacjaBudowania2.png" id="11_2k7c1"]
 [ext_resource type="Texture2D" uid="uid://xx64m10fmc2w" path="res://images/sprites/SaunaZZewnatrz.png" id="12_odkrj"]
-[ext_resource type="AudioStream" uid="uid://fefnvoj3le3i" path="res://Sound Effects/ItemPickup.mp3" id="12_xh0mk"]
-[ext_resource type="AudioStream" uid="uid://gavflm74r4xm" path="res://Sound Effects/FinlandBackground.mp3" id="13_2k7c1"]
-[ext_resource type="AudioStream" uid="uid://bykwrf0sv8ua7" path="res://Sound Effects/Building.mp3" id="14_odkrj"]
+[ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="12_xh0mk"]
+[ext_resource type="AudioStream" uid="uid://bn3rvrourefa3" path="res://Sound Effects/FinlandBackground.mp3" id="13_2k7c1"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="14_7qru2"]
+[ext_resource type="AudioStream" uid="uid://c0ekxwejs5s78" path="res://Sound Effects/Building.mp3" id="14_odkrj"]
 [ext_resource type="PackedScene" uid="uid://1i5vnxbi5l12" path="res://scenes/dialogue_window.tscn" id="15_ykeo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2k7c1"]
@@ -925,11 +926,11 @@ rendering_quadrant_size = 64
 physics_quadrant_size = 64
 
 [node name="ConstructionArea" type="Area2D" parent="." unique_id=1631127782]
-position = Vector2(97, 852)
+position = Vector2(94, 815)
 
 [node name="Sprite2D" type="Sprite2D" parent="ConstructionArea" unique_id=1928360203]
 scale = Vector2(0.13951114, 0.13951114)
-texture = ExtResource("8_mbhtb")
+texture = ExtResource("7_lo20u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConstructionArea" unique_id=1352379901]
 shape = SubResource("RectangleShape2D_mbhtb")
@@ -988,16 +989,33 @@ shape = SubResource("RectangleShape2D_2k7c1")
 [node name="PickUpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1240962228]
 stream = ExtResource("12_xh0mk")
 
-[node name="BGMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2126332616]
-stream = ExtResource("13_2k7c1")
-
 [node name="BuildingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=690616198]
 stream = ExtResource("14_odkrj")
 
-[node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
+[node name="FirstLineDialogueWindow" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
+visible = false
+offset_left = 826.0
+offset_top = 924.0
+offset_right = 826.0
+offset_bottom = 924.0
+scene_id = 3
+
+[node name="FirstLineDialogueWindow2" parent="." unique_id=17191787 instance=ExtResource("15_ykeo4")]
 visible = false
 offset_left = 413.0
 offset_top = 462.0
 offset_right = 413.0
 offset_bottom = 462.0
 scene_id = 3
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1277736680]
+stream = ExtResource("14_7qru2")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="LevelBGPlayer" type="AudioStreamPlayer" parent="." unique_id=1422575513]
+stream = ExtResource("13_2k7c1")
+autoplay = true
+bus = &"LevelBG"
+parameters/looping = true
