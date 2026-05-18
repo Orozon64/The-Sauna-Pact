@@ -14,6 +14,7 @@ func _ready() -> void:
 	$CrashedPlane.visible = false
 	$Explosion.visible = false
 	$Polak.visible = false
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +46,7 @@ func _process(delta: float) -> void:
 					odejm *= 1.01
 				if $Polak.position.y >= 630:
 					koniecAnim = true
+					get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
 				
 		elif cooldown == 4:
 			$CrashedPlane.visible = true

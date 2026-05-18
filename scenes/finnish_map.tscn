@@ -979,13 +979,13 @@ shape = SubResource("RectangleShape2D_3r76t")
 
 [node name="SaunaBuildingSprite" type="AnimatedSprite2D" parent="." unique_id=186250386]
 visible = false
-position = Vector2(469, 253)
+position = Vector2(94, 821)
 sprite_frames = SubResource("SpriteFrames_3r76t")
 animation = &"Building"
 
 [node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
 visible = false
-position = Vector2(464, 246)
+position = Vector2(90, 806)
 scale = Vector2(1.5215461, 1.5215461)
 
 [node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]
@@ -1014,19 +1014,6 @@ stream = ExtResource("12_xh0mk")
 
 [node name="BuildingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=690616198]
 stream = ExtResource("14_odkrj")
-
-[node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
-visible = false
-position = Vector2(92, 826.99994)
-scale = Vector2(1.5215461, 1.5215461)
-
-[node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]
-texture = ExtResource("12_odkrj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sauna" unique_id=153577862]
-scale = Vector2(1.0358453, 1.0104598)
-shape = SubResource("RectangleShape2D_xh0mk")
-disabled = true
 
 [node name="FirstLineDialogueWindow" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
 visible = false

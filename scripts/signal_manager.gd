@@ -73,23 +73,23 @@ func _ready() -> void:
 		play_ending = true
 	file.close()
 	if play_ending:
+
+				
+		var polish_player = preload("res://scenes/polish_player.tscn")
+		add_child(polish_player.instantiate())
+		
+		$PlaneFall.queue_free()
+
 		$FirstLineDialogueWindow.show()
 		$FirstLineDialogueWindow.initiate()
 		$FinnCharacter.enter_sauna.connect(_on_player_enter_sauna)
-
-		
-		var polish_player = preload("res://scenes/polish_player.tscn")
-		add_child(polish_player.instantiate())
 		$PoleCharacter.enter_sauna.connect(_on_player_enter_sauna)
-		var plane_crash = preload("res://scenes/polish_player.tscn")
-		add_child(plane_crash.instantiate())
-
+		
+		$PoleCharacter.position = player.position
 		$PoleCharacter.is_secondary = true
 		
 		
-		var position_vector = $FinnCharacter.position
-		position_vector.x += 30
-		$PoleCharacter.position = position_vector
+		
 		$FinnCharacter.ready_to_build = true
 		$FinnCharacter.build.connect(_on_player_begin_building)
 

@@ -39,7 +39,7 @@ func _ready() -> void:
 		complete_save_data = loaded_file.get_var()
 		current_character_save_data = complete_save_data.get(character_name)
 		print(complete_save_data)
-		if current_character_save_data.get("last_item") == "":
+		if current_character_save_data.get("last_item") == "" or get_parent().name == "CaveLevel":
 			position = $"../StartingPoint".position
 		else:
 			position = current_character_save_data.get("position")

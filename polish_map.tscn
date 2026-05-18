@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://drfp5ogs3t2nq"]
+[gd_scene format=4 uid="uid://4a2ove58vpu4"]
 
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_7velx"]
 [ext_resource type="PackedScene" uid="uid://6bilw8itvr8c" path="res://scenes/polish_player.tscn" id="2_g2vl7"]
