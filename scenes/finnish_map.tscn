@@ -877,7 +877,7 @@ texture_region_size = Vector2i(77, 75)
 texture = ExtResource("6_qka1s")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -27.647709, 32, -27.499065, 32, 32, -32, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 0.92165375, -21.329834, -24.358139, -16.326538, -26.728119, -11.849899, -21.98816, -10.533249, -14.351551, 0, -27.518112, 5.003296, -23.831474, 6.8466034, -15.141548, 17.116531, -27.254784, 22.119812, -22.778152, 24.489792, -12.508236, 27.123108, -5.9249573, 32, 1.4483185, 32, 32, -32, 32)
 
 [sub_resource type="TileSet" id="TileSet_twk46"]
 tile_size = Vector2i(64, 64)
