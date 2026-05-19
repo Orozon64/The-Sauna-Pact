@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c27yit4hxgc"]
+
+[ext_resource type="Script" uid="uid://cp0k7ag7kkr0v" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bwb04qe5l22f4" path="res://images/TileMapTiles/background.png" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="2_ekxnf"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=559083230]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -46.5
+offset_right = 31.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=986994919]
+position = Vector2(56.99999, 45.499996)
+scale = Vector2(1.2373272, 1.2373272)
+texture = ExtResource("2_bqqt6")
+
+[node name="Label" type="Label" parent="." unique_id=179953155]
+layout_mode = 2
+text = "The Sauna Pact"
+
+[node name="PlayButton" type="Button" parent="." unique_id=499547656]
+layout_mode = 2
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="." unique_id=316586183]
+layout_mode = 2
+text = "Credits"
+
+[node name="ReturnButton" type="Button" parent="." unique_id=1497096666]
+visible = false
+layout_mode = 2
+text = "Return"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=782590493]
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1592078239]
+stream = ExtResource("2_ekxnf")
+autoplay = true
+parameters/looping = true
