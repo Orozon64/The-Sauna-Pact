@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 					odejm *= 1.01
 				if $Polak.position.y >= 630:
 					koniecAnim = true
+					await get_tree().create_timer(2).timeout
 					get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
 				
 		elif cooldown == 4:

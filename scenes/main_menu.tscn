@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c27yit4hxgc"]
 
 [ext_resource type="Script" uid="uid://cp0k7ag7kkr0v" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://ceuxdsv4l1ih4" path="res://images/sprites/TloDoGadania.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="2_ekxnf"]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=559083230]
@@ -16,6 +17,11 @@ offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
+
+[node name="TalkingBGSprite" type="Sprite2D" parent="." unique_id=1908941888]
+position = Vector2(56, 51.5)
+scale = Vector2(1.9139934, 1.7439553)
+texture = ExtResource("2_bqqt6")
 
 [node name="Label" type="Label" parent="." unique_id=179953155]
 layout_mode = 2

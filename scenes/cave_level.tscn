@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bm832i263pj1x" path="res://Sound Effects/ItemPickup.mp3" id="7_vwl33"]
 [ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="8_e2lr5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2lr5"]
+
 [node name="CaveLevel" type="Node2D" unique_id=550789720]
 script = ExtResource("1_260ue")
 
@@ -49,3 +51,9 @@ parameters/looping = true
 stream = ExtResource("8_e2lr5")
 autoplay = true
 parameters/looping = true
+
+[node name="StartingPoint" type="Area2D" parent="." unique_id=705488794]
+position = Vector2(976, 1082)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPoint" unique_id=36156195]
+shape = SubResource("RectangleShape2D_e2lr5")

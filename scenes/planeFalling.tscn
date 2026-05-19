@@ -40,3 +40,11 @@ texture = ExtResource("6_qp7mp")
 [node name="ExplosionSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1199471144]
 position = Vector2(768, 567)
 stream = ExtResource("7_12ixx")
+
+[node name="Label" type="Label" parent="." unique_id=840491906]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "Later, in Finland...
+Myöhemmin, Suomessa..."

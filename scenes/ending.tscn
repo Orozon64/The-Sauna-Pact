@@ -25,13 +25,13 @@ animations = [{
 script = ExtResource("1_fyrdv")
 
 [node name="EndingSprite" type="AnimatedSprite2D" parent="." unique_id=2049335228]
-position = Vector2(887, 396)
-scale = Vector2(2.603454, 2.603454)
+position = Vector2(944.99994, 221.99998)
+scale = Vector2(1.16, 1.16)
 sprite_frames = SubResource("SpriteFrames_nfmnx")
 animation = &"Drinking"
 
 [node name="EndingText" type="Sprite2D" parent="." unique_id=1720706756]
-position = Vector2(892, 171)
+position = Vector2(962, 152)
 scale = Vector2(0.26519173, 0.26519173)
 texture = ExtResource("4_nfmnx")
 

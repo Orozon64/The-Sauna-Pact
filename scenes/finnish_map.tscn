@@ -979,13 +979,13 @@ shape = SubResource("RectangleShape2D_3r76t")
 
 [node name="SaunaBuildingSprite" type="AnimatedSprite2D" parent="." unique_id=186250386]
 visible = false
-position = Vector2(469, 253)
+position = Vector2(91, 817)
 sprite_frames = SubResource("SpriteFrames_3r76t")
 animation = &"Building"
 
 [node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
 visible = false
-position = Vector2(464, 246)
+position = Vector2(95, 797)
 scale = Vector2(1.5215461, 1.5215461)
 
 [node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]
@@ -996,10 +996,6 @@ position = Vector2(1.5, 7)
 scale = Vector2(1.0358453, 1.0104598)
 shape = SubResource("RectangleShape2D_xh0mk")
 disabled = true
-
-[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
-position = Vector2(867, 672)
-motion_mode = 1
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=463903633]
 position = Vector2(865, 673)
@@ -1015,20 +1011,26 @@ stream = ExtResource("12_xh0mk")
 [node name="BuildingSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=690616198]
 stream = ExtResource("14_odkrj")
 
+[node name="FinnCharacter" parent="." unique_id=486509689 instance=ExtResource("1_sn4dv")]
+position = Vector2(867, 672)
+motion_mode = 1
+
+[node name="SecondLineDialogueWindow" parent="." unique_id=17191787 instance=ExtResource("15_ykeo4")]
+visible = false
+offset_left = 135.0
+offset_top = 901.0
+offset_right = 135.0
+offset_bottom = 901.0
+scale = Vector2(0.29867655, 0.29867655)
+scene_id = 4
+
 [node name="FirstLineDialogueWindow" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
 visible = false
-offset_left = 826.0
-offset_top = 924.0
-offset_right = 826.0
-offset_bottom = 924.0
-scene_id = 3
-
-[node name="FirstLineDialogueWindow2" parent="." unique_id=17191787 instance=ExtResource("15_ykeo4")]
-visible = false
-offset_left = 413.0
-offset_top = 462.0
-offset_right = 413.0
-offset_bottom = 462.0
+offset_left = 134.0
+offset_top = 903.0
+offset_right = 134.0
+offset_bottom = 903.0
+scale = Vector2(0.29867655, 0.29867655)
 scene_id = 3
 
 [node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1277736680]

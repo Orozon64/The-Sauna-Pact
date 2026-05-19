@@ -78,7 +78,7 @@ func _ready() -> void:
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
 		
-		$PlaneFall.queue_free()
+		
 
 		$FirstLineDialogueWindow.show()
 		$FirstLineDialogueWindow.initiate()
