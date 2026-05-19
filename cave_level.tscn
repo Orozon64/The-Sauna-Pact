@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b1kl1lgo5odxk"]
+[gd_scene format=4 uid="uid://qpuqh5rtr0sf"]
 
 [ext_resource type="Script" uid="uid://doij4wbua7wnm" path="res://scripts/signal_manager.gd" id="1_260ue"]
 [ext_resource type="TileSet" uid="uid://cwcbkrd51j3xi" path="res://Cave.tres" id="1_br21b"]
