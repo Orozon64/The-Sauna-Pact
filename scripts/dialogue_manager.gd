@@ -79,7 +79,7 @@ func _ready() -> void:
 	if visible:
 		initiate()
 
-#maybe have the enter stuff only trigger if we're not
+#maybe have the enter stuff only trigger if we're not in a quiz question
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:

@@ -60,6 +60,7 @@ vertical_alignment = 1
 
 [node name="SkyBox" type="Parallax2D" parent="." unique_id=671951024]
 z_index = -6
+scale = Vector2(0.9951768, 1.0890331)
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-743, 472)
 repeat_size = Vector2(2064, 0)

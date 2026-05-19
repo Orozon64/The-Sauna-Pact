@@ -384,6 +384,7 @@ text = "Money needed for a beer"
 horizontal_alignment = 1
 
 [node name="GameOverScreen" type="Control" parent="." unique_id=1365155063]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
