@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbplb3373wg11" path="res://images/sprites/flyingBackgroundHigh.png" id="5_75y6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itql5"]
-size = Vector2(79, 38)
+size = Vector2(104, 48)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkbag"]
 bg_color = Color(0.3171783, 0.6524563, 5.7756904e-07, 1)
@@ -24,11 +24,12 @@ anchor_mode = 0
 script = ExtResource("2_f8bqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Plane" unique_id=111543814]
-scale = Vector2(1.8203124, 1.8203124)
+position = Vector2(16.874998, 16.874998)
+scale = Vector2(2.347656, 2.347656)
 texture = ExtResource("1_ertuq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plane" unique_id=932719557]
-position = Vector2(-1.5, 5)
+position = Vector2(16, 23)
 shape = SubResource("RectangleShape2D_itql5")
 
 [node name="FlySoundPlayer" type="AudioStreamPlayer2D" parent="Plane" unique_id=1296171907]
@@ -39,8 +40,8 @@ bus = &"SFX"
 z_index = 10
 offset_left = 173.0
 offset_top = 58.0
-offset_right = 991.0
-offset_bottom = 85.0
+offset_right = 1487.0
+offset_bottom = 94.0
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_dkbag")
 script = ExtResource("4_dkbag")
@@ -49,9 +50,9 @@ dev_mode = true
 [node name="Start" type="Label" parent="." unique_id=913174795]
 z_index = 10
 offset_left = 296.0
-offset_top = 189.0
-offset_right = 838.0
-offset_bottom = 310.0
+offset_top = 342.0
+offset_right = 1383.0
+offset_bottom = 472.0
 theme_override_font_sizes/font_size = 45
 text = "Press space to start and jump"
 horizontal_alignment = 1
@@ -61,13 +62,13 @@ vertical_alignment = 1
 z_index = -6
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-743, 472)
-repeat_size = Vector2(1294, 0)
+repeat_size = Vector2(2064, 0)
 repeat_times = 2
 
 [node name="TextureRect" type="TextureRect" parent="SkyBox" unique_id=1371786131]
-offset_left = 612.0
-offset_top = -333.0
-offset_right = 1906.0
-offset_bottom = 314.0
+offset_left = 743.0
+offset_top = -472.0
+offset_right = 2807.0
+offset_bottom = 560.0
 texture = ExtResource("5_75y6s")
 expand_mode = 1

@@ -9,14 +9,16 @@ points = PackedVector2Array(5.5, -274.5625, 38.5, -247.5625, 34.5, -186.5625, 13
 [node name="Node2D" type="Node2D" unique_id=1325106014]
 
 [node name="Obstacle" type="StaticBody2D" parent="." unique_id=1588659513]
-position = Vector2(577, 319)
+position = Vector2(757, 533)
+scale = Vector2(1.335, 1.335)
 script = ExtResource("1_ltan4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle" unique_id=1130381306]
-position = Vector2(2.9999833, 0.99999714)
-scale = Vector2(0.9589844, 1.1876894)
+position = Vector2(52.434433, 4.7683716e-06)
+scale = Vector2(1.155, 1.374)
 texture = ExtResource("2_ltan4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=125774398]
-position = Vector2(0.5, 3.5625)
+position = Vector2(50.93634, 2.9962673)
+scale = Vector2(1.15, 1.15)
 shape = SubResource("ConvexPolygonShape2D_gxjqd")

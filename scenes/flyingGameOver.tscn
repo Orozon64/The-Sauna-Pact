@@ -9,10 +9,11 @@ script = ExtResource("1_ff314")
 
 [node name="Button" type="Button" parent="." unique_id=731790622]
 z_index = 2
-offset_left = -210.0
-offset_top = 28.0
-offset_right = 215.0
-offset_bottom = 95.0
+offset_left = -207.0
+offset_top = 59.0
+offset_right = 218.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 19
 text = "Replay"
 metadata/_edit_use_anchors_ = true
 
@@ -22,6 +23,7 @@ offset_left = -153.0
 offset_top = -129.0
 offset_right = 159.0
 offset_bottom = 59.0
+theme_override_font_sizes/font_size = 33
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
