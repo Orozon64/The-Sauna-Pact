@@ -93,7 +93,7 @@ offset_right = 260.0
 offset_bottom = 88.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 26
-text = "PRESS ENTER TO CONTINUE"
+text = "PRESS SHIFT TO CONTINUE"
 
 [node name="AnswerAButton" type="Button" parent="." unique_id=1885128724]
 visible = false

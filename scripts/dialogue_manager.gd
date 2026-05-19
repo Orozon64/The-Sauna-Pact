@@ -42,6 +42,8 @@ var opacityDirection = -1
 var dialogue_sfx = []
 
 var current_sound_name
+
+var cooldown = 20
 # Called when the node enters the scene tree for the first time.
 
 func initiate():
@@ -105,12 +107,15 @@ func _process(delta:float) -> void:
 					$AdvanceTipLabel.hide()
 
 					$AnswerAButton.text = "A." + answers[question_id][0]
+					$AnswerAButton.disabled = false
 					$AnswerAButton.show()
 
 					$AnswerBButton.text = "B." + answers[question_id][1]
+					$AnswerBButton.disabled = false
 					$AnswerBButton.show()
 
-					$AnswerCButton.text = "C." + answers[question_id][2]				
+					$AnswerCButton.text = "C." + answers[question_id][2]	
+					$AnswerCButton.disabled = false			
 					$AnswerCButton.show()
 
 					#$TalkingSFXPlayer.stop() 
@@ -150,12 +155,15 @@ func _process(delta:float) -> void:
 		
 
 func _on_player_select_answer_a():
+	$AnswerAButton.disabled = true
 	answer_id = 0
 	verify_answer()
 func _on_player_select_answer_b():
+	$AnswerBButton.disabled = true
 	answer_id = 1
 	verify_answer()
 func _on_player_select_answer_c():
+	$AnswerCButton.disabled = true
 	answer_id = 2
 	verify_answer()
 
@@ -170,7 +178,7 @@ func verify_answer():
 
 
 func show_next_line():
-	if quiz_mode:
+	if quiz_mode: 
 		
 		$AnswerAButton.hide()
 		$AnswerBButton.hide()
