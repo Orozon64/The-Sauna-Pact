@@ -79,6 +79,8 @@ func _ready() -> void:
 	if visible:
 		initiate()
 
+#maybe have the enter stuff only trigger if we're not
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta:float) -> void:
 	#could be a good idea to set the text speed to match the speaking speed of the mp3 file

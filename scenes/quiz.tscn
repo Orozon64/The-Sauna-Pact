@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://cbyds8e7dlyga"]
 
 [ext_resource type="PackedScene" uid="uid://1i5vnxbi5l12" path="res://scenes/dialogue_window.tscn" id="1_36y45"]
+[ext_resource type="Texture2D" uid="uid://21n5mrwhi3kh" path="res://images/sprites/cave_bg.PNG" id="1_jng0p"]
 
 [node name="Quiz" type="Node2D" unique_id=1444673492]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=915648963]
+position = Vector2(993, 525)
+scale = Vector2(2.2018416, 2.4900918)
+texture = ExtResource("1_jng0p")
 
 [node name="DialogueControl" parent="." unique_id=1013493677 instance=ExtResource("1_36y45")]
 offset_left = 1068.0
