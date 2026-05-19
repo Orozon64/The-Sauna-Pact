@@ -1044,3 +1044,11 @@ stream = ExtResource("13_2k7c1")
 autoplay = true
 bus = &"LevelBG"
 parameters/looping = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=746191810]
+
+[node name="ObjectiveLabel" type="Label" parent="CanvasLayer" unique_id=1456070029]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Objective: pick up wooden logs"

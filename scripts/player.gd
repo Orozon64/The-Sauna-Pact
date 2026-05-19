@@ -45,7 +45,10 @@ func _ready() -> void:
 			position = current_character_save_data.get("position")
 
 		last_item = current_character_save_data.get("last_item")
-		touched_item_name = last_item
+		if last_item == "Stones":
+			touched_item_name = "Stones"
+		else:
+			touched_item_name = ""
 		if dev_mode:
 			money = 999
 		else:
@@ -65,7 +68,10 @@ func save_game():
 		current_character_save_data.set("last_item", last_item)
 		current_character_save_data.set("money", money)
 		complete_save_data.set(character_name, current_character_save_data)
+	var new_objective_id = get_parent().objective_id + 1
+	complete_save_data.set("objective_id", new_objective_id)
 	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
+
 	file.store_var(complete_save_data)
 	file.close()
 

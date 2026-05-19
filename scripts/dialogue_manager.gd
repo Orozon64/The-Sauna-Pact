@@ -11,7 +11,7 @@ var dialogue_dict = {
 	3:
 		["Rudolf:Tervetuloa Suomeen! Now, walk to the building spot, and press E to construct your sauna."],
 	4:
-		["Rudolf:Beautiful! Now let's hop into the sauna together. Walk in there with one character, then with the second one."]
+		["Rudolf:Beautiful! Now let's hop into the sauna together. Walk in there with one character, then with the second one (use arrows and F in place of WASD and E for the Pole)."]
 }
 var answers = [
 	["koulu", "talo", "kirja"],
@@ -43,7 +43,6 @@ var dialogue_sfx = []
 
 var current_sound_name
 
-var cooldown = 20
 # Called when the node enters the scene tree for the first time.
 
 func initiate():
@@ -117,8 +116,9 @@ func _process(delta:float) -> void:
 					$AnswerCButton.text = "C." + answers[question_id][2]	
 					$AnswerCButton.disabled = false			
 					$AnswerCButton.show()
-
-					#$TalkingSFXPlayer.stop() 
+					
+					if scene_id != 1:
+						$TalkingSFXPlayer.stop() 
 				else: 
 					
 					if line_id < current_scene_dialogue.size()-1:
@@ -139,14 +139,16 @@ func _process(delta:float) -> void:
 					character_index = current_line.length()
 					$TalkerSprite.stop()
 					$AdvanceTipLabel.show()
-					#$TalkingSFXPlayer.stop()
+					if scene_id != 1:
+						$TalkingSFXPlayer.stop() 
 
 		elif not is_line_finished:
 			if character_index >= current_line.length():
 				is_line_finished = true
 				$TalkerSprite.stop()
 				$AdvanceTipLabel.show()
-				#$TalkingSFXPlayer.stop()
+				if scene_id != 1:
+					$TalkingSFXPlayer.stop() 
 			else:
 				$DialogueRTLabel.text += current_line[character_index]
 				character_index += 1

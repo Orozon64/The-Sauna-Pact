@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://525dooou10pn" path="res://scripts/progress.gd" id="4_dkbag"]
 [ext_resource type="AudioStream" uid="uid://cnai7jxnsg4re" path="res://Sound Effects/FlappyBirdFly.mp3" id="4_h2m2m"]
 [ext_resource type="Texture2D" uid="uid://cbplb3373wg11" path="res://images/sprites/flyingBackgroundHigh.png" id="5_75y6s"]
+[ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="7_frko1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itql5"]
 size = Vector2(104, 48)
@@ -72,3 +73,9 @@ offset_right = 2807.0
 offset_bottom = 560.0
 texture = ExtResource("5_75y6s")
 expand_mode = 1
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=454322565]
+stream = ExtResource("7_frko1")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

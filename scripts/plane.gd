@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	if ended:
 		position.x += 9
 		if position.x >= 2000:
-			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
+			get_tree().change_scene_to_file("res://scenes/planeFalling.tscn")
 	
 	
 func _physics_process(delta: float) -> void:

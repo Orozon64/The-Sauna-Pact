@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func _start_game():
 	var initial_data = {
+		"objective_id":0,
 		"Finn":
 			{
 				"position":"",

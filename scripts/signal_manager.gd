@@ -7,7 +7,14 @@ var player
 var play_ending = false
 var screen_size
 var num_of_players_in_sauna = 0
+
+var objective_id = 0
+var objectives = ["pick up wooden logs", "pick up towels", "pick up furnace and place it down at the construction site", "pick up oil and lavender", "pick up stones from the cave", "go to the casino", "buy a beer in the Frogshop", "fly to Finland!", "build a sauna", "go to the sauna with both characters!"]
 # Called when the node enters the scene tree for the first time.
+
+func set_objective_id(id):
+	objective_id = id
+	$CanvasLayer/ObjectiveLabel.text = objectives[objective_id] #throws Invalid access to property or key '<null>' on a base object of type 'Array'.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	
@@ -71,6 +78,7 @@ func _ready() -> void:
 				current_item.picked_up.connect(player._on_item_picked_up)
 	else:
 		play_ending = true
+	set_objective_id(file.get("objective_id"))
 	file.close()
 	if play_ending:
 
@@ -78,7 +86,7 @@ func _ready() -> void:
 		var polish_player = preload("res://scenes/polish_player.tscn")
 		add_child(polish_player.instantiate())
 		
-		
+		player.position.y -= 50
 
 		$FirstLineDialogueWindow.show()
 		$FirstLineDialogueWindow.initiate()
@@ -86,6 +94,7 @@ func _ready() -> void:
 		$PoleCharacter.enter_sauna.connect(_on_player_enter_sauna)
 		
 		$PoleCharacter.position = player.position
+		$PoleCharacter.position.x += 50
 		$PoleCharacter.is_secondary = true
 		
 		
@@ -127,6 +136,7 @@ func place_item(item_name):
 				
 				$Furnace.position = $ConstructionArea.position
 				$Furnace.show()
+				player.last_item = "Furnace"
 				player.save_game()
 				
 		"Stones":
