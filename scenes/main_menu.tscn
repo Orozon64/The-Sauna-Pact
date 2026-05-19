@@ -4,41 +4,58 @@
 [ext_resource type="Texture2D" uid="uid://bwb04qe5l22f4" path="res://images/TileMapTiles/background.png" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://b1vv07terlg2u" path="res://Sound Effects/BackgroundMusic.mp3" id="2_ekxnf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.7490196, 0.56078434, 0.05882353, 0.81960785)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.58456355, 0.42052722, 0.15188792, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.60784316, 0.45490196, 0.039215688, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.58456355, 0.42052722, 0.15188792, 1)
+border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(0.7490196, 0.56078434, 0.05882353, 0.81960785)
+border_color = Color(0.58431375, 0.41960785, 0.15294118, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+
 [node name="VBoxContainer" type="VBoxContainer" unique_id=559083230]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -46.5
-offset_right = 31.5
-offset_bottom = 46.5
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 80
+alignment = 1
 script = ExtResource("1_l6cm7")
 
+[node name="Control" type="Control" parent="." unique_id=1508067371]
+layout_mode = 2
+
 [node name="TalkingBGSprite" type="Sprite2D" parent="." unique_id=1908941888]
-position = Vector2(56, 51.5)
-scale = Vector2(1.1591767, 1.1591767)
+position = Vector2(960, 540)
+scale = Vector2(1.8975697, 1.8975697)
 texture = ExtResource("2_bqqt6")
-
-[node name="Label" type="Label" parent="." unique_id=179953155]
-layout_mode = 2
-text = "The Sauna Pact"
-
-[node name="PlayButton" type="Button" parent="." unique_id=499547656]
-layout_mode = 2
-text = "Play"
-
-[node name="CreditsButton" type="Button" parent="." unique_id=316586183]
-layout_mode = 2
-text = "Credits"
-
-[node name="ReturnButton" type="Button" parent="." unique_id=1497096666]
-visible = false
-layout_mode = 2
-text = "Return"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=782590493]
 
@@ -46,3 +63,41 @@ text = "Return"
 stream = ExtResource("2_ekxnf")
 autoplay = true
 parameters/looping = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=665607016]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1017960184]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1841761756]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=499547656]
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=316586183]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "Credits"
+
+[node name="ReturnButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1497096666]
+visible = false
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ln24")
+text = "Return"
