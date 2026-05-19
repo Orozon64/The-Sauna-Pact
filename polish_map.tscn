@@ -31,12 +31,10 @@ texture_region_size = Vector2i(64, 64)
 9:5/0 = 0
 7:5/0 = 0
 7:4/0 = 0
-7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.255661, 2.428093, -19.694534, -11.241171, -13.579338, -20.593824, -0.449646, -26.529163, 6.744705, -26.70902, 12.3203125, -22.212553, 19.694534, -16.457073, 22.752121, -9.262724, 22.572266, -1.3489418, 20.953537, 4.7662582, 14.478622, 10.341877, 9.262726, 10.701595, 6.0252686, 8.183571, 2.9676666, 11.061314, 2.7878113, 18.075802, 3.507248, 20.413967, 5.4856873, 21.1334, 6.3849792, 22.931988, -6.744705, 22.931988, -4.40654, 20.413967, -3.3273926, 18.43552, -2.607956, 12.500183, -2.607956, 8.723148, -4.0468216, 6.564842, -6.0252686, 7.284279, -13.039764, 8.0037155)
 8:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ju8m4"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tr50w")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d0c66"]
@@ -129,7 +127,6 @@ tile_map_data = PackedByteArray("AAAdABAAAAAIAAUAAAAcABAAAAAIAAUAAAAbABAAAAAIAAU
 tile_set = SubResource("TileSet_ju8m4")
 collision_visibility_mode = 1
 physics_quadrant_size = 64
-navigation_enabled = false
 
 [node name="ObjectsTileMapLayer" type="TileMapLayer" parent="." unique_id=1685540815]
 position = Vector2(1, 20)
@@ -189,6 +186,8 @@ position = Vector2(42.5, 39)
 shape = SubResource("RectangleShape2D_tr50w")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]
+speed = null
+dev_mode = null
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=721784626]
 position = Vector2(867, 691)
