@@ -979,13 +979,13 @@ shape = SubResource("RectangleShape2D_3r76t")
 
 [node name="SaunaBuildingSprite" type="AnimatedSprite2D" parent="." unique_id=186250386]
 visible = false
-position = Vector2(94, 821)
+position = Vector2(469, 253)
 sprite_frames = SubResource("SpriteFrames_3r76t")
 animation = &"Building"
 
 [node name="Sauna" type="Area2D" parent="." unique_id=1002446500]
 visible = false
-position = Vector2(90, 806)
+position = Vector2(464, 246)
 scale = Vector2(1.5215461, 1.5215461)
 
 [node name="SaunaSprite" type="Sprite2D" parent="Sauna" unique_id=1725709657]
@@ -1017,21 +1017,19 @@ stream = ExtResource("14_odkrj")
 
 [node name="FirstLineDialogueWindow" parent="." unique_id=1013493677 instance=ExtResource("15_ykeo4")]
 visible = false
-offset_left = 104.0
-offset_top = 822.00006
-offset_right = 104.0
-offset_bottom = 822.00006
-scale = Vector2(0.22542332, 0.22542332)
+offset_left = 826.0
+offset_top = 924.0
+offset_right = 826.0
+offset_bottom = 924.0
 scene_id = 3
 
-[node name="SecondLineDialogueWindow" parent="." unique_id=17191787 instance=ExtResource("15_ykeo4")]
+[node name="FirstLineDialogueWindow2" parent="." unique_id=17191787 instance=ExtResource("15_ykeo4")]
 visible = false
-offset_left = 104.0
-offset_top = 822.0
-offset_right = 104.0
-offset_bottom = 822.0
-scale = Vector2(0.225, 0.225)
-scene_id = 4
+offset_left = 413.0
+offset_top = 462.0
+offset_right = 413.0
+offset_bottom = 462.0
+scene_id = 3
 
 [node name="BGMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1277736680]
 stream = ExtResource("14_7qru2")
