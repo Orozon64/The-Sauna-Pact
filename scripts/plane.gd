@@ -14,13 +14,13 @@ func _process(delta: float) -> void:
 		if cooldown > 0:
 			cooldown -= 1
 		
-		if position.y >= 640 or position.y <= 0: 
+		if position.y >= 980 or position.y <= 0: 
 			velocity.y = 0
 			#get_tree().change_scene_to_file("res://scenes/flyingGameOver.tscn")
 			var gameOver = load("res://scenes/flyingGameOver.tscn")
 			var gameOverScreen = gameOver.instantiate()
 			get_tree().current_scene.add_child(gameOverScreen)
-			gameOverScreen.position = Vector2(586, 333)
+			gameOverScreen.position = Vector2(830, 430)
 			get_tree().paused = true
 			#get_tree().reload_current_scene()
 		
@@ -32,9 +32,9 @@ func _process(delta: float) -> void:
 		
 		
 	if ended:
-		position.x += 7
-		if position.x >= 1500:
-			get_tree().change_scene_to_file("res://scenes/planeFalling.tscn")
+		position.x += 9
+		if position.x >= 2000:
+			get_tree().change_scene_to_file("res://scenes/finnish_map.tscn")
 	
 	
 func _physics_process(delta: float) -> void:
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 			var gameOver = load("res://scenes/flyingGameOver.tscn")
 			var gameOverScreen = gameOver.instantiate()
 			get_tree().current_scene.add_child(gameOverScreen)
-			gameOverScreen.position = Vector2(586, 303)
+			gameOverScreen.position = Vector2(830, 430)
 			get_tree().paused = true
 	
 func _input(ev):
@@ -59,8 +59,8 @@ func _input(ev):
 		$FlySoundPlayer.play()
 		if !started:
 			started = true
-		print("Space")
-		print(DisplayServer.window_get_size().x)   
-		velocity.y = -400.0  
+		#print("Space")
+		#print(DisplayServer.window_get_size().x)   
+		velocity.y = -500.0
 		cooldown = 7
 	

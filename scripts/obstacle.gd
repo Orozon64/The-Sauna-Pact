@@ -12,8 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pos -= 5;
+	pos -= 7;
 	position = Vector2(pos, position.y)
-	if(position.x <= -1500):
+	if(position.x <= -1600):
 		queue_free()
 		
