@@ -6,7 +6,7 @@ var started = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var plane = get_node("Plane")
-	plane.position = Vector2(790, 420)
+	plane.position = Vector2(930, 440)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 			var rng = RandomNumberGenerator.new()
 			var random = rng.randf_range(150, 750)
 			#var random = 100
-			newObstacle.position = Vector2(1350, random)
-			newObstacleUpper.position = Vector2(1350, random - 1100)
+			newObstacle.position = Vector2(1550, random)
+			newObstacleUpper.position = Vector2(1550, random - 1100)
 			cooldown = 100
 			#print("New Object")
 		else:
