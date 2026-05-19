@@ -40,7 +40,7 @@ bus = &"SFX"
 z_index = 10
 offset_left = 173.0
 offset_top = 58.0
-offset_right = 1487.0
+offset_right = 1712.0
 offset_bottom = 94.0
 size_flags_vertical = 4
 theme_override_styles/fill = SubResource("StyleBoxFlat_dkbag")
@@ -49,10 +49,10 @@ dev_mode = true
 
 [node name="Start" type="Label" parent="." unique_id=913174795]
 z_index = 10
-offset_left = 296.0
+offset_left = 173.0
 offset_top = 342.0
-offset_right = 1383.0
-offset_bottom = 472.0
+offset_right = 1712.0
+offset_bottom = 436.0
 theme_override_font_sizes/font_size = 45
 text = "Press space to start and jump"
 horizontal_alignment = 1
@@ -60,7 +60,6 @@ vertical_alignment = 1
 
 [node name="SkyBox" type="Parallax2D" parent="." unique_id=671951024]
 z_index = -6
-scale = Vector2(0.9951768, 1.0890331)
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-743, 472)
 repeat_size = Vector2(2064, 0)
