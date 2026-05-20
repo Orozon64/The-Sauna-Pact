@@ -142,6 +142,7 @@ func _process(delta: float) -> void:
 			"store":
 				if money >= 250:
 					get_parent().get_node("CashSoundPlayer").play()
+					get_parent().get_node("StoreArea/Sprite2D").texture = load("res://images/sprites/FrogShopOGDoorsOpen.png")
 					money -= 250
 					var new_objective_id = get_parent().objective_id + 1
 					get_parent().set_objective_id(new_objective_id)
