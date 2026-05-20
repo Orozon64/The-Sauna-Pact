@@ -64,12 +64,18 @@ func save_game():
 	if get_parent().name != "CaveLevel":
 		var current_scene_save_data = {"position":position, "last_item":last_item, "money":money} 
 		complete_save_data.set(character_name, current_scene_save_data)
+		if place_name != "cave": #if we are NOT on the level where you need to enter the cave!
+			var new_objective_id = get_parent().objective_id + 1
+			complete_save_data.set("objective_id", new_objective_id)
 	else:
 		current_character_save_data.set("last_item", last_item)
 		current_character_save_data.set("money", money)
 		complete_save_data.set(character_name, current_character_save_data)
-	var new_objective_id = get_parent().objective_id + 1
-	complete_save_data.set("objective_id", new_objective_id)
+		
+	#if we enter or leave the cave, don't!!
+
+	
+	
 	var file = FileAccess.open("res://save_game.data", FileAccess.WRITE)
 
 	file.store_var(complete_save_data)
@@ -137,6 +143,8 @@ func _process(delta: float) -> void:
 				if money >= 250:
 					get_parent().get_node("CashSoundPlayer").play()
 					money -= 250
+					var new_objective_id = get_parent().objective_id + 1
+					get_parent().set_objective_id(new_objective_id)
 					_on_item_picked_up("Beer")
 			"sauna":
 				enter_sauna.emit()

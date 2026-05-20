@@ -188,8 +188,6 @@ position = Vector2(42.5, 39)
 shape = SubResource("RectangleShape2D_tr50w")
 
 [node name="PoleCharacter" parent="." unique_id=68490889 instance=ExtResource("2_g2vl7")]
-speed = null
-dev_mode = null
 
 [node name="StartingPoint" type="Area2D" parent="." unique_id=721784626]
 position = Vector2(867, 691)

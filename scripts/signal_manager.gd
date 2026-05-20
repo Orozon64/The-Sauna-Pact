@@ -9,7 +9,7 @@ var screen_size
 var num_of_players_in_sauna = 0
 
 var objective_id = 0
-var objectives = ["Pick up wooden logs", "Pick up towels", "Pick up furnace and place it down at the construction site", "Pick up oil and lavender", "Pick up stones from the cave", "Go to the casino", "Buy a beer in the Frogshop", "Fly to Finland!", "Build a sauna", "Go to the sauna with both characters!"]
+var objectives = ["Pick up wooden logs", "Pick up towels", "Pick up furnace and place it down at the construction site", "Pick up oil and lavender", "Pick up stones from the cave and place them in the furnace", "Go to the casino", "Buy a beer in the Frogshop", "Fly to Finland!", "Build a sauna", "Go to the sauna with both characters!"]
 # Called when the node enters the scene tree for the first time.
 
 func set_objective_id(id):
