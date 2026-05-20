@@ -104,6 +104,7 @@ func _process(delta:float) -> void:
 					$BubbleSprite.hide()
 					$TalkerSprite.hide()
 					$AdvanceTipLabel.hide()
+					$AdvanceTipBG.hide()
 
 					$AnswerAButton.text = "A." + answers[question_id][0]
 					$AnswerAButton.disabled = false
@@ -139,6 +140,7 @@ func _process(delta:float) -> void:
 					character_index = current_line.length()
 					$TalkerSprite.stop()
 					$AdvanceTipLabel.show()
+					$AdvanceTipBG.show()
 					if scene_id != 1:
 						$TalkingSFXPlayer.stop() 
 
@@ -147,6 +149,7 @@ func _process(delta:float) -> void:
 				is_line_finished = true
 				$TalkerSprite.stop()
 				$AdvanceTipLabel.show()
+				$AdvanceTipBG.show()
 				if scene_id != 1:
 					$TalkingSFXPlayer.stop() 
 			else:
@@ -192,10 +195,12 @@ func show_next_line():
 		$BubbleSprite.show()
 		$TalkerSprite.show()
 		$AdvanceTipLabel.show()
+		$AdvanceTipBG.show()
 		question_id += 1
 	
 	
 	$AdvanceTipLabel.hide()
+	$AdvanceTipBG.hide()
 	line_id += 1
 	
 	current_sound_name = dialogue_sfx[line_id]

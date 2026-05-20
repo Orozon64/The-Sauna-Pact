@@ -85,16 +85,6 @@ scale = Vector2(2.8965383, 2.8965383)
 sprite_frames = SubResource("SpriteFrames_1puwe")
 animation = &"TrollTalk"
 
-[node name="AdvanceTipLabel" type="Label" parent="." unique_id=16277458]
-layout_mode = 0
-offset_left = -86.0
-offset_top = 52.0
-offset_right = 260.0
-offset_bottom = 88.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 26
-text = "PRESS SHIFT TO CONTINUE"
-
 [node name="AnswerAButton" type="Button" parent="." unique_id=1885128724]
 visible = false
 layout_mode = 0
@@ -127,3 +117,22 @@ offset_bottom = 134.0
 text = "CORRECT!!!"
 
 [node name="TalkingSFXPlayer" type="AudioStreamPlayer" parent="." unique_id=57839599]
+
+[node name="AdvanceTipBG" type="ColorRect" parent="." unique_id=1519307506]
+layout_mode = 0
+offset_left = -94.0
+offset_top = 50.0
+offset_right = -54.0
+offset_bottom = 90.0
+scale = Vector2(8.680005, 1)
+color = Color(0, 0, 0, 0.25490198)
+
+[node name="AdvanceTipLabel" type="Label" parent="." unique_id=16277458]
+layout_mode = 0
+offset_left = -92.0
+offset_top = 52.0
+offset_right = 254.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "PRESS SHIFT TO CONTINUE"

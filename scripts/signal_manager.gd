@@ -113,6 +113,7 @@ func _on_player_enter_sauna():
 		get_tree().change_scene_to_file("res://scenes/ending.tscn")
 
 func _on_player_begin_building():
+	$FirstLineDialogueWindow.hide()
 	$BuildingSoundPlayer.play()
 	$SaunaBuildingSprite.show()
 	$SaunaBuildingSprite.animation = "Building"
