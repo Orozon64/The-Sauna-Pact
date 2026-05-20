@@ -63,14 +63,14 @@ vertical_alignment = 1
 z_index = -6
 scroll_scale = Vector2(0.1, 1)
 scroll_offset = Vector2(-743, 472)
-repeat_size = Vector2(2064, 0)
+repeat_size = Vector2(2170, 0)
 repeat_times = 2
 
 [node name="TextureRect" type="TextureRect" parent="SkyBox" unique_id=1371786131]
 offset_left = 743.0
 offset_top = -472.0
-offset_right = 2807.0
-offset_bottom = 560.0
+offset_right = 2913.0
+offset_bottom = 613.0
 texture = ExtResource("5_75y6s")
 expand_mode = 1
 
