@@ -9,12 +9,12 @@ var screen_size
 var num_of_players_in_sauna = 0
 
 var objective_id = 0
-var objectives = ["pick up wooden logs", "pick up towels", "pick up furnace and place it down at the construction site", "pick up oil and lavender", "pick up stones from the cave", "go to the casino", "buy a beer in the Frogshop", "fly to Finland!", "build a sauna", "go to the sauna with both characters!"]
+var objectives = ["Pick up wooden logs", "Pick up towels", "Pick up furnace and place it down at the construction site", "Pick up oil and lavender", "Pick up stones from the cave", "Go to the casino", "Buy a beer in the Frogshop", "Fly to Finland!", "Build a sauna", "Go to the sauna with both characters!"]
 # Called when the node enters the scene tree for the first time.
 
 func set_objective_id(id):
 	objective_id = id
-	$CanvasLayer/ObjectiveLabel.text = objectives[objective_id] #throws Invalid access to property or key '<null>' on a base object of type 'Array'.
+	$CanvasLayer/ObjectiveLabel.text = "Objective: " + objectives[objective_id] #throws Invalid access to property or key '<null>' on a base object of type 'Array'.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	
