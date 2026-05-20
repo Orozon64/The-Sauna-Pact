@@ -19,6 +19,11 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	
 	var file = FileAccess.open("res://save_game.data", FileAccess.READ)
+	var current_objective = file.get_var().get("objective_id")
+	set_objective_id(current_objective)
+	file.close()
+
+	file = FileAccess.open("res://save_game.data", FileAccess.READ)
 	match name:
 		"FinnishRootNode":
 			last_item = file.get_var().get("Finn").get("last_item")
@@ -78,7 +83,7 @@ func _ready() -> void:
 				current_item.picked_up.connect(player._on_item_picked_up)
 	else:
 		play_ending = true
-	set_objective_id(file.get("objective_id"))
+	
 	file.close()
 	if play_ending:
 
