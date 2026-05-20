@@ -59,7 +59,7 @@ script = ExtResource("1_tdpx6")
 
 [node name="BubbleSprite" type="Sprite2D" parent="." unique_id=2061394449]
 position = Vector2(51.000015, -71.00001)
-scale = Vector2(9.40625, 5.5312495)
+scale = Vector2(1.279883, 0.7824378)
 texture = ExtResource("1_b1c2b")
 
 [node name="DialogueRTLabel" type="RichTextLabel" parent="." unique_id=2039789965]

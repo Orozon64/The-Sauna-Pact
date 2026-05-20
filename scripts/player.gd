@@ -147,7 +147,7 @@ func _process(delta: float) -> void:
 					var new_objective_id = get_parent().objective_id + 1
 					get_parent().set_objective_id(new_objective_id)
 					_on_item_picked_up("Beer")
-			"sauna":
+			"sauna": #issue: if both players are on the sauna and one walks in, the other has to leave and then go back to be able to enter
 				enter_sauna.emit()
 				queue_free()
 
